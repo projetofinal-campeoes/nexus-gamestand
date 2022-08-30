@@ -5,7 +5,7 @@ import Login from "../components/Login";
 const login = () => {
   return (
     <>
-      <Background>
+      <Background config="items-center justify-center">
         <Login />
       </Background>
     </>

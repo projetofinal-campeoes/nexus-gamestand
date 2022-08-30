@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */ 
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -28,7 +29,7 @@ module.exports = {
       primarycolor: '#AA91F0',
       buttontext: '#FFFFFF',
       backgroundcolor: '#333333',
-      inputbackground: '#373737'
+      inputbackground: '#373737'      
     },
     fontFamily: {
       inter: ['Inter','ui-monospace', 'SFMono-Regular']
