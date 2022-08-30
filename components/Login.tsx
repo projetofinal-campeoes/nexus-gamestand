@@ -5,17 +5,14 @@ import styles from "../styles/Home.module.sass";
 import { useRouter } from 'next/router';
 
 const Login = () => {
-
   const navigate = useRouter()
   const container = createRef<HTMLDivElement>()
-
   const handleOut = () => {
     container.current?.classList.add('animate__animated', 'animate__fadeOut')
     setTimeout(() => {
       navigate.push('/register')
     }, 300);
   }
-
   return (
     <>
       <SEO title="Login" description="Doidera total" />
