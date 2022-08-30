@@ -8,7 +8,7 @@ interface SEOProps {
 const SEO = ({ title, description }: SEOProps) => {
   return (
     <Head>
-      <title>NEXUS - {title}</title>
+      <title>{`NEXUS -  ${title}`}</title>
       <meta name="description" content={description} />
       <meta property="og:title" content={title} key="ogtitle" />
       <meta property="og:description" content={description} key="ogdesc" />
