@@ -1,9 +1,12 @@
-import React from 'react'
-import Register from '../components/Register'
+import React from "react";
+import Background from "../components/Background";
+import Register from "../components/Register";
 const register = () => {
   return (
-    <Register />
-  )
-}
+    <Background config="justify-center items-center">
+      <Register />
+    </Background>
+  );
+};
 
-export default register
+export default register;

@@ -1,32 +1,42 @@
 import Link from "next/link";
-import React from "react";
+import React, { createRef } from "react";
 import SEO from "./SEO";
+import styles from "../styles/Home.module.sass";
+import { useRouter } from 'next/router';
 
 const Login = () => {
+
+  const navigate = useRouter()
+  const container = createRef<HTMLDivElement>()
+
+  const handleOut = () => {
+    container.current?.classList.add('animate__animated', 'animate__fadeOut')
+    setTimeout(() => {
+      navigate.push('/register')
+    }, 300);
+  }
+
   return (
     <>
       <SEO title="Login" description="Doidera total" />
-
-      <div className="bg-boxcolor h-[415px] w-[378px] rounded-lg gap-6 flex flex-col items-center">
-        <h1>Let&apos;s Connect!</h1>
+      <div ref={container} className={`${styles.containerlogin} animate__animated animate__fadeIn`}>
+        <h1 className="text-primarycolor underline font-bold size text-2xl">Let&apos;s Connect!</h1>
         <form action="" className="flex flex-col justify-center gap-6 w-[80%]">
           <input
             type="text"
             placeholder="email"
-            className="rounded-lg p-2 bg-inputbackground placeholder-placeholder shadow-md hover:bg-violet-600"
+            className={styles.input}
           />
           <input
             type="password"
             placeholder="password"
-            className="rounded-lg p-2 bg-inputbackground placeholder-placeholder shadow-md focus:ring-sky-500"
+            className={styles.input}
           />
-          <button className="bg-primarycolor hover:bg-placeholder">Login</button>
+          <button className={styles.button}>Login</button>
         </form>
-        <span>
+        <span className='text-text text-xs'>
           Don&apos;t have an account?{" "}
-          <Link href="/register" passHref>
-            <a>Register!</a>
-          </Link>
+              <a className="text-primarycolor underline" onClick={handleOut}>Register!</a>
         </span>
       </div>
     </>
