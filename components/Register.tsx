@@ -19,7 +19,7 @@ const Register = () => {
     <>
       <SEO title="Register" description="Doidera total" />
 
-      <div id="register" className={`${styles.containerlogin} animate__animated animate__fadeIn`} >
+      <div ref={container} className={`${styles.containerlogin} animate__animated animate__fadeIn`} >
         <h1 className="text-primarycolor underline font-bold size text-2xl">Joins Us!</h1>
         <form action="" className="flex flex-col justify-center gap-6 w-[80%]">
           <input
