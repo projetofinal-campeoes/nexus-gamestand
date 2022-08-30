@@ -1,5 +1,5 @@
 <h1 align="center">
-    <a href="">Link da aplicação</a>
+    <a href="https://nexus-gamestand.vercel.app/">NEXUS GameStand</a>
 </h1>
 
 <h3 align="center">descrição da aplicação</h3>
