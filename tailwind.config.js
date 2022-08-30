@@ -30,6 +30,9 @@ module.exports = {
       backgroundcolor: '#333333',
       inputbackground: '#373737'
     },
+    fontFamily: {
+      inter: ['Inter','ui-monospace', 'SFMono-Regular']
+    },
     extend: {
         
     },
