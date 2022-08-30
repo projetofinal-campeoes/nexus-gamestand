@@ -1,12 +1,13 @@
 import { ReactNode } from "react";
 
 interface IBackgroundProps {
-    children: ReactNode
+    children: ReactNode,
+    config?: string,
 }
 
-const Background = ({ children }: IBackgroundProps) => {
+const Background = ({ children, config }: IBackgroundProps) => {
   return (
-    <div className="min-h-screen h-fit w-[100vw] bg-backgroundcolor flex justify-center items-center">
+    <div className={`min-h-screen h-fit w-[100%] bg-backgroundcolor flex ${config}`}>
       {children}
     </div>
   );
