@@ -1,34 +1,82 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+    <a href="">Link da aplicação</a>
+</h1>
 
-## Getting Started
+<h3 align="center">descrição da aplicação</h3>
 
-First, run the development server:
+<br/>
+
+### ✅ Features da aplicação
+
+- [x] exemplo de tópico
+
+<br/>
+
+### ✅ Link para a demo da aplicação
+
+- [x] Frontend -> <a href="">Link app</a>
+
+<br/>
+
+#### 🏠 Homepage da aplicação
+
+![image](link github issue)
+
+<br/>
+
+### ✅ Como rodar a aplicação localmente
+
+Antes de tudo, você precisa das seguintes tecnologias:
+
+- [x] [Git](https://git-scm.com)
+- [x] [NPM](https://www.npmjs.com/)
+- [x] Algum editor de códigos, no meu caso, utilizo o [VSCode](https://code.visualstudio.com/)
+
+<br/>
+
+### 🎲 Preparando o ambiente
 
 ```bash
-npm run dev
-# or
-yarn dev
+# Faça o clone deste repositório
+
+$ git clone <link git>
+
+
+# Entre na raiz do repositório clonado
+
+$ cd ...
+
+$ yarn
+
+$ yarn dev
+
+# Após isso, o Vite irá te informar em qual porta estará sendo rodada sua aplicação. Basta segurar a tecla CTRL e clicar no link do localhost!!
+
+# Prontinho, agora o ambiente está totalmente configurado!
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br/>
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### 🛠 Principais tecnologias utilizadas - Frontend
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- [Vite](https://vitejs.dev/) - Criação do React App
+- [Chakra UI](https://chakra-ui.com/) - Aplicação de estilos na aplicação
+- [Axios](https://axios-http.com/ptbr/docs/intro) - Gerenciamento de requisições HTTP
+- [React Hot Toast](https://react-hot-toast.com/) - Feedback de erros ao usuário
+- [React Router Dom](https://reactrouter.com/) - Roteamento das páginas da aplicação
+- Outras bibliotecas que auxiliaram no desenvolvimento podem ser encontradas na seção: `"dependencies"` e `"devDependencies"` no arquivo `package.json`, no diretório relacionado ao frontend
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<br/>
 
-## Learn More
+### ✅ Desenvolvedor responsável - 
 
-To learn more about Next.js, take a look at the following resources:
+<img src="" style="border-radius: 50%" width="120px"/>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br/>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Entre em contato!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<div>
+    <a href = ""><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"/>
+    <a href="" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>     
+</div>
