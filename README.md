@@ -6,7 +6,7 @@
 
 <br/>
 
-### ❌ Problema
+### 🤔 Problema
 Hoje em dia nós temos muitas plataformas de jogos, steam, epic, origin, ubisoft connect, battle.net, EA Play, Xbox..., e isso acaba causando uma confusão sobre em qual dessas plataformas temos tal jogo, e pensando nisso nós criamos o Nexus GameStand, que vem com a proposta de centralizar todos os jogos do usuario em um local só, possibilitando a ele muito mais facilmente saber em qual plataforma está o jogo que ele quer jogar, e tambem possibilitando ele redescobrir jogos que estavam perdidos na sua biblioteca de alguma plataforma.
 
 ### ✅ Solução
