@@ -2,7 +2,7 @@
     <a href="https://nexus-gamestand.vercel.app/">NEXUS GameStand</a>
 </h1>
 
-<h3 align="center">descrição da aplicação</h3>
+<h3 align="center">Series of gamers connections, linking platforms.</h3>
 
 <br/>
 
