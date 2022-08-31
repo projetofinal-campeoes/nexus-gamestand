@@ -46,8 +46,8 @@ Com esse intuito em mente, pensando no front-end, criaremos uma aplicação que 
 
 <br/>
 
-<h1 align="center"> <img src="https://cdn-icons-png.flaticon.com/512/2701/2701763.png" width="30px" /> FIGMA da Aplicação</h1> <img src="https://cdn-icons-png.flaticon.com/512/2701/2701763.png" width="30px" />
-
+<h1 align="center"> <img src="https://cdn-icons-png.flaticon.com/512/2701/2701763.png" width="30px" /> FIGMA da Aplicação <img src="https://cdn-icons-png.flaticon.com/512/2701/2701763.png" width="30px" />
+</h1> 
 <img src="https://i.imgur.com/tibGiaf.png" /> 
 
 <br/>
