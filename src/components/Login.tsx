@@ -17,8 +17,8 @@ const Login = () => {
     <>
       <SEO title="Login" description="Doidera total" />
       <div ref={container} className={`${styles.containerlogin} animate__animated animate__fadeIn`}>
-        <h1 className="text-primarycolor underline font-bold size text-2xl">Let&apos;s Connect!</h1>
-        <form action="" className="flex flex-col justify-center gap-6 w-[80%]">
+        <h1 className="text-primarycolor underline font-bold size text-2xl mb-5">Let&apos;s Connect!</h1>
+        <form action="" className="flex flex-col justify-center gap-6">
           <input
             type="text"
             placeholder="email"

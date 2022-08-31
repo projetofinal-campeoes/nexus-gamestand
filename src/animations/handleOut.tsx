@@ -7,7 +7,7 @@ type IAnimations = {
     page: string
   }
   
-const handleOut = ({id, animation, page}: IAnimations) => {
+const HandleOut = ({id, animation, page}: IAnimations) => {
 
     const navigate = useRouter()
 
@@ -18,4 +18,4 @@ const handleOut = ({id, animation, page}: IAnimations) => {
     }, 300);
   }
 
-export default handleOut
+export default HandleOut
