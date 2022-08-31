@@ -67,12 +67,12 @@ Antes de tudo, você precisa das seguintes tecnologias:
 ```bash
 # Faça o clone deste repositório
 
-$ git clone <git@github.com:projetofinal-campeoes/nexus-gamestand.git>
+$ git clone git@github.com:projetofinal-campeoes/nexus-gamestand.git
 
 
 # Entre na raiz do repositório clonado
 
-$ cd ...
+$ cd nexus-gamestand
 
 $ yarn
 
@@ -85,15 +85,13 @@ $ yarn dev
 
 <br/>
 
-### 🛠 Principais tecnologias utilizadas - Frontend
-
-
-
 <br/>
 
-### ✅ Desenvolvedor responsável - 
+### ✅ Desenvolvedores responsáveis - 
 
-<img src="" style="border-radius: 50%" width="120px"/>
+<img src="https://media-exp1.licdn.com/dms/image/C4D03AQGOP6oBTEl1_w/profile-displayphoto-shrink_800_800/0/1654538995215?e=1667433600&v=beta&t=4_c8Zqdp4Moozxeuvc_Wf5MIS302L_EUaL3wPNRpU2Y" style="border-radius: 50%" width="120px"/>
+<img src="https://media-exp1.licdn.com/dms/image/C4D03AQGOP6oBTEl1_w/profile-displayphoto-shrink_800_800/0/1654538995215?e=1667433600&v=beta&t=4_c8Zqdp4Moozxeuvc_Wf5MIS302L_EUaL3wPNRpU2Y" style="border-radius: 50%" width="120px"/>
+<img src="https://media-exp1.licdn.com/dms/image/C4D03AQGOP6oBTEl1_w/profile-displayphoto-shrink_800_800/0/1654538995215?e=1667433600&v=beta&t=4_c8Zqdp4Moozxeuvc_Wf5MIS302L_EUaL3wPNRpU2Y" style="border-radius: 50%" width="120px"/>
 
 <br/>
 
