@@ -58,7 +58,7 @@ Antes de tudo, você precisa das seguintes tecnologias:
 
 - [x] [Git](https://git-scm.com)
 - [x] [NPM](https://www.npmjs.com/)
-- [x] Opcional [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
+- [x] [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable) Opcional
 - [x] [VSCode](https://code.visualstudio.com/)
 
 <br/>
