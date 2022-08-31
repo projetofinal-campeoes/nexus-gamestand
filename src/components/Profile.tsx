@@ -72,7 +72,7 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
             <div className="flex items-center">
               <SiXbox className="text-text w-[50px] h-[50px] mr-2" />
               <h2 className="text-title2 text-text font-bold mr-6">
-                Xbox Games Pass
+                Xbox G.P.
               </h2>
               <p className="text-headline3 font-medium text-text mr-6">
                 Ben Gadura
