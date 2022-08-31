@@ -20,6 +20,22 @@ export type IUser = {
   username?: string;
 };
 
+type IUserLogin = {
+  data: {
+    accessToken: string,
+    user: {      
+      username: string,
+      email: string,
+    }
+  }
+}
+
+type IError = {
+  response : {
+    data: string
+  }
+}
+
 export const NexusContext = createContext<IContext>({} as IContext);
 
 const NexusProvider = ({ children }: INexusProvider) => {
@@ -27,7 +43,7 @@ const NexusProvider = ({ children }: INexusProvider) => {
   const onSubmitLogin = (account: FieldValues) => {
     api
       .post("/login", account)
-      .then((res) => {
+      .then((res:IUserLogin) => {
         console.log(res)
         setCookie('token', res.data.accessToken)
         setCookie('name', res.data.user.username)
@@ -44,13 +60,24 @@ const NexusProvider = ({ children }: INexusProvider) => {
         });
         // navigate.push("/dashboard");
       })
-      .catch((err) => console.log(err));
+      .catch((err:IError) => {
+        toast.error(err.response.data, {
+          position: "top-right",
+          autoClose: 2500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          toastId: 1,
+          });
+        });
   };
   const onSubmitRegister = (account: FieldValues) => {
     api
       .post("/register", account)
-      .then((res) => {
-        toast.success("Account created successfully!", {
+      .then(() => {
+          toast.success("Account created successfully!", {
           position: "top-right",
           autoClose: 1000,
           hideProgressBar: false,
@@ -61,7 +88,7 @@ const NexusProvider = ({ children }: INexusProvider) => {
           toastId: 1,
           });
       })
-      .catch((err) => {
+      .catch((err:IError) => {
         toast.error(err.response.data, {
           position: "top-right",
           autoClose: 2500,
