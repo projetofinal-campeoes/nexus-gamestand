@@ -1,5 +1,5 @@
 <h1 align="center">
-    <a style="color:pink" href="https://nexus-gamestand.vercel.app/">NEXUS GameStand</a>
+    <a href="https://nexus-gamestand.vercel.app/">NEXUS GameStand</a>
 </h1>
 
 <h3 align="center">Series of gamers connections, linking platforms.</h3>
@@ -7,10 +7,10 @@
 <br/>
 
 ### ❌ Problema
-- [x] Hoje em dia nós temos muitas plataformas de jogos, steam, epic, origin, ubisoft connect, battle.net, EA Play, Xbox..., e isso acaba causando uma confusão sobre em qual dessas plataformas temos tal jogo, e pensando nisso nós criamos o Nexus GameStand, que vem com a proposta de centralizar todos os jogos do usuario em um local só, possibilitando a ele muito mais facilmente saber em qual plataforma está o jogo que ele quer jogar, e tambem possibilitando ele redescobrir jogos que estavam perdidos na sua biblioteca de alguma plataforma.
+Hoje em dia nós temos muitas plataformas de jogos, steam, epic, origin, ubisoft connect, battle.net, EA Play, Xbox..., e isso acaba causando uma confusão sobre em qual dessas plataformas temos tal jogo, e pensando nisso nós criamos o Nexus GameStand, que vem com a proposta de centralizar todos os jogos do usuario em um local só, possibilitando a ele muito mais facilmente saber em qual plataforma está o jogo que ele quer jogar, e tambem possibilitando ele redescobrir jogos que estavam perdidos na sua biblioteca de alguma plataforma.
 
 ### ✅ Solução
-- [x] Com esse intuito em mente, pensando no front-end, criaremos uma aplicação que terá uma página de login simples uma pagina de registro com um formulario simples, como sabemos que o usuário pode usar diferentes emails para diferentes plataformas, ao fazer o registro ele será direcionado para uma página de perfil de usuário, onde o usuário poderá editar suas informações e tambem conectará com todas a plataformas, tambem terá uma Página principal onde será mostrado todos os jogos do usário, e será possivel utilizar alguns filtros, como busca por nome, categoria, etc, e por fim para o MVP, teremos uma pagina que mostrará todas as informações do game que o usuário acessou pela Página Principal.
+Com esse intuito em mente, pensando no front-end, criaremos uma aplicação que terá uma página de login simples uma pagina de registro com um formulario simples, como sabemos que o usuário pode usar diferentes emails para diferentes plataformas, ao fazer o registro ele será direcionado para uma página de perfil de usuário, onde o usuário poderá editar suas informações e tambem conectará com todas a plataformas, tambem terá uma Página principal onde será mostrado todos os jogos do usário, e será possivel utilizar alguns filtros, como busca por nome, categoria, etc, e por fim para o MVP, teremos uma pagina que mostrará todas as informações do game que o usuário acessou pela Página Principal.
 
 
 ## 🛠 Front-end
