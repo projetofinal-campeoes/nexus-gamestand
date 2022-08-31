@@ -89,9 +89,35 @@ $ yarn dev
 
 ### ✅ Desenvolvedores responsáveis - 
 
-<img src="https://media-exp1.licdn.com/dms/image/C4D03AQGOP6oBTEl1_w/profile-displayphoto-shrink_800_800/0/1654538995215?e=1667433600&v=beta&t=4_c8Zqdp4Moozxeuvc_Wf5MIS302L_EUaL3wPNRpU2Y" style="border-radius: 50%" width="120px"/>
-<img src="https://media-exp1.licdn.com/dms/image/C4D03AQGOP6oBTEl1_w/profile-displayphoto-shrink_800_800/0/1654538995215?e=1667433600&v=beta&t=4_c8Zqdp4Moozxeuvc_Wf5MIS302L_EUaL3wPNRpU2Y" style="border-radius: 50%" width="120px"/>
-<img src="https://media-exp1.licdn.com/dms/image/C4D03AQGOP6oBTEl1_w/profile-displayphoto-shrink_800_800/0/1654538995215?e=1667433600&v=beta&t=4_c8Zqdp4Moozxeuvc_Wf5MIS302L_EUaL3wPNRpU2Y" style="border-radius: 50%" width="120px"/>
+<table>
+  <tr>
+    <td align="center">
+        <img src="[https://media-exp1.licdn.com/dms/image/C4E03AQHBpTcP0KJxQw/profile-displayphoto-shrink_800_800/0/1648230210292?e=1666224000&v=beta&t=vBVd9SzipEoIgTNHWoNYpvDwyfrBRPAcFo6kKUPqkHY](https://media-exp1.licdn.com/dms/image/C4D03AQGOP6oBTEl1_w/profile-displayphoto-shrink_800_800/0/1654538995215?e=1667433600&v=beta&t=4_c8Zqdp4Moozxeuvc_Wf5MIS302L_EUaL3wPNRpU2Y)" width="100px;" alt="Foto do Adam"/><br>
+        <sub>
+          <b>Adam Neves - Scrum Master</b>
+        </sub>
+    </td>
+    <td align="center">
+        <img src="https://avatars.githubusercontent.com/u/40778394?v=4" width="100px;" alt="Foto do Yan"/><br>
+        <sub>
+          <b>Yan Carlo - Tech Lead</b>
+        </sub>
+    </td>
+    <td align="center">
+        <img src="https://avatars.githubusercontent.com/u/88001200?v=4" width="100px;" alt="Foto do Welton"/><br>
+        <sub>
+          <b>Welton Santos - Product Owner</b>
+        </sub>
+    </td>
+      <td align="center">
+        <img src="https://pixabay.com/images/search/user%20icon/" width="100px;" alt="Foto da Katya"/><br>
+        <sub>
+          <b>Katya Keila - Quality Assurance</b>
+        </sub>
+    </td>
+    
+  </tr>
+</table>
 
 <br/>
 
