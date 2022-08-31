@@ -94,7 +94,7 @@ $ yarn dev
     <td align="center">
         <img src="https://avatars.githubusercontent.com/u/93692439?v=4" width="100px;" alt="Foto do Adam"/><br>        
         <sub>
-          <b>Adam Neves - Scrum Master</b> <br>
+          <b>Adam Neves - Scrum Master</b> <br/>
             <a href="https://github.com/adamsnows" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"/>
             <a href="https://www.linkedin.com/in/adam-neves/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
         </sub>
@@ -102,7 +102,7 @@ $ yarn dev
     <td align="center">
         <img src="https://avatars.githubusercontent.com/u/40778394?v=4" width="100px;" alt="Foto do Yan"/><br>        
         <sub>
-            <b>Yan Carlo - Tech Lead</b> <br>
+            <b>Yan Carlo - Tech Lead</b> <br/>
             <a href="https://github.com/yancarlodev" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"/>
                 <a href="https://www.linkedin.com/in/yancarlodev/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
         </sub>
@@ -110,7 +110,7 @@ $ yarn dev
     <td align="center">
         <img src="https://avatars.githubusercontent.com/u/88001200?v=4" width="100px;" alt="Foto do Welton"/><br>        
         <sub>
-          <b>Welton Santos - Product Owner</b> <br>
+          <b>Welton Santos - Product Owner</b> <br/>
             <a href="https://github.com/WeltonSantosFr" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"/>
                 <a href="https://www.linkedin.com/in/welton-santos-7a2b7b214/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
         </sub>
@@ -118,19 +118,10 @@ $ yarn dev
       <td align="center">
         <img src="https://cdn-icons-png.flaticon.com/512/21/21104.png" width="100px;" alt="Foto da Katya"/><br>          
         <sub>
-          <b>Katya Keila - Quality Assurance</b>  <br>
+          <b>Katya Keila - Quality Assurance</b>  <br/>
             <a href="https://github.com/katyakeila" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"/>
         </sub>
     </td>
     
   </tr>
 </table>
-
-<br/>
-
-Entre em contato!
-
-<div>
-    <a href = ""><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"/>
-    <a href="" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>     
-</div>
