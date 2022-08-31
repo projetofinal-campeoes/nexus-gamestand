@@ -92,7 +92,7 @@ $ npm run dev
 
 <br/>
 
-### ✅ Desenvolvedores responsáveis - 
+<h1 align="center">👥 Desenvolvedores responsáveis 👥</h1> 
 
 <table align="center">
   <tr>
