@@ -17,7 +17,7 @@
 - [x] exemplo de tópico
 
 ## 🔨 Back-end
-- [x] - Registro (POST): que receberá username, email, senha, confirmação de senha
+- [x] Registro (POST): que receberá username, email, senha, confirmação de senha
 - [x] Login (POST): que recebera email e senha
 - [x] Edição de Usuário (PATCH): que poderá receber username e/ou um link de imagem para o perfil.
 - [x] Deleção de Usuário (DELETE): que receberá o id do usuário.
