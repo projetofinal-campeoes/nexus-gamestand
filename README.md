@@ -14,7 +14,7 @@
 
 ### ✅ Link para a demo da aplicação
 
-- [x] Frontend -> <a href="">Link app</a>
+- [x] Frontend -> <a href="https://nexus-gamestand.vercel.app/">Link app</a>
 
 <br/>
 
@@ -60,11 +60,14 @@ $ yarn dev
 ### 🛠 Principais tecnologias utilizadas - Frontend
 
 - [Next.Js](https://vitejs.dev/) - O React Framework para Produção
-- [Chakra UI](https://chakra-ui.com/) - Aplicação de estilos na aplicação
+- [TailwindCss](https://tailwindcss.com/) - Aplicação de estilos na aplicação
 - [Axios](https://axios-http.com/ptbr/docs/intro) - Gerenciamento de requisições HTTP
-- [React Hot Toast](https://react-hot-toast.com/) - Feedback de erros ao usuário
-- [React Router Dom](https://reactrouter.com/) - Roteamento das páginas da aplicação
-- Outras bibliotecas que auxiliaram no desenvolvimento podem ser encontradas na seção: `"dependencies"` e `"devDependencies"` no arquivo `package.json`, no diretório relacionado ao frontend
+- [Toastify](https://fkhadra.github.io/react-toastify/introduction) - Feedback de erros ao usuário
+- [React Hook Form](https://reactrouter.com/) - Roteamento das páginas da aplicação
+- [React Icons](https://react-icons.github.io/react-icons/) - Lib de ícones pra aplicação
+- [Sass](https://sass-lang.com/) - CSS com superpoderes 👀
+- [Cookies Next](https://openbase.com/js/cookies-next) - Obtendo, configurando e removendo cookies com NEXT.JS
+- Outras bibliotecas que auxiliaram no desenvolvimento podem ser encontradas na seção: `"dependencies"` e `"devDependencies"` no arquivo `package.json`, no diretório relacionado ao FrontEnd
 
 <br/>
 
