@@ -94,7 +94,7 @@ $ npm run dev
 
 ### ✅ Desenvolvedores responsáveis - 
 
-<table>
+<table align="center">
   <tr>
     <td align="center">
         <img src="https://avatars.githubusercontent.com/u/93692439?v=4" width="100px;" alt="Foto do Adam"/><br>        
