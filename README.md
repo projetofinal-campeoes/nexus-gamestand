@@ -46,7 +46,7 @@ Com esse intuito em mente, pensando no front-end, criaremos uma aplicação que 
 
 <br/>
 
-#### 🏠 Homepage da aplicação
+<h1 align="center"> 🏠 FIGMA da Aplicação</h1>
 
 <img src="https://i.imgur.com/tibGiaf.png" /> 
 
