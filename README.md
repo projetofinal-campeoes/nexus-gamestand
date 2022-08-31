@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="https://cdn-icons-png.flaticon.com/512/2701/2701763.png" width="40px" /> <a href="https://linktr.ee/nexusgamestand" target="_blank">NEXUS GameStand</a>
+    <img src="https://cdn-icons-png.flaticon.com/512/2701/2701763.png" width="30px" /> <a href="https://linktr.ee/nexusgamestand" target="_blank">NEXUS GameStand</a>
 </h1>
 
 <h3 align="center">Series of gamers connections, linking platforms.</h3>
@@ -46,7 +46,7 @@ Com esse intuito em mente, pensando no front-end, criaremos uma aplicação que 
 
 <br/>
 
-<h1 align="center"> <img src="https://cdn-icons-png.flaticon.com/512/2701/2701763.png" width="40px" /> FIGMA da Aplicação</h1>
+<h1 align="center"> <img src="https://cdn-icons-png.flaticon.com/512/2701/2701763.png" width="30px" /> FIGMA da Aplicação</h1>
 
 <img src="https://i.imgur.com/tibGiaf.png" /> 
 
