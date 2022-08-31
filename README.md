@@ -14,27 +14,19 @@
 
 
 ## 🛠 Front-end
-- [x] Framework Utilizado: Next.JS
-- [x] Biblioteca Javascript: React com Typescript
-- [x] Gerenciador de formulários e validações: Hook Form e Yup
-- [x] Gerenciador de Rotas: Router Dom V6
-- [x] Requisições: Axios
-- [x] CSS in JS: Styled-components & Tailwind CSS
-- [x] Toasts: Toastify
-- [x] Pré-processador: Sass
-- [x] Modal: Manual
 - [x] Lib de animação: GSAP && Animate.css
-- [x] Ferramenta de prototipação: Figma
-- [x] Deploy: Vercel
-- [Next.Js](https://vitejs.dev/) - O React Framework para Produção
-- [TailwindCss](https://tailwindcss.com/) - Aplicação de estilos na aplicação
-- [Axios](https://axios-http.com/ptbr/docs/intro) - Gerenciamento de requisições HTTP
-- [Toastify](https://fkhadra.github.io/react-toastify/introduction) - Feedback de erros ao usuário
-- [React Hook Form](https://reactrouter.com/) - Roteamento das páginas da aplicação
-- [React Icons](https://react-icons.github.io/react-icons/) - Lib de ícones pra aplicação
-- [Sass](https://sass-lang.com/) - CSS com superpoderes 👀
-- [Cookies Next](https://openbase.com/js/cookies-next) - Obtendo, configurando e removendo cookies com NEXT.JS
-- Outras bibliotecas que auxiliaram no desenvolvimento podem ser encontradas na seção: `"dependencies"` e `"devDependencies"` no arquivo `package.json`, no diretório relacionado ao FrontEnd
+- [x] [Figma](https://www.figma.com/) - Ferramenta de prototipação: Figma
+- [x] [Next.Js](https://vitejs.dev/) - O React Framework para Produção
+- [x] [TailwindCss](https://tailwindcss.com/) - Aplicação de estilos na aplicação
+- [x] [Axios](https://axios-http.com/ptbr/docs/intro) - Gerenciamento de requisições HTTP
+- [x] [Toastify](https://fkhadra.github.io/react-toastify/introduction) - Feedback de erros ao usuário
+- [x] [React Hook Form](https://reactrouter.com/) & [Yup](https://www.npmjs.com/package/yup) - Gerenciador de formulários e validações
+- [x] [React Icons](https://react-icons.github.io/react-icons/) - Lib de ícones pra aplicação
+- [x] [Sass](https://sass-lang.com/) - CSS com superpoderes 👀
+- [x] [Cookies Next](https://openbase.com/js/cookies-next) - Obtendo, configurando e removendo cookies com NEXT.JS
+- [x] [Vercel](https://vercel.com/) - Ferramenta pra deploy da aplicação
+- [x] [Animate.css](https://animate.style/) - Lib de animações
+- [x] Outras bibliotecas que auxiliaram no desenvolvimento podem ser encontradas na seção: `"dependencies"` e `"devDependencies"` no arquivo `package.json`, no diretório relacionado ao FrontEnd
 
 ## 🔨 Back-end
 - [x] Registro (POST): que receberá username, email, senha, confirmação de senha
