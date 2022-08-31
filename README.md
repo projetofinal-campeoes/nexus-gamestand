@@ -14,6 +14,10 @@
 
 ### ✅ Features da aplicação
 
+## 🔨 Front-end
+- [x] exemplo de tópico
+
+## 🔨 Back-end
 - [x] exemplo de tópico
 
 <br/>
