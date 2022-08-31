@@ -1,5 +1,5 @@
 <h1 align="center">
-    <a href="https://nexus-gamestand.vercel.app/" style="color:pink;">NEXUS GameStand</a>
+    <a style="color:pink" href="https://nexus-gamestand.vercel.app/">NEXUS GameStand</a>
 </h1>
 
 <h3 align="center">Series of gamers connections, linking platforms.</h3>
