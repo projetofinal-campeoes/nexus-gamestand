@@ -13,11 +13,10 @@
 - [x] Com esse intuito em mente, pensando no front-end, criaremos uma aplicação que terá uma página de login simples uma pagina de registro com um formulario simples, como sabemos que o usuário pode usar diferentes emails para diferentes plataformas, ao fazer o registro ele será direcionado para uma página de perfil de usuário, onde o usuário poderá editar suas informações e tambem conectará com todas a plataformas, tambem terá uma Página principal onde será mostrado todos os jogos do usário, e será possivel utilizar alguns filtros, como busca por nome, categoria, etc, e por fim para o MVP, teremos uma pagina que mostrará todas as informações do game que o usuário acessou pela Página Principal.
 
 
-### ✅ Features da aplicação
-# 🔨 Front-end
+## 🔨 Front-end
 - [x] exemplo de tópico
 
-# 🔨 Back-end
+## 🔨 Back-end
 - [x] exemplo de tópico
 
 <br/>
