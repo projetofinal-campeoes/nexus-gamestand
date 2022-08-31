@@ -3,7 +3,7 @@ import Header from './../../components/Header';
 
 export default function Dashboard() {
     return(
-        <Background config="justify-center">
+        <Background config="flex-col">
             <Header/>
         </Background>
     )
