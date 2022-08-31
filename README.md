@@ -102,7 +102,7 @@ $ yarn dev
     <td align="center">
         <img src="https://avatars.githubusercontent.com/u/40778394?v=4" width="100px;" alt="Foto do Yan"/><br>        
         <sub>
-            <b>Yan Carlo - Tech Lead</b>
+            <b>Yan Carlo - Tech Lead</b> <br>
             <a href="https://github.com/yancarlodev" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"/>
                 <a href="https://www.linkedin.com/in/yancarlodev/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
         </sub>
