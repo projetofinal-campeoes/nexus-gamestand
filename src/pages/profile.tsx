@@ -1,6 +1,6 @@
 import React from "react";
 import Background from "../components/Background";
-import Profile from "../components/ProfileModal";
+import Profile from "../components/Profile";
 
 const profile = () => {
   return (
