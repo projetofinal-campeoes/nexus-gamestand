@@ -58,7 +58,7 @@ Antes de tudo, você precisa das seguintes tecnologias:
 
 - [x] [Git](https://git-scm.com)
 - [x] [NPM](https://www.npmjs.com/)
-- [x] Algum editor de códigos, no meu caso, utilizo o [VSCode](https://code.visualstudio.com/)
+- [x] [VSCode](https://code.visualstudio.com/)
 
 <br/>
 
@@ -67,7 +67,7 @@ Antes de tudo, você precisa das seguintes tecnologias:
 ```bash
 # Faça o clone deste repositório
 
-$ git clone <link git>
+$ git clone <git@github.com:projetofinal-campeoes/nexus-gamestand.git>
 
 
 # Entre na raiz do repositório clonado
