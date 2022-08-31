@@ -14,10 +14,10 @@
 
 
 ### ✅ Features da aplicação
-## 🔨 Front-end
+# 🔨 Front-end
 - [x] exemplo de tópico
 
-## 🔨 Back-end
+# 🔨 Back-end
 - [x] exemplo de tópico
 
 <br/>
