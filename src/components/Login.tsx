@@ -6,6 +6,8 @@ import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { NexusContext } from "../context/context";
 import { IUser } from "../context/context";
+import Input from './Input';
+import { MdMail, MdLock } from 'react-icons/md'
 
 const Login = () => {
   const navigate = useRouter();
@@ -34,19 +36,15 @@ const Login = () => {
           className="flex flex-col justify-center gap-6"
           onSubmit={handleSubmit(onSubmitLogin)}
         >
-          <input
-            type="text"
-            {...register("email")}
-            placeholder="email"
-            className={styles.input}
-          />
-          <input
-            type="password"
-            {...register("password")}
-            placeholder="password"
-            className={styles.input}
-          />
-          <button className={styles.button}>Login</button>
+            <Input type='email' placeholder="email" name='email' register={register}>
+                <MdMail color="E1E1E1" size={20}/>
+            </Input>
+
+            <Input type='password' placeholder="password" name='password' register={register}>
+                <MdLock color="E1E1E1" size={20}/>
+            </Input>
+
+            <button className={styles.button}>Login</button>
         </form>
         <span className="text-text text-xs">
           Don&apos;t have an account?{" "}
