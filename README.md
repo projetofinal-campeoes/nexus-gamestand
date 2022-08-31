@@ -48,7 +48,7 @@ Com esse intuito em mente, pensando no front-end, criaremos uma aplicação que 
 
 #### 🏠 Homepage da aplicação
 
-![https://i.imgur.com/tibGiaf.png](link github issue)
+<img src="https://i.imgur.com/tibGiaf.png" /> 
 
 <br/>
 
