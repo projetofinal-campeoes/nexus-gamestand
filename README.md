@@ -58,6 +58,7 @@ Antes de tudo, você precisa das seguintes tecnologias:
 
 - [x] [Git](https://git-scm.com)
 - [x] [NPM](https://www.npmjs.com/)
+- [x] Opcional [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
 - [x] [VSCode](https://code.visualstudio.com/)
 
 <br/>
@@ -75,8 +76,12 @@ $ git clone git@github.com:projetofinal-campeoes/nexus-gamestand.git
 $ cd nexus-gamestand
 
 $ yarn
+ou
+$ npm install
 
 $ yarn dev
+ou 
+$ npm run dev
 
 # Após isso, o Next.js irá te informar em qual porta estará sendo rodada sua aplicação. Basta segurar a tecla CTRL e clicar no link do localhost!!
 
