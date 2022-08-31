@@ -121,10 +121,11 @@ $ npm run dev
         </sub>
     </td>
       <td align="center">
-        <img src="https://cdn-icons-png.flaticon.com/512/21/21104.png" width="100px;" alt="Foto da Katya"/><br>          
+        <img src="https://i.imgur.com/yVKFKmI.png" width="100px;" alt="Foto da Katya"/><br>          
         <sub>
           <b>Katya Keila - Quality Assurance</b>  <br/>
             <a href="https://github.com/katyakeila" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"/>
+                <a href="https://www.linkedin.com/in/katya-oliveira/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
         </sub>
     </td>
     
