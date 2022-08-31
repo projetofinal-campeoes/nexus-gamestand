@@ -110,7 +110,7 @@ $ yarn dev
         </sub>
     </td>
       <td align="center">
-        <img src="https://pixabay.com/images/search/user%20icon/" width="100px;" alt="Foto da Katya"/><br>
+        <img src="https://cdn-icons-png.flaticon.com/512/21/21104.png" width="100px;" alt="Foto da Katya"/><br>
         <sub>
           <b>Katya Keila - Quality Assurance</b>
         </sub>
