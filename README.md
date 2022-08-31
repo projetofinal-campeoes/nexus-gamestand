@@ -93,24 +93,28 @@ $ yarn dev
   <tr>
     <td align="center">
         <img src="https://avatars.githubusercontent.com/u/93692439?v=4" width="100px;" alt="Foto do Adam"/><br>
+        <a href="" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
         <sub>
           <b>Adam Neves - Scrum Master</b>
         </sub>
     </td>
     <td align="center">
         <img src="https://avatars.githubusercontent.com/u/40778394?v=4" width="100px;" alt="Foto do Yan"/><br>
+        <a href="" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
         <sub>
           <b>Yan Carlo - Tech Lead</b>
         </sub>
     </td>
     <td align="center">
         <img src="https://avatars.githubusercontent.com/u/88001200?v=4" width="100px;" alt="Foto do Welton"/><br>
+        <a href="" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
         <sub>
           <b>Welton Santos - Product Owner</b>
         </sub>
     </td>
       <td align="center">
         <img src="https://cdn-icons-png.flaticon.com/512/21/21104.png" width="100px;" alt="Foto da Katya"/><br>
+          <a href="" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
         <sub>
           <b>Katya Keila - Quality Assurance</b>
         </sub>
