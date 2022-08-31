@@ -33,7 +33,9 @@ const Login = () => {
         </form>
         <span className='text-text text-xs'>
           Don&apos;t have an account?{" "}
-              <a className="text-primarycolor underline" onClick={handleOut}>Register!</a>
+          <Link href='' passHref>
+            <a className="text-primarycolor underline" onClick={handleOut}>Register!</a>
+          </Link>
         </span>
       </div>
     </>

@@ -46,7 +46,9 @@ const Register = () => {
         </form>
         <span className='text-text text-xs'>
           Already have an account?{" "}
+          <Link href='' passHref>
             <a className="text-primarycolor underline" onClick={handleOut}>Login!</a>
+          </Link>
         </span>
       </div>
     </>
