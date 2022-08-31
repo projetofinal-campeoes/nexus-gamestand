@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+    "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
     "animate.css": "^4.1.1",
     "axios": "^0.27.2",
@@ -22,8 +23,7 @@
     "react-hook-form": "^7.34.2",
     "react-icons": "^4.4.0",
     "react-toastify": "^9.0.8",
-    "sass": "^1.54.6",
-    "tailwind": "^4.0.0"
+    "sass": "^1.54.6"
   },
   "devDependencies": {
     "@types/node": "18.7.13",

@@ -4,8 +4,8 @@ import SEO from "./SEO";
 import styles from "../styles/Home.module.sass";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
-import { NexusContext } from "../context/context";
-import { IUser } from "../context/context";
+import { NexusContext } from "../context/NexusContext";
+import { IUser } from "../context/NexusContext";
 
 const Login = () => {
   const navigate = useRouter();

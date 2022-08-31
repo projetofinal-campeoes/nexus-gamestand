@@ -7,7 +7,11 @@ import { AiOutlineEdit } from "react-icons/ai";
 import styles from "../styles/Home.module.sass";
 import { Switch } from "@mui/material";
 
-const Profile = () => {
+type ISwitch = {
+  checked: boolean;
+  handleChange: () => void;
+};
+const Profile = ({ checked, handleChange }: ISwitch) => {
   return (
     <>
       <SEO title="Profile" description="Profile Modal of Nexus Application" />
@@ -73,6 +77,11 @@ const Profile = () => {
               <p className="text-headline3 font-medium text-text mr-6">
                 Ben Gadura
               </p>
+              <Switch
+                checked={checked}
+                onChange={handleChange}
+                inputProps={{ "aria-label": "controlled" }}
+              />
             </div>
           </div>
         </div>
