@@ -13,7 +13,7 @@
 - [x] Com esse intuito em mente, pensando no front-end, criaremos uma aplicação que terá uma página de login simples uma pagina de registro com um formulario simples, como sabemos que o usuário pode usar diferentes emails para diferentes plataformas, ao fazer o registro ele será direcionado para uma página de perfil de usuário, onde o usuário poderá editar suas informações e tambem conectará com todas a plataformas, tambem terá uma Página principal onde será mostrado todos os jogos do usário, e será possivel utilizar alguns filtros, como busca por nome, categoria, etc, e por fim para o MVP, teremos uma pagina que mostrará todas as informações do game que o usuário acessou pela Página Principal.
 
 
-## 🔨 Front-end
+## 🛠 Front-end
 - [x] Framework Utilizado: Next.JS
 - [x] Biblioteca Javascript: React com Typescript
 - [x] Gerenciador de formulários e validações: Hook Form e Yup
@@ -26,6 +26,15 @@
 - [x] Lib de animação: GSAP && Animate.css
 - [x] Ferramenta de prototipação: Figma
 - [x] Deploy: Vercel
+- [Next.Js](https://vitejs.dev/) - O React Framework para Produção
+- [TailwindCss](https://tailwindcss.com/) - Aplicação de estilos na aplicação
+- [Axios](https://axios-http.com/ptbr/docs/intro) - Gerenciamento de requisições HTTP
+- [Toastify](https://fkhadra.github.io/react-toastify/introduction) - Feedback de erros ao usuário
+- [React Hook Form](https://reactrouter.com/) - Roteamento das páginas da aplicação
+- [React Icons](https://react-icons.github.io/react-icons/) - Lib de ícones pra aplicação
+- [Sass](https://sass-lang.com/) - CSS com superpoderes 👀
+- [Cookies Next](https://openbase.com/js/cookies-next) - Obtendo, configurando e removendo cookies com NEXT.JS
+- Outras bibliotecas que auxiliaram no desenvolvimento podem ser encontradas na seção: `"dependencies"` e `"devDependencies"` no arquivo `package.json`, no diretório relacionado ao FrontEnd
 
 ## 🔨 Back-end
 - [x] Registro (POST): que receberá username, email, senha, confirmação de senha
@@ -86,15 +95,7 @@ $ yarn dev
 
 ### 🛠 Principais tecnologias utilizadas - Frontend
 
-- [Next.Js](https://vitejs.dev/) - O React Framework para Produção
-- [TailwindCss](https://tailwindcss.com/) - Aplicação de estilos na aplicação
-- [Axios](https://axios-http.com/ptbr/docs/intro) - Gerenciamento de requisições HTTP
-- [Toastify](https://fkhadra.github.io/react-toastify/introduction) - Feedback de erros ao usuário
-- [React Hook Form](https://reactrouter.com/) - Roteamento das páginas da aplicação
-- [React Icons](https://react-icons.github.io/react-icons/) - Lib de ícones pra aplicação
-- [Sass](https://sass-lang.com/) - CSS com superpoderes 👀
-- [Cookies Next](https://openbase.com/js/cookies-next) - Obtendo, configurando e removendo cookies com NEXT.JS
-- Outras bibliotecas que auxiliaram no desenvolvimento podem ser encontradas na seção: `"dependencies"` e `"devDependencies"` no arquivo `package.json`, no diretório relacionado ao FrontEnd
+
 
 <br/>
 
