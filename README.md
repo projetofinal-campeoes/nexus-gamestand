@@ -92,7 +92,7 @@ $ yarn dev
 <table>
   <tr>
     <td align="center">
-        <img src="[https://media-exp1.licdn.com/dms/image/C4E03AQHBpTcP0KJxQw/profile-displayphoto-shrink_800_800/0/1648230210292?e=1666224000&v=beta&t=vBVd9SzipEoIgTNHWoNYpvDwyfrBRPAcFo6kKUPqkHY](https://media-exp1.licdn.com/dms/image/C4D03AQGOP6oBTEl1_w/profile-displayphoto-shrink_800_800/0/1654538995215?e=1667433600&v=beta&t=4_c8Zqdp4Moozxeuvc_Wf5MIS302L_EUaL3wPNRpU2Y)" width="100px;" alt="Foto do Adam"/><br>
+        <img src="https://avatars.githubusercontent.com/u/93692439?v=4" width="100px;" alt="Foto do Adam"/><br>
         <sub>
           <b>Adam Neves - Scrum Master</b>
         </sub>
