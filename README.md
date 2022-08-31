@@ -14,7 +14,18 @@
 
 
 ## 🔨 Front-end
-- [x] exemplo de tópico
+- [x] Framework Utilizado: Next.JS
+- [x] Biblioteca Javascript: React com Typescript
+- [x] Gerenciador de formulários e validações: Hook Form e Yup
+- [x] Gerenciador de Rotas: Router Dom V6
+- [x] Requisições: Axios
+- [x] CSS in JS: Styled-components & Tailwind CSS
+- [x] Toasts: Toastify
+- [x] Pré-processador: Sass
+- [x] Modal: Manual
+- [x] Lib de animação: GSAP && Animate.css
+- [x] Ferramenta de prototipação: Figma
+- [x] Deploy: Vercel
 
 ## 🔨 Back-end
 - [x] Registro (POST): que receberá username, email, senha, confirmação de senha
@@ -23,7 +34,8 @@
 - [x] Deleção de Usuário (DELETE): que receberá o id do usuário.
 - [x] Conectar Plataforma (PUT): que receberá um link.
 - [x] Com isso em consideração, acreditamos que o back-end também será facil de fazer.
-- [x]E por fim, sobre as tecnologias que usaremos para desenvolver
+- [x] E por fim, sobre as tecnologias que usaremos para desenvolver
+
 
 <br/>
 
