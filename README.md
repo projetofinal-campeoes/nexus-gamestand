@@ -97,7 +97,7 @@ $ npm run dev
 <table align="center">
   <tr>
     <td align="center">
-        <img src="https://avatars.githubusercontent.com/u/93692439?v=4" width="100px;" alt="Foto do Adam"/><br>        
+        <img style="border-radius:50%" src="https://avatars.githubusercontent.com/u/93692439?v=4" width="100px;" alt="Foto do Adam"/><br>        
         <sub>
           <b>Adam Neves - Scrum Master</b> <br/>
             <a href="https://github.com/adamsnows" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"/>
