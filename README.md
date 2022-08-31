@@ -50,7 +50,7 @@ $ yarn
 
 $ yarn dev
 
-# Após isso, o Vite irá te informar em qual porta estará sendo rodada sua aplicação. Basta segurar a tecla CTRL e clicar no link do localhost!!
+# Após isso, o Next.js irá te informar em qual porta estará sendo rodada sua aplicação. Basta segurar a tecla CTRL e clicar no link do localhost!!
 
 # Prontinho, agora o ambiente está totalmente configurado!
 ```
@@ -59,7 +59,7 @@ $ yarn dev
 
 ### 🛠 Principais tecnologias utilizadas - Frontend
 
-- [Vite](https://vitejs.dev/) - Criação do React App
+- [Next.Js](https://vitejs.dev/) - O React Framework para Produção
 - [Chakra UI](https://chakra-ui.com/) - Aplicação de estilos na aplicação
 - [Axios](https://axios-http.com/ptbr/docs/intro) - Gerenciamento de requisições HTTP
 - [React Hot Toast](https://react-hot-toast.com/) - Feedback de erros ao usuário
