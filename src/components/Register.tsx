@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import Input from './Input';
 import { MdLock, MdMail, MdPerson } from "react-icons/md";
-import { IUser } from "../context/NexusContext";
 import { NexusContext } from "../context/NexusContext";
 
 const Register = () => {
