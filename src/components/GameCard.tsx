@@ -26,20 +26,20 @@ export default function GameCard({ id, name, img, platform }: GameCard) {
             <Link href={`/dashboard/games/${id}`} className='overflow-hidden'>
                 <div className={styles.content}>
                     <div>
-                        <Image src={img} layout='fill' objectFit='cover' alt={name}></Image>
+                        <Image src={img} layout='fill' objectFit='cover' alt={name}/>
                     </div>
 
                     <button className={styles.hoverContainer}>
                         <h3 className='text-text text-[20px] font-bold'>{name}</h3>
                     </button>
 
-                    <div className='absolute right-0 bottom-0 p-2 bg-boxcolor rounded-tl-lg text-text text-[15px]'>
-                        {
-                            platforms[platform]
-                        }
-                    </div>
                 </div>
             </Link>
+            <div className='absolute right-0 bottom-0 p-2 bg-boxcolor rounded-tl-lg text-text text-[15px]'>
+                {
+                    platforms[platform]
+                }
+            </div>
         </li>
     )
 }
