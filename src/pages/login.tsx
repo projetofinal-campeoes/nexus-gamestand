@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Background from "../components/Background";
 import Login from "../components/Login";
 
-const login = () => {
+const login = () => {  
   return (
     <>
-      <Background>
+      <Background config="items-center justify-center">
         <Login />
       </Background>
     </>
