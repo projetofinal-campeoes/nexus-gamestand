@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["pbs.twimg.com", 'store-images.s-microsoft.com'],
+    domains: ['store-images.s-microsoft.com', 'cdn.cloudflare.steamstatic.com'],
   },
 };
 
