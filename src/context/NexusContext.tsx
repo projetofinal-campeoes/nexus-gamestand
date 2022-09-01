@@ -1,26 +1,24 @@
 import { useRouter } from "next/router";
-import React, { createContext, ReactNode } from "react";
+import React, { createContext, ReactNode, useEffect, useState } from "react";
 import { FieldValues } from "react-hook-form";
 import { toast } from "react-toastify";
 import api from "../services/api";
-import { setCookie } from 'cookies-next';
+import { hasCookie, setCookie } from 'cookies-next';
 import { errorToast, successToast } from './../services/toast';
 
 type IContext = {
     onSubmitLogin: (account: IUser) => void;
     onSubmitRegister: (account: object) => void;
+    isLoggedIn: boolean;
 };
-
 type INexusProvider = {
     children: ReactNode
 }
-
 export type IUser = {
     email: string;
     password: string;
     username?: string;
 };
-
 type IUserLogin = {
     data: {
         accessToken: string,
@@ -31,11 +29,16 @@ type IUserLogin = {
     }
 }
 
-
 export const NexusContext = createContext<IContext>({} as IContext);
 
 const NexusProvider = ({ children }: INexusProvider) => {
     const navigate = useRouter();
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
+
+    useEffect(() => {
+    hasCookie('token') ? setIsLoggedIn(true) : setIsLoggedIn(false)
+    }, [])
+
     const onSubmitLogin = (account: FieldValues) => {
         api
             .post("/login", account)
@@ -52,7 +55,6 @@ const NexusProvider = ({ children }: INexusProvider) => {
     };
     const onSubmitRegister = (account: FieldValues) => {
         delete account.confirmPassword
-
         api
             .post("/register", account)
             .then(() => {
@@ -63,7 +65,7 @@ const NexusProvider = ({ children }: INexusProvider) => {
             });
     };
     return (
-        <NexusContext.Provider value={{ onSubmitLogin, onSubmitRegister }}>
+        <NexusContext.Provider value={{ isLoggedIn, onSubmitLogin, onSubmitRegister }}>
             {" "}
             {children}{" "}
         </NexusContext.Provider>

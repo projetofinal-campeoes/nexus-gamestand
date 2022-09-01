@@ -5,13 +5,16 @@ import Input from "./Input";
 import { FaSearch, FaSignOutAlt } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { deleteCookie } from 'cookies-next';
+import { useRouter } from "next/router";
 
 export default function Header() {
+  const router = useRouter()
   const { register, handleSubmit } = useForm();
   const handleLogout = () => {
     deleteCookie('token');
     deleteCookie('email');
     deleteCookie('name');
+    router.push('/login')
   }
   return (
     <header className={styles.containerHeader}>
