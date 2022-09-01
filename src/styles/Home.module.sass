@@ -2,13 +2,14 @@
 .containerlogin
     @apply bg-boxcolor rounded-lg gap-6 flex flex-col items-center justify-center px-8 py-12
 .inputBox
-    @apply rounded-lg w-[314px] p-4 bg-inputbackground shadow-md text-text flex items-center gap-4
+    @apply rounded-lg w-[314px] p-4 bg-inputbackground shadow-md text-text flex items-center gap-4 hover:bg-boxcolor hover:shadow-[0px_0px_6px_0px_rgba(170,145,210,1)] focus-within:shadow-[0px_0px_6px_0px_rgba(170,145,210,1)] ease-linear duration-300
 .input
-    @apply placeholder:text-placeholder focus:outline-none text-text bg-inputbackground
+    @apply placeholder:text-placeholder outline-none focus:outline-none text-text bg-inputbackground hover:bg-boxcolor ease-linear duration-300
 .button
-    @apply bg-primarycolor rounded-lg shadow-md py-4 px-8 text-text font-medium
+    @apply bg-primarycolor rounded-lg shadow-md py-4 px-8 text-text font-medium hover:bg-primaryhover ease-linear duration-300
 .span
     @apply text-text
+
 // Header Component
 .containerHeader
     @apply w-[100%] h-[80px] bg-boxcolor flex items-center justify-center 
@@ -29,3 +30,20 @@
     @apply text-title2 text-text font-bold mr-auto
 .editIcon
     @apply text-text w-6 h-6
+
+// CardGame component
+.listItem
+    @apply w-[100%] h-[187px] bg-boxcolor rounded-lg overflow-hidden relative
+
+.content
+    @apply h-[100%] relative transition ease-in-out delay-150
+
+    &:hover
+        @apply scale-110
+
+    &:hover > .hoverContainer
+        @apply opacity-80
+
+.hoverContainer
+    @apply w-[100%] h-[100%] opacity-80 absolute left-0 top-0 bg-hoverCard flex justify-center items-center opacity-0 transition ease-in-out delay-150 p-2
+

@@ -4,8 +4,8 @@ import SEO from "./SEO";
 import styles from "../styles/Home.module.sass";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
-import Input from './Input';
-import { MdMail, MdLock } from 'react-icons/md'
+import Input from "./Input";
+import { MdMail, MdLock } from "react-icons/md";
 import { NexusContext } from "../context/NexusContext";
 import { IUser } from "../context/NexusContext";
 
@@ -37,20 +37,33 @@ const Login = () => {
           onSubmit={handleSubmit(onSubmitLogin)}
           autoComplete="off"
         >
-            <Input type='email' placeholder="email" name='email' register={register}>
-                <MdMail color="E1E1E1" size={20}/>
-            </Input>
+          <Input
+            type="email"
+            placeholder="email"
+            name="email"
+            register={register}
+          >
+            <MdMail color="E1E1E1" size={20} />
+          </Input>
 
-            <Input type='password' placeholder="password" name='password' register={register}>
-                <MdLock color="E1E1E1" size={20}/>
-            </Input>
+          <Input
+            type="password"
+            placeholder="password"
+            name="password"
+            register={register}
+          >
+            <MdLock color="E1E1E1" size={20} />
+          </Input>
 
-            <button className={styles.button}>Login</button>
+          <button className={styles.button}>Login</button>
         </form>
         <span className="text-text text-xs">
           Don&apos;t have an account?{" "}
           <Link href="" passHref>
-            <a className="text-primarycolor underline" onClick={handleOut}>
+            <a
+              className="text-primarycolor underline hover:text-primaryhover ease-linear duration-300"
+              onClick={handleOut}
+            >
               Register!
             </a>
           </Link>
