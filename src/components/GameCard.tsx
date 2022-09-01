@@ -10,7 +10,7 @@ export default function GameCard({ name, img }: GameCard) {
     return(
         <li className={styles.listItem}>
             <div>
-                <Image src={img} layout='fill' objectFit='cover' alt='Game'></Image>
+                <Image src={img} layout='fill' objectFit='cover' alt={name}></Image>
             </div>
 
             <button className={styles.hoverContainer}>
