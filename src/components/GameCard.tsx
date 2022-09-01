@@ -9,7 +9,7 @@ interface GameCard {
 export default function GameCard({ name, img }: GameCard) {
     return(
         <li className={styles.listItem}>
-            <div className='relative'>
+            <div>
                 <Image src={img} layout='fill' alt='Game'></Image>
             </div>
 

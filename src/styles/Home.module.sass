@@ -33,7 +33,10 @@
 
 // CardGame component
 .listItem
-    @apply w-[100%] h-[187px] bg-boxcolor rounded-lg overflow-hidden relative
+    @apply w-[100%] h-[187px] bg-boxcolor rounded-lg overflow-hidden relative transition ease-in-out delay-150
+
+    &:hover
+        @apply scale-110
 
     &:hover > .hoverContainer
         @apply opacity-80
