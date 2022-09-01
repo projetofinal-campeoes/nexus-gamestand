@@ -18,6 +18,8 @@ interface IGame {
 }
 
 export default function Dashboard({ games }: IDashboardProps) {
+    const sortedGames = games.sort((currentGame, nextGame) => currentGame.productName.localeCompare(nextGame.productName))
+
     return(
         <Background config="flex-col gap-8 items-center">
             <Header/>
@@ -37,7 +39,7 @@ export default function Dashboard({ games }: IDashboardProps) {
                     <h2 className="text-title2 text-text font-bold">Your games</h2>
                     <ul className="grid grid-cols-3 gap-[20.5px]">
                         {
-                            games.map(({ id, productName, image }: IGame) => <GameCard key={id} name={productName} img={image.URL}/>)
+                            sortedGames.map(({ id, productName, image, platform }: IGame) => <GameCard key={id} id={id} name={productName} img={image.URL} platform={platform}/>)
                         }  
                     </ul>
                 </section>
@@ -81,7 +83,7 @@ export async function getStaticProps() {
             image: {
                 URL: `http:${correctImage?.Uri}`                
             },
-            platform: 'Xbox'
+            platform: 'xbox'
         }
     })
 
@@ -104,7 +106,7 @@ export async function getStaticProps() {
             image: {
                 URL: `https://cdn.cloudflare.steamstatic.com/steam/apps/${appid}/header.jpg`                
             },
-            platform: 'Steam'
+            platform: 'steam'
         }
     })
 
