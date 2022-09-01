@@ -35,6 +35,7 @@ const Login = () => {
           action=""
           className="flex flex-col justify-center gap-6"
           onSubmit={handleSubmit(onSubmitLogin)}
+          autoComplete="off"
         >
             <Input type='email' placeholder="email" name='email' register={register}>
                 <MdMail color="E1E1E1" size={20}/>

@@ -1,4 +1,5 @@
 import Background from "../../components/Background";
+import RecomendedDashboard from "../../components/RecomendedDashboard";
 import Header from './../../components/Header';
 import GameCard from './../../components/GameCard';
 
@@ -6,7 +7,7 @@ export default function Dashboard() {
     return(
         <Background config="flex-col gap-8 items-center">
             <Header/>
-
+            
             <main className="w-[80%] max-w-[1041px] flex flex-col gap-10">
 
                 <section className="flex flex-col gap-4">
