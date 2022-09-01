@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
 import Image from 'next/image';
+import styles from '../styles/Home.module.sass'
 
 interface GameCard {
     name: string,
@@ -8,11 +8,14 @@ interface GameCard {
 
 export default function GameCard({ name, img }: GameCard) {
     return(
-        <li className="w-[100%] h-[187px] bg-boxcolor rounded-lg overflow-hidden">
-            <button>
-                <Image src='http://store-images.s-microsoft.com/image/apps.56234.68306748966338141.e6f96fac-aa67-4f59-9043-10654607aa79.44048e8a-120d-4c3c-9a6d-a2e7df123548' width={333} height={187} alt='Game'></Image>
+        <li className={styles.listItem}>
+            <div className='relative'>
+                <Image src={img} layout='fill' alt='Game'></Image>
+            </div>
+
+            <button className={styles.hoverContainer}>
+                <h3 className='text-text text-[20px] font-bold'>{name}</h3>
             </button>
-            <h3>{name}</h3>
         </li>
     )
 }

@@ -11,7 +11,7 @@ export default function Header() {
     return(
         <header className={styles.containerHeader}>
             <div className={styles.wrapperHeader}>
-                <Image src='/Logo.svg' alt="Nexus logo" width={198} height={40}/>
+                <Image src='/Logo.svg' alt="Nexus logo" width={198} height={40} priority/>
 
                 <nav className="flex items-center gap-6">
                     <form>
