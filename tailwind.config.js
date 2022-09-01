@@ -27,6 +27,7 @@ module.exports = {
       boxcolor: "#434343",
       placeholder: "#E1E1E1",
       primarycolor: "#AA91F0",
+      primaryhover: "#805BE8",
       buttontext: "#FFFFFF",
       backgroundcolor: "#333333",
       inputbackground: "#373737",
