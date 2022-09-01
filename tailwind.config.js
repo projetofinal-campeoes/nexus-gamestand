@@ -31,6 +31,7 @@ module.exports = {
       buttontext: "#FFFFFF",
       backgroundcolor: "#333333",
       inputbackground: "#373737",
+      hoverCard: '#000000'
     },
     fontFamily: {
       inter: ["Inter", "ui-monospace", "SFMono-Regular"],
