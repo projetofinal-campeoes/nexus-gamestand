@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styles from '../styles/Home.module.sass'
 import { FaSteam } from "react-icons/fa";
 import { SiXbox } from "react-icons/si";
+import { useState } from 'react';
 
 interface GameCard {
     id: string,
@@ -21,12 +22,18 @@ interface Icons {
 }
 
 export default function GameCard({ id, name, img, platform }: GameCard) {
+    const [URLError, setURLError] = useState(false)
+
+    const handleImageError = () => {
+        setURLError(true)
+    }
+
     return(
         <li className={styles.listItem}>
-            <Link href={`/dashboard/games/${id}`} className='overflow-hidden'>
+            <Link href={`/dashboard/games/${id}?plat=${platform}`} className='overflow-hidden'>
                 <div className={styles.content}>
                     <div>
-                        <Image src={img} layout='fill' objectFit='cover' alt={name}/>
+                        <Image onErrorCapture={handleImageError} src={URLError ? 'https://cdn6.aptoide.com/imgs/1/3/5/135414bbfd2c62340daf0f53516fc106_screen.jpg?h=500' : img} layout='fill' objectFit='cover' alt={name} quality={100} placeholder='blur' blurDataURL='https://cdn6.aptoide.com/imgs/1/3/5/135414bbfd2c62340daf0f53516fc106_screen.jpg?h=500'/>
                     </div>
 
                     <button className={styles.hoverContainer}>
