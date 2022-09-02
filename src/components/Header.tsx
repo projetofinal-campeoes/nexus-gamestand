@@ -20,6 +20,8 @@ export default function Header() {
     deleteCookie("token");
     deleteCookie("email");
     deleteCookie("name");
+    deleteCookie("id");
+    deleteCookie("userImage");
     router.push("/login");
   };
   return (
