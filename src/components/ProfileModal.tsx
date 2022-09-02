@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import SEO from "./SEO";
 import { FaSteam, FaWindowClose } from "react-icons/fa";
 import { SiEpicgames, SiPlaystation, SiXbox } from "react-icons/si";
-import { FiUser } from "react-icons/fi";
+import { FaUserAlt } from "react-icons/fa";
 import { AiOutlineEdit } from "react-icons/ai";
 import styles from "../styles/Home.module.sass";
 import { Switch } from "@mui/material";
@@ -64,7 +64,7 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
                 className="w-[210px] h-[210] rounded-full"
               />
             ) : (
-              <FiUser className="text-boxcolor w-[100%] h-[100%] bg-text rounded-full" />
+              <FaUserAlt className="text-text w-[100%] h-[100%]  rounded-full pt-1"/>
             )}
           </div>
 
