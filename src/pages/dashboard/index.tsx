@@ -23,7 +23,7 @@ interface IGame {
 
 export default function Dashboard({ games }: IDashboardProps) {
   const { userModalOpen } = useContext(NexusContext);
-  const { checked, setChecked, handleChange } = useContext(NexusContext);
+  const { checked, setChecked } = useContext(NexusContext);
   const [currentPage, setCurrentPage] = useState(1);
   const [gameList, setGameList] = useState<IGame[]>([]);
 
