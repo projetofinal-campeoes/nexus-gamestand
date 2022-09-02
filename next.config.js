@@ -6,8 +6,8 @@ const nextConfig = {
     domains: [
       "store-images.s-microsoft.com",
       "cdn.cloudflare.steamstatic.com",
-      "pbs.twimg.com",
-      "encrypted-tbn0.gstatic.com",
+      "cdn6.aptoide.com",
+      "*",
     ],
   },
 };

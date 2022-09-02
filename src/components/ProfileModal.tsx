@@ -57,12 +57,11 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
         <div className="flex flex-col items-center gap-2">
           <div className={styles.profileImage}>
             {userImage ? (
-              <Image
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
                 src={`${userImage}`}
                 alt="userImage"
-                width={210}
-                height={210}
-                className="rounded-full"
+                className="w-[210px] h-[210] rounded-full"
               />
             ) : (
               <FiUser className="text-boxcolor w-[100%] h-[100%] bg-text rounded-full" />
