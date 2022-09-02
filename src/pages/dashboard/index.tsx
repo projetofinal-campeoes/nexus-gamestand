@@ -1,6 +1,8 @@
 import Background from "../../components/Background";
 import Header from './../../components/Header';
 import GameCard from './../../components/GameCard';
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 
 interface IDashboardProps {
     games: IGame[]
@@ -18,7 +20,31 @@ interface IGame {
 }
 
 export default function Dashboard({ games }: IDashboardProps) {
+    const [currentPage, setCurrentPage] = useState(1)
+    const [gameList, setGameList] = useState<IGame[]>([])
+    
     const sortedGames = games.sort((currentGame, nextGame) => currentGame.productName.localeCompare(nextGame.productName))
+
+    const observer = useRef<HTMLLIElement | null>(null)
+
+    useEffect(() => {
+        axios.get(`https://games-api.herokuapp.com/games?_page=${currentPage}&_limit=10`)
+        .then(({data}) => {
+            setGameList((oldGameList) => [...oldGameList, ...data])
+        })
+    }, [currentPage])
+
+    useEffect(() => {
+        const intersectionObserver = new IntersectionObserver((entries) => {
+            if(entries.some((entry) => entry.isIntersecting)) {
+                setCurrentPage((oldCurrentPage) => oldCurrentPage + 1)
+            }
+        })
+
+        intersectionObserver.observe(observer.current!)
+
+        return () => intersectionObserver.disconnect()
+    }, [])
 
     return(
         <Background config="flex-col gap-8 items-center">
@@ -39,9 +65,11 @@ export default function Dashboard({ games }: IDashboardProps) {
                     <h2 className="text-title2 text-text font-bold">Your games</h2>
                     <ul className="grid grid-cols-3 gap-[20.5px]">
                         {
-                            sortedGames.map(({ id, productName, image, platform }: IGame) => <GameCard key={id} id={id} name={productName} img={image.URL} platform={platform}/>)
-                        }  
+                            gameList.map(({ id, productName, image, platform }: IGame, index) => <GameCard key={index} id={id} name={productName} img={image.URL} platform={platform}/>)
+                        } 
+                        <li ref={observer}></li>
                     </ul>
+                    <div></div>
                 </section>
             </main>
         </Background>
@@ -67,9 +95,6 @@ interface ISteamProduct {
 }
 
 export async function getStaticProps() {
-    const xboxResponse = await fetch('https://games-api.herokuapp.com/games?_page=1&_limit=15')
-    const xboxGames = await xboxResponse.json()
-
     const steamKeyAPI = 'CD931AB5F0BA950471A81DEFF485FA5C'
     const usernameSteam = 'wolfremgames'
     
@@ -95,7 +120,7 @@ export async function getStaticProps() {
 
     return {
         props: {
-            games: [...steamGames, ...xboxGames]
+            games: [...steamGames]
         }
     }
 }
