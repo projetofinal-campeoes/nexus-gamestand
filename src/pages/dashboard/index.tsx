@@ -27,9 +27,9 @@ export default function Dashboard({ games }: IDashboardProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const [gameList, setGameList] = useState<IGame[]>([]);
 
-  const sortedGames = games.sort((currentGame, nextGame) =>
-    currentGame.productName.localeCompare(nextGame.productName)
-  );
+  // const sortedGames = games.sort((currentGame, nextGame) =>
+  //   currentGame.productName.localeCompare(nextGame.productName)
+  // );
 
   const observer = useRef<HTMLLIElement | null>(null);
 
@@ -116,38 +116,38 @@ interface ISteamProduct {
   name: string;
 }
 
-export async function getStaticProps() {
-  const steamKeyAPI = "CD931AB5F0BA950471A81DEFF485FA5C";
-  const usernameSteam = "wolfremgames";
+// export async function getStaticProps() {
+//   const steamKeyAPI = "CD931AB5F0BA950471A81DEFF485FA5C";
+//   const usernameSteam = "wolfremgames";
 
-  const steamAccountID = await fetch(
-    `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${steamKeyAPI}&vanityurl=${usernameSteam}`
-  );
-  const steamAccountIDJSON = await steamAccountID.json();
+//   const steamAccountID = await fetch(
+//     `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${steamKeyAPI}&vanityurl=${usernameSteam}`
+//   );
+//   const steamAccountIDJSON = await steamAccountID.json();
 
-  const responseSteam = await fetch(
-    `http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${steamKeyAPI}&steamid=${steamAccountIDJSON.response.steamid}&include_appinfo=true&format=json`
-  );
-  const responseSteamJSON = await responseSteam.json();
+//   const responseSteam = await fetch(
+//     `http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${steamKeyAPI}&steamid=${steamAccountIDJSON.response.steamid}&include_appinfo=true&format=json`
+//   );
+//   const responseSteamJSON = await responseSteam.json();
 
-  const steamGames = responseSteamJSON.response.games.map(
-    ({ appid, name }: ISteamProduct) => {
-      return {
-        id: appid,
-        productName: name,
-        description: "",
-        category: "",
-        image: {
-          URL: `https://cdn.cloudflare.steamstatic.com/steam/apps/${appid}/header.jpg`,
-        },
-        platform: "steam",
-      };
-    }
-  );
+//   const steamGames = responseSteamJSON.response.games.map(
+//     ({ appid, name }: ISteamProduct) => {
+//       return {
+//         id: appid,
+//         productName: name,
+//         description: "",
+//         category: "",
+//         image: {
+//           URL: `https://cdn.cloudflare.steamstatic.com/steam/apps/${appid}/header.jpg`,
+//         },
+//         platform: "steam",
+//       };
+//     }
+//   );
 
-  return {
-    props: {
-      games: [...steamGames],
-    },
-  };
-}
+//   return {
+//     props: {
+//       games: [...steamGames],
+//     },
+//   };
+// }
