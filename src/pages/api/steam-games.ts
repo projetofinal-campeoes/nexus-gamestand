@@ -65,8 +65,8 @@ export default async function handler(
             pagesArray.push(formattedGames.splice(0, (Number(limit) || 10)))
         }
 
-        res.send(pagesArray[Number(page)-1])
+        return res.json(pagesArray[Number(page)-1])
     } catch(error) {
-        res.send({message: 'User not found'})
+        return res.status(404).json({message: 'User not found'})
     }
 }
