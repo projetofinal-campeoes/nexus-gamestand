@@ -42,7 +42,7 @@ export default async function handler(
 ) {
   try {
       const { username } = req.body
-      const { page } = req.query
+      const { page, limit } = req.query
         const userSteamId = await axios.get(`http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=CD931AB5F0BA950471A81DEFF485FA5C&vanityurl=${username}`)
         const userGames = await axios.get<IUserGameResponse>(`http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=CD931AB5F0BA950471A81DEFF485FA5C&steamid=${userSteamId.data.response.steamid}&include_appinfo=true&format=json`) 
         const formattedGames = userGames.data.response.games.map(({ appid, name }) => {
@@ -58,11 +58,11 @@ export default async function handler(
             }
         })
         
-        const maxPages = Math.ceil(formattedGames.length / 10)
+        const maxPages = Math.ceil(formattedGames.length / (Number(limit) || 10))
         const pagesArray = []
 
         for(let i = 0; i < maxPages; i++) {
-            pagesArray.push(formattedGames.splice(0, 10))
+            pagesArray.push(formattedGames.splice(0, (Number(limit) || 10)))
         }
 
         res.send(pagesArray[Number(page)-1])
