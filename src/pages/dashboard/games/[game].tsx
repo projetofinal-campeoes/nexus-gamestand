@@ -13,7 +13,7 @@ const Game = () => {
           className="rounded-lg shadow-2xl shadow-black w-[700px] h-[394px] mx-auto mt-10"
         />
         <div>
-          <h1 className="mb-2">League of Legends</h1>
+          <h1 className="mb-2 text-sm text-title1 font-bold">League of Legends</h1>
           <hr className="w-full rounded" />
         </div>
         <p className="indent-8 text-justify">
