@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import SEO from "./SEO";
 import { FaSteam, FaWindowClose } from "react-icons/fa";
 import { SiEpicgames, SiPlaystation, SiXbox } from "react-icons/si";
-import { FiUser } from "react-icons/fi";
+import { FaUserAlt } from "react-icons/fa";
 import { AiOutlineEdit } from "react-icons/ai";
 import styles from "../styles/Home.module.sass";
 import { Switch } from "@mui/material";
@@ -12,8 +12,8 @@ import { getCookie, setCookie } from "cookies-next";
 import api from "../services/api";
 
 type ISwitch = {
-  checked: boolean;
-  handleChange: () => void;
+  checked?: boolean;
+  handleChange?: () => void;
 };
 
 const Profile = ({ checked, handleChange }: ISwitch) => {
@@ -33,10 +33,10 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
       });
       setCookie("userImage", user.data.userImage);
       setUserImage(getCookie("userImage"));
-      setSteamUser(user.data.accounts.steam);
-      setEpicUser(user.data.accounts.epic);
-      setPlaystationUser(user.data.accounts.playstation);
-      setXboxUser(user.data.accounts.xbox);
+      setSteamUser(user.data.steam);
+      setEpicUser(user.data.epic);
+      setPlaystationUser(user.data.playstation);
+      setXboxUser(user.data.xbox);
     }
     handleUserImage();
   }, []);
@@ -64,7 +64,7 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
                 className="w-[210px] h-[210] rounded-full"
               />
             ) : (
-              <FiUser className="text-boxcolor w-[100%] h-[100%] bg-text rounded-full" />
+              <FaUserAlt className="text-text w-[100%] h-[100%]  rounded-full pt-1"/>
             )}
           </div>
 
@@ -114,9 +114,8 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
                 {xboxUser}
               </p>
               <Switch
-                className=""
                 checked={checked}
-                onChange={() => handleChange()}
+                onChange={handleChange}
                 inputProps={{ "aria-label": "controlled" }}
               />
             </div>

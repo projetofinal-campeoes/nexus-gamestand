@@ -12,11 +12,16 @@ import { NexusContext } from "../context/NexusContext";
 export default function Header() {
   const { handleUserModalOpen } = useContext(NexusContext);
   const router = useRouter();
+  const handleClick = () => {
+    router.push('/dashboard')
+  }
   const { register, handleSubmit } = useForm();
   const handleLogout = () => {
     deleteCookie("token");
     deleteCookie("email");
     deleteCookie("name");
+    deleteCookie("id");
+    deleteCookie("userImage");
     router.push("/login");
   };
   return (
@@ -28,6 +33,7 @@ export default function Header() {
           width={198}
           height={40}
           className="cursor-pointer"
+          onClick={handleClick}
         />
 
         <nav className="flex items-center gap-6">

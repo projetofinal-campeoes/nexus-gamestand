@@ -3,7 +3,7 @@ import React, { createContext, ReactNode, useEffect, useState } from "react";
 import { FieldValues } from "react-hook-form";
 import { toast } from "react-toastify";
 import api from "../services/api";
-import { hasCookie, setCookie } from "cookies-next";
+import { getCookie, hasCookie, setCookie } from "cookies-next";
 import { errorToast, successToast } from "./../services/toast";
 
 type IContext = {
@@ -14,7 +14,6 @@ type IContext = {
   handleUserModalOpen: Function;
   checked: boolean;
   setChecked: Function;
-  handleChange: Function;
 };
 type INexusProvider = {
   children: ReactNode;
@@ -40,10 +39,6 @@ export const NexusContext = createContext<IContext>({} as IContext);
 const NexusProvider = ({ children }: INexusProvider) => {
   const [checked, setChecked] = React.useState(false);
   const [userModalOpen, setUserModalOpen] = useState(false);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
-  };
 
   const handleUserModalOpen = () => {
     setUserModalOpen(!userModalOpen);
@@ -73,11 +68,22 @@ const NexusProvider = ({ children }: INexusProvider) => {
   };
   const onSubmitRegister = (account: FieldValues) => {
     delete account.confirmPassword;
+    account.steam = null;
+    account.epic = null;
+    account.playstation = null;
+    account.xbox = null;
+    console.log(account);
     api
       .post("/register", account)
-      .then(() => {
+      .then((res) => {
+        setCookie("token", res.data.accessToken);
+        setCookie("name", res.data.user.username);
+        setCookie("email", res.data.user.email);
+        setCookie("id", res.data.user.id);
         successToast("Success Register!", 1000);
+        navigate.push("/dashboard");
       })
+
       .catch(({ response: { data: error } }) => {
         errorToast(error, 2500);
       });
@@ -91,8 +97,7 @@ const NexusProvider = ({ children }: INexusProvider) => {
         userModalOpen,
         handleUserModalOpen,
         checked,
-        setChecked,
-        handleChange,
+        setChecked
       }}
     >
       {" "}
