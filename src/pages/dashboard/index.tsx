@@ -76,19 +76,6 @@ export default function Dashboard({ games }: IDashboardProps) {
     )
 }
 
-interface IXboxProduct {
-    LocalizedProperties: {ProductTitle: string, ShortDescription: string, Images: IXboxProductImage[]}[],
-    Properties: {
-        Category: string
-    }
-}
-
-interface IXboxProductImage {
-    ImagePurpose: string
-    FileId: string,
-    Uri: string
-}
-
 interface ISteamProduct {
     appid: string,
     name: string
