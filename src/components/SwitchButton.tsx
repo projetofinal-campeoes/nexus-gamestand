@@ -1,23 +1,23 @@
-import * as React from "react";
+import { useContext } from "react";
 import Switch from "@mui/material/Switch";
+import { NexusContext } from "../context/NexusContext";
 
 export default function ControlledSwitches() {
-  const [checked, setChecked] = React.useState(true);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const { checked, setChecked } = useContext(NexusContext);
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked);
   };
 
   return (
     <Switch
       checked={checked}
-      onChange={handleChange}
+      onChange={() => handleChange}
       inputProps={{ "aria-label": "controlled" }}
     />
   );
 }
 
-//tipar: 
+//tipar:
 // type ISwitch = {
 //     checked: boolean;
 //     handleChange: boolean;
