@@ -1,3 +1,9 @@
-export default function Game() {
-    return <h1>Game</h1>
+import React from 'react'
+
+const Game = () => {
+  return (
+    <div>[game]</div>
+  )
 }
+
+export default Game
