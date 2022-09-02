@@ -14,7 +14,6 @@ type IContext = {
   handleUserModalOpen: Function;
   checked: boolean;
   setChecked: Function;
-  handleChange: Function;
 };
 type INexusProvider = {
   children: ReactNode;
@@ -40,10 +39,6 @@ export const NexusContext = createContext<IContext>({} as IContext);
 const NexusProvider = ({ children }: INexusProvider) => {
   const [checked, setChecked] = React.useState(false);
   const [userModalOpen, setUserModalOpen] = useState(false);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
-  };
 
   const handleUserModalOpen = () => {
     setUserModalOpen(!userModalOpen);
@@ -102,8 +97,7 @@ const NexusProvider = ({ children }: INexusProvider) => {
         userModalOpen,
         handleUserModalOpen,
         checked,
-        setChecked,
-        handleChange,
+        setChecked
       }}
     >
       {" "}

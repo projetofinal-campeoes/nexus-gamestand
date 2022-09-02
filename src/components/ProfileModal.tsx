@@ -12,8 +12,8 @@ import { getCookie, setCookie } from "cookies-next";
 import api from "../services/api";
 
 type ISwitch = {
-  checked: boolean;
-  handleChange: () => void;
+  checked?: boolean;
+  handleChange?: () => void;
 };
 
 const Profile = ({ checked, handleChange }: ISwitch) => {
@@ -114,9 +114,8 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
                 {xboxUser}
               </p>
               <Switch
-                className=""
                 checked={checked}
-                onChange={() => handleChange()}
+                onChange={handleChange}
                 inputProps={{ "aria-label": "controlled" }}
               />
             </div>

@@ -60,7 +60,7 @@ export default function Dashboard({ games }: IDashboardProps) {
       <Header />
 
       {userModalOpen && (
-        <Profile checked={checked} handleChange={() => handleChange()} />
+        <Profile />
       )}
 
       <main className="w-[80%] max-w-[1041px] flex flex-col gap-10 pb-10">
