@@ -33,10 +33,10 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
       });
       setCookie("userImage", user.data.userImage);
       setUserImage(getCookie("userImage"));
-      setSteamUser(user.data.accounts.steam);
-      setEpicUser(user.data.accounts.epic);
-      setPlaystationUser(user.data.accounts.playstation);
-      setXboxUser(user.data.accounts.xbox);
+      setSteamUser(user.data.steam);
+      setEpicUser(user.data.epic);
+      setPlaystationUser(user.data.playstation);
+      setXboxUser(user.data.xbox);
     }
     handleUserImage();
   }, []);
