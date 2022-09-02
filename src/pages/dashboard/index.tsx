@@ -27,20 +27,24 @@ export default function Dashboard({ games }: IDashboardProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const [gameList, setGameList] = useState<IGame[]>([]);
 
-  // const sortedGames = games.sort((currentGame, nextGame) =>
-  //   currentGame.productName.localeCompare(nextGame.productName)
-  // );
-
   const observer = useRef<HTMLLIElement | null>(null);
 
   useEffect(() => {
     axios
       .get(
-        `https://games-api.herokuapp.com/games?_page=${currentPage}&_limit=10`
+        `https://games-api.herokuapp.com/games?_page=${currentPage}&_limit=5`
       )
       .then(({ data }) => {
         setGameList((oldGameList) => [...oldGameList, ...data]);
       });
+    axios
+    .post(
+    `api/steam-games?page=${currentPage}&limit=5`,
+    {username: 'artur-xdxd'}
+    )
+    .then(({ data }) => {
+        setGameList((oldGameList) => [...oldGameList, ...data]);
+    });
   }, [currentPage]);
 
   useEffect(() => {
