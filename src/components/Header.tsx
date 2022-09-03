@@ -34,6 +34,7 @@ export default function Header() {
           height={40}
           className="cursor-pointer"
           onClick={handleClick}
+          priority
         />
 
         <nav className="flex items-center gap-6">
