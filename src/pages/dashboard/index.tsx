@@ -5,10 +5,11 @@ import { useContext, useEffect, useRef } from "react";
 import { NexusContext } from "../../context/NexusContext";
 import Profile from "../../components/ProfileModal";
 import { DashboardContext, IGame } from "../../context/DashboardContext";
-import GetXboxGames from "../../services/GetXboxGames";
-import GetSteamGames from "../../services/GetSteamGames";
+import getXboxGames from "../../services/getXboxGames";
+import getSteamGames from "../../services/getSteamGames";
 import { FaFilter, FaPlus } from "react-icons/fa";
 import axios from "axios";
+import Search from './../../components/Search';
 
 interface IDashboard {
     randomGames: IGame[]
@@ -16,13 +17,13 @@ interface IDashboard {
 
 export default function Dashboard({randomGames}: IDashboard) {
   const { userModalOpen } = useContext(NexusContext);
-  const { currentPage, PagePlusOne, gameList, addToInfiniteScroll } = useContext(DashboardContext)
+  const { currentPage, PagePlusOne, gameList, addToInfiniteScroll, isSearching } = useContext(DashboardContext)
 
   const observer = useRef<HTMLLIElement | null>(null);
 
   useEffect(() => {
-    GetSteamGames('srulf', currentPage, addToInfiniteScroll)
-    GetXboxGames(currentPage, addToInfiniteScroll)
+    getSteamGames('srulf', currentPage , 5, addToInfiniteScroll)
+    getXboxGames(currentPage, 5, addToInfiniteScroll)
   }, [currentPage]);
 
   useEffect(() => {
@@ -46,62 +47,68 @@ export default function Dashboard({randomGames}: IDashboard) {
       )}
 
       <main className="w-[80%] max-w-[1041px] flex flex-col gap-10 pb-10">
-        <section className="flex flex-col gap-4">
-          <h2 className="text-title2 text-text font-bold">Recommended</h2>
+        {
+        isSearching ?
+            <Search/>
+        :
+        <>
+            <section className="flex flex-col gap-4">
+                <h2 className="text-title2 text-text font-bold">Recommended</h2>
 
-          <ul className="grid grid-cols-2 gap-[20.5px]">
-          {randomGames.map(
-              ({ id, productName, image, platform }, index) => (
-                <GameCard
-                  key={index}
-                  id={id}
-                  name={productName}
-                  img={image.URL}
-                  platform={platform}
-                  type='large'
-                />
-              )
-            )}
-          </ul>
-        </section>
-        <section className="flex flex-col gap-4">
-            <div className="flex justify-between">
-                <h2 className="text-title2 text-text font-bold">Your games</h2>
-                
-                <nav className='flex text-primarycolor text-[20px] gap-6'>
-                    <button>
-                        <FaPlus className='text-[22px] hover:text-primaryhover ease-in duration-300'/>
-                    </button>
-                    <button>
-                        <FaFilter className="hover:text-primaryhover ease-in duration-300"/>
-                    </button>
-                </nav>
-            </div>
-          <ul className="grid grid-cols-3 gap-[20.5px]">
-            {gameList.map(
-              ({ id, productName, image, platform }, index) => (
-                <GameCard
-                  key={index}
-                  id={id}
-                  name={productName}
-                  img={image.URL}
-                  platform={platform}
-                />
-              )
-            )}
-            <li ref={observer}></li>
-          </ul>
-        </section>
+                <ul className="grid grid-cols-2 gap-[20.5px]">
+                {randomGames.map(
+                    ({ id, productName, image, platform }, index) => (
+                        <GameCard
+                        key={index}
+                        id={id}
+                        name={productName}
+                        img={image.URL}
+                        platform={platform}
+                        type='large'
+                        />
+                    )
+                    )}
+                </ul>
+                </section>
+                <section className="flex flex-col gap-4">
+                    <div className="flex justify-between">
+                        <h2 className="text-title2 text-text font-bold">Your games</h2>
+                        
+                        <nav className='flex text-primarycolor text-[20px] gap-6'>
+                            <button>
+                                <FaPlus className='text-[22px] hover:text-primaryhover ease-in duration-300'/>
+                            </button>
+                            <button>
+                                <FaFilter className="hover:text-primaryhover ease-in duration-300"/>
+                            </button>
+                        </nav>
+                    </div>
+                <ul className="grid grid-cols-3 gap-[20.5px]">
+                    {gameList.map(
+                    ({ id, productName, image, platform }, index) => (
+                        <GameCard
+                        key={index}
+                        id={id}
+                        name={productName}
+                        img={image.URL}
+                        platform={platform}
+                        />
+                        )
+                        )}
+                    <li ref={observer}></li>
+                </ul>
+            </section>
+        </>
+        }
       </main>
     </Background>
   );
 }
 
 export async function getServerSideProps() {
-    const randomPage = Math.floor(Math.random()*10)
+    const randomPage = Math.floor(Math.random()*10)+1
     const manyGames = await axios.get(`https://api.rawg.io/api/games?key=21bb0951c4fe428ba730b1e2a79833e1&page=${randomPage}`)
     const gamesArray = manyGames.data.results
-    console.log(gamesArray.length)
     const twoRandomGames = [gamesArray[Math.floor(Math.random()*gamesArray.length)], gamesArray[Math.floor(Math.random()*gamesArray.length)]]
     const formattedGames = twoRandomGames.map(({ id, name, background_image }) => {
         return {
