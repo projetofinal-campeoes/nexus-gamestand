@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import styles from '../styles/Home.module.sass'
-import { useForm } from 'react-hook-form';
 
 interface IInputProps {
     children: ReactNode,
