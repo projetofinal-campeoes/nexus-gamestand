@@ -2,21 +2,14 @@ import { useContext } from 'react';
 import { DashboardContext } from '../context/DashboardContext';
 import GameCard from './GameCard';
 import { useEffect } from 'react';
-import axios from 'axios';
 import styles from "../styles/Home.module.sass";
+import getAllGames from '../services/getAllGames';
 
 export default function Search() {
     const { allGamesList, changeAllGamesList, searchInput, filteredList, switchIsSearching } = useContext(DashboardContext)
 
     useEffect(() => {
-        axios.post(`api/steam-games?page=1&limit=1000`, {username: 'srulf'})
-        .then(({ data }) => {
-            changeAllGamesList(data)
-        });
-        axios.get(`https://games-api.herokuapp.com/games?_page=1&_limit=1000`)
-        .then(({ data }) => {
-            changeAllGamesList(data)
-        });
+        getAllGames(changeAllGamesList, 'srulf')
     }, []);
 
     return(
