@@ -40,7 +40,7 @@ export default function Dashboard({randomGames}: IDashboard) {
 
   return (
     <Background config="flex-col gap-8 items-center">
-      <Header />
+      <Header animation='animate__animated animate__fadeInDown animate__fast'/>
 
       {userModalOpen && (
         <Profile />

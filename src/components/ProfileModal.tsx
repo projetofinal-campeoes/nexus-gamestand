@@ -41,10 +41,10 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
     handleUserImage();
   }, []);
   const username = getCookie("name");
-  const { userModalOpen, handleUserModalOpen } = useContext(NexusContext);
+  const { userModalOpen, handleUserModalOpen, profileModal } = useContext(NexusContext);
 
   return (
-    <section className="fixed top-0 left-0 w-[100vw] h-[100vh] flex justify-center items-center z-10 bg-[rgba(0,0,0,0.5)] backdrop-blur-[2px]">
+    <section ref={profileModal} className="fixed top-0 left-0 w-[100vw] h-[100vh] flex justify-center items-center z-10 bg-[rgba(0,0,0,0.5)] backdrop-blur-[2px] animate__animated animate__fadeIn">
       <SEO title="Profile" description="Profile Modal of Nexus Application" />
 
       <div className="w-[500px] rounded-3xl flex flex-col align-middle bg-boxcolor px-8 py-12 sm:px-20">
