@@ -7,7 +7,7 @@ const nextConfig = {
       "store-images.s-microsoft.com",
       "cdn.cloudflare.steamstatic.com",
       "cdn6.aptoide.com",
-      "*",
+      "media.rawg.io",
     ],
   },
 };

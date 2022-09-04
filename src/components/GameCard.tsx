@@ -9,7 +9,8 @@ interface GameCard {
     id: string,
     name: string,
     img: string,
-    platform: string
+    platform: string,
+    type?: string 
 }
 
 const platforms: Icons = {
@@ -21,7 +22,7 @@ interface Icons {
     [platform: string]: JSX.Element
 }
 
-export default function GameCard({ id, name, img, platform }: GameCard) {
+export default function GameCard({ id, name, img, platform, type }: GameCard) {
     const [URLError, setURLError] = useState(false)
 
     const handleImageError = () => {
@@ -29,8 +30,8 @@ export default function GameCard({ id, name, img, platform }: GameCard) {
     }
 
     return(
-        <li className={styles.listItem}>
-            <Link href={`/dashboard/games/${id}?plat=${platform}`} className='overflow-hidden'>
+        <li className={type === 'large' ? "w-[100%] h-[281px] bg-boxcolor rounded-lg overflow-hidden relative" : styles.listItem}>
+            <Link href={`/dashboard/games/${name}`} className='overflow-hidden'>
                 <div className={styles.content}>
                     <div>
                         <Image onErrorCapture={handleImageError} src={URLError ? 'https://cdn6.aptoide.com/imgs/1/3/5/135414bbfd2c62340daf0f53516fc106_screen.jpg?h=500' : img} layout='fill' objectFit='cover' alt={name} quality={100} placeholder='blur' blurDataURL='https://cdn6.aptoide.com/imgs/1/3/5/135414bbfd2c62340daf0f53516fc106_screen.jpg?h=500'/>
@@ -42,11 +43,16 @@ export default function GameCard({ id, name, img, platform }: GameCard) {
 
                 </div>
             </Link>
-            <div className='absolute right-0 bottom-0 p-2 bg-boxcolor rounded-tl-lg text-text text-[15px]'>
-                {
-                    platforms[platform]
-                }
-            </div>
+            {
+                type === 'large' ?
+                    <></>
+                :
+                    <div className='absolute right-0 bottom-0 p-2 bg-boxcolor rounded-tl-lg text-text text-[15px]'>
+                    {
+                        platforms[platform]
+                    }
+                    </div>    
+            }
         </li>
     )
 }

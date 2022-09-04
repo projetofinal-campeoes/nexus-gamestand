@@ -1,21 +1,22 @@
 import styles from "../styles/Home.module.sass";
 import { FaUser } from "react-icons/fa";
 import Image from "next/image";
-import Input from "./Input";
 import { FaSearch, FaSignOutAlt } from "react-icons/fa";
-import { useForm } from "react-hook-form";
 import { deleteCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { NexusContext } from "../context/NexusContext";
+import { DashboardContext } from "../context/DashboardContext";
 
 export default function Header() {
   const { handleUserModalOpen } = useContext(NexusContext);
+  const { switchIsSearching, changeInputValue } = useContext(DashboardContext)
+
   const router = useRouter();
   const handleClick = () => {
     router.push('/dashboard')
   }
-  const { register, handleSubmit } = useForm();
+
   const handleLogout = () => {
     deleteCookie("token");
     deleteCookie("email");
@@ -34,18 +35,16 @@ export default function Header() {
           height={40}
           className="cursor-pointer"
           onClick={handleClick}
+          priority
         />
 
         <nav className="flex items-center gap-6">
           <form>
-            <Input
-              type="text"
-              placeholder="search game name..."
-              name="search"
-              register={register}
-            >
-              <FaSearch color="E1E1E1" size={15} />
-            </Input>
+            <label className={styles.inputBox}>
+                <FaSearch color="E1E1E1" size={15} />
+                <input type='text' placeholder="search game name..." className={styles.input} onFocus={() => switchIsSearching(true)} onChange={(event) => changeInputValue(event.target.value)}/>
+            </label>
+
           </form>
           <button className="flex" onClick={() => handleUserModalOpen()}>
             <FaUser className="text-primarycolor text-[25px] mr-5 hover:text-primaryhover ease-in duration-300" />
