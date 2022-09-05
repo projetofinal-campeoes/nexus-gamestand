@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { createRef, useContext } from "react";
+import React, { createRef } from "react";
 import SEO from "./SEO";
 import styles from "../styles/Home.module.sass";
 import { useRouter } from "next/router";
