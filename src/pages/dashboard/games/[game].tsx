@@ -6,6 +6,7 @@ import getAllGamesName from "../../../utils/getAllGamesName";
 import axios from "axios";
 import Link from 'next/link';
 import styles from '../../../styles/Home.module.sass'
+import Head from "next/head";
 
 interface IGameProps {
     gameInfo: {
@@ -20,7 +21,12 @@ interface IGameProps {
 const Game = ({ gameInfo }: IGameProps) => {
   return (
     <Background config="flex flex-col items-center gap-10 pb-[40px]">
-      <Header />
+        <Head>
+            <title>{`NEXUS - ${gameInfo.name}`} 
+            </title>
+        <link rel="shortcut icon" href="/nexus.png" type="image/x-icon" />
+        </Head>
+      <Header animation=''/>
       <div className="w-[80%] max-w-[1041px] flex flex-col  gap-8 text-text items-center">
         <Link href='..'>
             <button className='bg-primarycolor rounded-lg shadow-md py-4 px-8 text-text font-medium hover:bg-primaryhover ease-linear duration-300 self-start'>Back</button>
