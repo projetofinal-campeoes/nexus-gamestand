@@ -34,6 +34,8 @@ Com esse intuito em mente, pensando no front-end, criaremos uma aplicação que 
 - [x] Edição de Usuário (PATCH): que poderá receber username e/ou um link de imagem para o perfil.
 - [x] Deleção de Usuário (DELETE): que receberá o id do usuário.
 - [x] Conectar Plataforma (PUT): que receberá um link.
+- [x] Requisições na [Steam API](https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_.28v0001.29)
+- [x] Requisições na [Xbox API]()
 
 
 <br/>
