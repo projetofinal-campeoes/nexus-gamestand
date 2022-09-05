@@ -11,6 +11,8 @@ import { FaFilter, FaPlus } from "react-icons/fa";
 import axios from "axios";
 import Search from './../../components/Search';
 import Head from "next/head";
+import { useAuth } from "../../context/AuthContext";
+import { useRouter } from 'next/router';
 
 interface IDashboard {
     randomGames: IGame[]
@@ -19,6 +21,8 @@ interface IDashboard {
 export default function Dashboard({randomGames}: IDashboard) {
   const { userModalOpen } = useContext(NexusContext);
   const { currentPage, PagePlusOne, gameList, addToInfiniteScroll, isSearching } = useContext(DashboardContext)
+  const { user, setIsLoading } = useAuth()
+  const router = useRouter()
 
   const observer = useRef<HTMLLIElement | null>(null);
 
@@ -28,6 +32,12 @@ export default function Dashboard({randomGames}: IDashboard) {
   }, [currentPage]);
 
   useEffect(() => {
+    if(user) {
+        setIsLoading(false)
+    } else {
+        router.push('/')
+    }
+
     const intersectionObserver = new IntersectionObserver((entries) => {
       if (entries.some((entry) => entry.isIntersecting)) {
         PagePlusOne()

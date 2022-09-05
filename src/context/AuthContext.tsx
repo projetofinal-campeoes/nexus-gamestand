@@ -1,4 +1,4 @@
-import { deleteCookie, getCookie, setCookie } from 'cookies-next';
+import { deleteCookie, getCookie, hasCookie, setCookie } from 'cookies-next';
 import { useRouter } from 'next/router';
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import { FieldValues } from 'react-hook-form';
@@ -14,20 +14,22 @@ interface IProvider {
 interface IAuthContext {
     isAuthenticated: boolean,
     user: IUser | null,
+    setUser: (user: IUser) => void,
     isLoading: boolean,
+    setIsLoading: (state: boolean) => void,
     handleLogin: (account: FieldValues) => void,
     handleLogout: () => void
 }
 
 interface IUser {
-    username: string,
+    username: string | null,
     email: string,
     password: string,
     steam: string | null,
     epic: string | null,
     playstation: string | null,
     xbox: string | null,
-    imageURL?: string
+    imageURL?: string | null
 }
 
 interface IError {
@@ -51,14 +53,14 @@ export default function AuthProvider({ children }: IProvider) {
             const tokenOnCookies = getCookie('token')
             const idOnCookies = getCookie('id')
 
-            if(tokenOnCookies) {
-                api.defaults.headers.common.authorization = `Bearer ${tokenOnCookies}`
+            if(hasCookie('token')) {
+                api.defaults.headers.common.Authorization = `Bearer ${tokenOnCookies}`
                 const { data } = await api.get(`/users/${idOnCookies}`)
 
                 data && setUser(data)
                 router.push('/dashboard')
             } else {
-                router.push('/login')
+                router.push('/')
             }
             
             setIsLoading(false)
@@ -72,7 +74,7 @@ export default function AuthProvider({ children }: IProvider) {
             const {data: { accessToken, user: { id } }} = await api.post("/login", account)
             setCookie("token", accessToken);
             setCookie("id", id)
-            api.defaults.headers.common.authorization = `Bearer ${accessToken}`
+            api.defaults.headers.common.Authorization = `Bearer ${accessToken}`
 
             const { data } = await api.get(`/users/${id}`)
             setUser(data)
@@ -91,7 +93,7 @@ export default function AuthProvider({ children }: IProvider) {
     }
 
     return(
-        <AuthContext.Provider value={{ isAuthenticated: !!user, user, isLoading, handleLogin, handleLogout }}>
+        <AuthContext.Provider value={{ isAuthenticated: !!user, user, setUser, isLoading, setIsLoading, handleLogin, handleLogout }}>
             {children}
         </AuthContext.Provider>
     )
@@ -102,7 +104,7 @@ export const ProtectRoute = ({ children }: IProvider): JSX.Element => {
 
     const router = useRouter()
 
-    if (isLoading || (!isAuthenticated && router.pathname !== '/login')){
+    if (isLoading || (!isAuthenticated && router.pathname !== '/' && router.pathname !== '/login')){
       return (
         <Background config="items-center justify-center">
           <Loader/>
