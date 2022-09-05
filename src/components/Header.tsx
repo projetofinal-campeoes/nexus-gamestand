@@ -8,7 +8,11 @@ import { useContext } from "react";
 import { NexusContext } from "../context/NexusContext";
 import { DashboardContext } from "../context/DashboardContext";
 
-export default function Header() {
+type IHeader = {
+  animation: string;
+}
+
+const Header = ({animation}:IHeader) => {
   const { handleUserModalOpen } = useContext(NexusContext);
   const { switchIsSearching, changeInputValue } = useContext(DashboardContext)
 
@@ -26,7 +30,7 @@ export default function Header() {
     router.push("/login");
   };
   return (
-    <header className={styles.containerHeader}>
+    <header className={`${styles.containerHeader} ${animation}`}>
       <div className={styles.wrapperHeader}>
         <Image
           src="/Logo.svg"
@@ -60,3 +64,4 @@ export default function Header() {
     </header>
   );
 }
+export default Header

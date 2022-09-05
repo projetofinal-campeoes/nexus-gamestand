@@ -13,7 +13,7 @@
 
   /* Chrome, Edge, and Safari */
   *::-webkit-scrollbar {
-    width: 18px;
+    width: 10px;
   }
 
   *::-webkit-scrollbar-track {
@@ -29,7 +29,7 @@
     transition: background-color 5000s ease-in-out 0s;
 	}
 	:root {
-		--animate-duration: 0.3s;
+		/* --animate-duration: 0.5s; */
 	  }
     html {
       font-family: 'Inter', system-ui, sans-serif;

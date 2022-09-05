@@ -18,7 +18,7 @@ const Register = () => {
     container.current?.classList.add("animate__animated", "animate__fadeOut");
     setTimeout(() => {
       navigate.push("/login");
-    }, 300);
+    }, 500);
   };
 
   return (

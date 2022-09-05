@@ -13,7 +13,7 @@ export default function Search() {
     }, []);
 
     return(
-        <section className="flex flex-col gap-4">
+        <section className="flex flex-col gap-4 animate__animated animate__fadeIn animate__slow">
             <div className='flex gap-4 items-center'>
                 <button className={styles.button} onClick={() => switchIsSearching(false)}>Back</button>
                 <h2 className="text-title2 text-text font-bold">Search Result:</h2>
