@@ -4,6 +4,30 @@
 
 
 @layer base {
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #aa91f0 #434343;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 18px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #434343;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #aa91f0;
+    border-radius: 10px;
+    border: 4px solid #434343;
+  }
+	input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+	}
 	:root {
 		--animate-duration: 0.3s;
 	  }
