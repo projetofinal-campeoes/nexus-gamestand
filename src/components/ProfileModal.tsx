@@ -17,7 +17,6 @@ type ISwitch = {
   checked?: boolean;
   handleChange?: () => void;
 };
-
 const Profile = ({ checked, handleChange }: ISwitch) => {
   const [userImage, setUserImage] = useState(getCookie("userImage"));
   const [steamUser, setSteamUser] = useState("");
@@ -103,7 +102,6 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
   return (
     <section className="fixed top-0 left-0 w-[100vw] h-[100vh] flex justify-center items-center z-10 bg-[rgba(0,0,0,0.5)] backdrop-blur-[2px]">
       <SEO title="Profile" description="Profile Modal of Nexus Application" />
-
       <div className="w-[500px] rounded-3xl flex flex-col align-middle bg-boxcolor px-8 py-12 sm:px-20">
         <div className="flex justify-end mb-10 text-primarycolor ">
           <FaWindowClose
@@ -124,7 +122,6 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
               <FaUserAlt className="text-text w-[100%] h-[100%]  rounded-full pt-1" />
             )}
           </div>
-
           <h2 className="text-center text-title1 font-bold text-text">
             {username}
           </h2>
@@ -242,7 +239,6 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
               </div>
             )}
           </div>
-
           <div className="flex items-center relative">
             <SiXbox className={styles.iconGame} />
             <h2 className={styles.gameName}>Xbox G.P.</h2>
@@ -262,5 +258,4 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
     </section>
   );
 };
-
 export default Profile;

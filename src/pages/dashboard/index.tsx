@@ -10,6 +10,7 @@ import { DashboardContext, IGame } from "../../context/DashboardContext";
 import { FaFilter, FaPlus } from "react-icons/fa";
 import axios from "axios";
 import Search from './../../components/Search';
+import Head from "next/head";
 
 interface IDashboard {
     randomGames: IGame[]
@@ -40,7 +41,10 @@ export default function Dashboard({randomGames}: IDashboard) {
 
   return (
     <Background config="flex-col gap-8 items-center">
-      <Header />
+      <Header animation='animate__animated animate__fadeInDown animate__fast'/>
+      <Head>
+        <title>NEXUS - Dashboard</title>
+      </Head>
 
       {userModalOpen && (
         <Profile />

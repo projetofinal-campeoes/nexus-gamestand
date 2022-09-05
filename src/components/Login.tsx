@@ -19,7 +19,7 @@ const Login = () => {
     container.current?.classList.add("animate__animated", "animate__fadeOut");
     setTimeout(() => {
       navigate.push("/register");
-    }, 300);
+    }, 500);
   };
   return (
     <>
