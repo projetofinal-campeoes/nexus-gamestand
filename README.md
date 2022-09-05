@@ -34,8 +34,6 @@ Com esse intuito em mente, pensando no front-end, criaremos uma aplicação que 
 - [x] Edição de Usuário (PATCH): que poderá receber username e/ou um link de imagem para o perfil.
 - [x] Deleção de Usuário (DELETE): que receberá o id do usuário.
 - [x] Conectar Plataforma (PUT): que receberá um link.
-- [x] Com isso em consideração, acreditamos que o back-end também será facil de fazer.
-- [x] E por fim, sobre as tecnologias que usaremos para desenvolver
 
 
 <br/>
