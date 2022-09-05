@@ -11,14 +11,14 @@ import Head from "next/head";
 
 
 const Home: NextPage = () => {
-  const { isLoggedIn } = useContext(NexusContext);
-  const router = useRouter()
+//   const { isLoggedIn } = useContext(NexusContext);
+//   const router = useRouter()
 
-  useEffect(() => {
-    setTimeout(() => {
-      !isLoggedIn ? router.push('/login') : router.push('/dashboard')
-    }, 1000);
-  }, [])  
+//   useEffect(() => {
+//     setTimeout(() => {
+//       !isLoggedIn ? router.push('/login') : router.push('/dashboard')
+//     }, 1000);
+//   }, [])  
   return (
     <>
         <Background config="items-center justify-center">
