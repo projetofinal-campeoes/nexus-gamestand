@@ -13,12 +13,12 @@ type IHeader = {
 }
 
 const Header = ({animation}:IHeader) => {
-  const { handleUserModalOpen } = useContext(NexusContext);
-  const { switchIsSearching, changeInputValue } = useContext(DashboardContext)
+  const { setUserModalOpen, userModalOpen } = useContext(NexusContext);
+  const { switchIsSearching, changeInputValue, } = useContext(DashboardContext)
 
   const router = useRouter();
   const handleClick = () => {
-    router.push('/dashboard')
+    router.push('/')
   }
 
   const handleLogout = () => {
@@ -27,7 +27,7 @@ const Header = ({animation}:IHeader) => {
     deleteCookie("name");
     deleteCookie("id");
     deleteCookie("userImage");
-    router.push("/login");
+    router.push("/");
   };
   return (
     <header className={`${styles.containerHeader} ${animation}`}>
@@ -50,7 +50,7 @@ const Header = ({animation}:IHeader) => {
             </label>
 
           </form>
-          <button className="flex" onClick={() => handleUserModalOpen()}>
+          <button className="flex" onClick={() => setUserModalOpen(!userModalOpen)}>
             <FaUser className="text-primarycolor text-[25px] mr-5 hover:text-primaryhover ease-in duration-300" />
           </button>
           <button>
