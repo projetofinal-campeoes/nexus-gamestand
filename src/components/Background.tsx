@@ -7,7 +7,7 @@ interface IBackgroundProps {
 
 const Background = ({ children, config }: IBackgroundProps) => {
   return (
-    <div className={`min-h-screen h-fit w-[100%] bg-backgroundcolor flex ${config}`}>
+    <div className={`min-h-screen h-fit w-[100%] bg-[#13151b] flex ${config}`}>
       {children}
     </div>
   );
