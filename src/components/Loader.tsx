@@ -8,7 +8,7 @@ export default function CircularColor() {
     const router = useRouter()
     useEffect(() => {        
       setTimeout(() => {
-        hasCookie('token') ? router.push('/') : router.push('/login')
+        hasCookie('token') ? router.push('/dashboard') : router.push('/')
       }, 1000);
     }, [])
     
