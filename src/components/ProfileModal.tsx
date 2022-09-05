@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import SEO from "./SEO";
 import { FaSteam, FaWindowClose } from "react-icons/fa";
@@ -10,8 +9,6 @@ import { Switch } from "@mui/material";
 import { NexusContext } from "../context/NexusContext";
 import { getCookie, setCookie } from "cookies-next";
 import api from "../services/api";
-import Input from "./Input";
-import { type } from "os";
 
 type ISwitch = {
   checked?: boolean;

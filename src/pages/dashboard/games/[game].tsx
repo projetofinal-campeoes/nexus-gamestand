@@ -20,7 +20,7 @@ interface IGameProps {
 const Game = ({ gameInfo }: IGameProps) => {
   return (
     <Background config="flex flex-col items-center gap-10 pb-[40px]">
-      <Header />
+      <Header animation='animate__animated animate__fadeInDown animate__fast'/>
       <div className="w-[80%] max-w-[1041px] flex flex-col  gap-8 text-text items-center">
         <Link href='..'>
             <button className='bg-primarycolor rounded-lg shadow-md py-4 px-8 text-text font-medium hover:bg-primaryhover ease-linear duration-300 self-start'>Back</button>

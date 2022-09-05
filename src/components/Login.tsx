@@ -6,12 +6,12 @@ import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import Input from "./Input";
 import { MdMail, MdLock } from "react-icons/md";
-import { NexusContext } from "../context/NexusContext";
 import { IUser } from "../context/NexusContext";
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
   const navigate = useRouter();
-  const { onSubmitLogin } = useContext(NexusContext);
+  const { handleLogin } = useAuth()
   const { register, handleSubmit } = useForm<IUser>();
   const container = createRef<HTMLDivElement>();
 
@@ -34,7 +34,7 @@ const Login = () => {
         <form
           action=""
           className="flex flex-col justify-center gap-6"
-          onSubmit={handleSubmit(onSubmitLogin)}
+          onSubmit={handleSubmit(handleLogin)}
           autoComplete="off"
         >
           <Input
