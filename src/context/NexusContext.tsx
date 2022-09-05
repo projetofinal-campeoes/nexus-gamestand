@@ -9,6 +9,7 @@ type IContext = {
   onSubmitRegister: (account: object) => void;
   userModalOpen: boolean;
   handleUserModalOpen: Function;
+  setUserModalOpen: Function;
   checked: boolean;
   setChecked: Function;
   profileModal: any
@@ -38,6 +39,7 @@ const NexusProvider = ({ children }: INexusProvider) => {
       setUserModalOpen(!userModalOpen);
     }, 500);
   };
+
   
   const navigate = useRouter();
 
@@ -70,6 +72,7 @@ const NexusProvider = ({ children }: INexusProvider) => {
         profileModal,
         checked,
         setChecked,
+        setUserModalOpen,
       }}
     >
       {" "}

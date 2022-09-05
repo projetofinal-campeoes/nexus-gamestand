@@ -28,7 +28,7 @@
 .divUser
     @apply flex items-center
 .profileImage
-    @apply rounded-full border-8 border-solid border-primarycolor w-[210px] h-[210px]
+    @apply rounded-full border-8 border-solid border-primarycolor w-[210px] h-[210px] overflow-hidden
 .usernameProfile
     @apply text-headline3 font-medium text-text whitespace-nowrap overflow-hidden text-ellipsis w-[99px] text-left
 .iconGame
@@ -50,7 +50,6 @@
 
     &:hover > .hoverContainer
         @apply opacity-80
-
 .hoverContainer
-    @apply w-[100%] h-[100%] opacity-80 absolute left-0 top-0 bg-hoverCard flex justify-center items-center opacity-0 transition ease-in-out delay-150 p-2
+    @apply w-[100%] h-[100%] opacity-80 absolute left-0 top-0 bg-hovercard flex justify-center items-center opacity-0 transition ease-in-out delay-150 p-2
 
