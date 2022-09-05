@@ -12,6 +12,7 @@ import { getCookie, setCookie } from "cookies-next";
 import api from "../services/api";
 import Input from "./Input";
 import { type } from "os";
+import { useForm } from "react-hook-form";
 
 type ISwitch = {
   checked?: boolean;
@@ -33,7 +34,7 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
           authorization: `Bearer ${userToken}`,
         },
       });
-      setCookie("userImage", user.data.userImage);
+      setCookie("userImage", user.data.imageURL);
       setUserImage(getCookie("userImage"));
       setSteamUser(user.data.steam);
       setEpicUser(user.data.epic);
@@ -43,6 +44,8 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
     handleUserImage();
   }, []);
   const username = getCookie("name");
+  const [userName, setUserName] = useState(getCookie("name"));
+
   const { userModalOpen, handleUserModalOpen } = useContext(NexusContext);
   const [steamEdit, setSteamEdit] = useState(false);
   const [epicEdit, setEpicEdit] = useState(false);
@@ -99,6 +102,44 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
         }
       );
   };
+  const [changeModalSection, setChangeModalSection] = useState<boolean>(false);
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = async (data: any) => {
+    for (let key in data) {
+      data[key] === "" && delete data[key];
+    }
+    const userId = getCookie("id");
+    const token = getCookie("token");
+    await api.patch(`/users/${userId}`, data, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    await api
+      .get(`/users/${userId}`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((user) => {
+        setCookie("userImage", user.data.imageURL);
+        setUserImage(getCookie("userImage"));
+        setSteamUser(user.data.steam);
+        setEpicUser(user.data.epic);
+        setPlaystationUser(user.data.playstation);
+        setXboxUser(user.data.xbox);
+        data.username && setUserName(data.username);
+        data.username && setCookie("name", data.username);
+        data.image && setCookie("userImage", data.image);
+        data.image && setUserImage(data.imageURL);
+      });
+  };
 
   return (
     <section className="fixed top-0 left-0 w-[100vw] h-[100vh] flex justify-center items-center z-10 bg-[rgba(0,0,0,0.5)] backdrop-blur-[2px]">
@@ -118,7 +159,7 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
               <img
                 src={`${userImage}`}
                 alt="userImage"
-                className="w-[210px] h-[210] rounded-full"
+                className="w-[210px] h-[210px] rounded-full"
               />
             ) : (
               <FaUserAlt className="text-text w-[100%] h-[100%]  rounded-full pt-1" />
@@ -126,138 +167,192 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
           </div>
 
           <h2 className="text-center text-title1 font-bold text-text">
-            {username}
+            {userName}
           </h2>
-          <div className="flex mt-10 text-text font-bold text-title2 gap-8">
-            <div className="flex">
-              <div className=" h-[100%] flex">
-                <button className="px-4 border-primarycolor text-primarycolor border-b-4 text-left w-[100%]">
-                  Library&apos;s
-                </button>
-              </div>
-              <div className=" h-[100%] flex">
-                <button className="border-text border-b-4 text-right px-4">
-                  Edit profile
-                </button>
+          <nav className="mt-10 flex w-[100%] font-bold text-title2">
+            <button
+              className={`${
+                changeModalSection ? "text-[#E1E1E1]" : "text-primarycolor"
+              } border-b-[3px] font-bold mb-5 w-[50%]`}
+              onClick={() => setChangeModalSection(false)}
+            >
+              Library&apos;s
+            </button>
+            <button
+              className={`${
+                changeModalSection ? "text-primarycolor " : "text-[#E1E1E1]"
+              } border-b-[3px] font-bold  mb-5 w-[50%]`}
+              onClick={() => setChangeModalSection(true)}
+            >
+              Edit Profile
+            </button>
+          </nav>
+        </div>
+        {!changeModalSection ? (
+          <div className="flex flex-col gap-4 mt-10">
+            <div className={styles.divUser}>
+              {steamEdit === false ? (
+                <>
+                  <FaSteam className={styles.iconGame} />
+                  <h2 className={styles.gameName}>Steam</h2>
+                  <p className={styles.usernameProfile}>{steamUser}</p>
+                  <AiOutlineEdit
+                    className={styles.editIcon}
+                    onClick={handleSteamEdit}
+                  />
+                </>
+              ) : (
+                <div className="flex items-center m-auto gap-4">
+                  <label className={styles.inputBox}>
+                    <FaSteam className="text-[25px]" />
+
+                    <input
+                      type="text"
+                      placeholder="username"
+                      className={styles.input}
+                      onChange={(e: any) => setSteamUser(e.target.value)}
+                    />
+                  </label>
+
+                  <AiOutlineCheck
+                    className={styles.editIcon}
+                    onClick={() => {
+                      handleUserPlatformEdit("steam", steamUser);
+                      handleSteamEdit();
+                    }}
+                  />
+                </div>
+              )}
+            </div>
+            <div className={styles.divUser}>
+              {epicEdit === false ? (
+                <>
+                  <SiEpicgames className={styles.iconGame} />
+                  <h2 className={styles.gameName}>Epic Games</h2>
+                  <p className={styles.usernameProfile}>{epicUser}</p>
+                  <AiOutlineEdit
+                    className={styles.editIcon}
+                    onClick={handleEpicEdit}
+                  />
+                </>
+              ) : (
+                <div className="flex items-center m-auto gap-4">
+                  <label className={styles.inputBox}>
+                    <SiEpicgames className="text-[25px]" />
+                    <input
+                      type="text"
+                      placeholder="username"
+                      className={styles.input}
+                      onChange={(e: any) => setEpicUser(e.target.value)}
+                    />
+                  </label>
+                  <AiOutlineCheck
+                    className={styles.editIcon}
+                    onClick={() => {
+                      handleUserPlatformEdit("epic", epicUser);
+                      handleEpicEdit();
+                    }}
+                  />
+                </div>
+              )}
+            </div>
+            <div className={styles.divUser}>
+              {playstationEdit === false ? (
+                <>
+                  <SiPlaystation className={styles.iconGame} />
+                  <h2 className={styles.gameName}>Playstation</h2>
+                  <p className={styles.usernameProfile}>{playstationUser}</p>
+                  <AiOutlineEdit
+                    className={styles.editIcon}
+                    onClick={handlePlaystationEdit}
+                  />
+                </>
+              ) : (
+                <div className="flex items-center m-auto gap-4">
+                  <label className={styles.inputBox}>
+                    <SiPlaystation className="text-[25px]" />
+                    <input
+                      type="text"
+                      placeholder="username"
+                      className={styles.input}
+                      onChange={(e: any) => setPlaystationUser(e.target.value)}
+                    />
+                  </label>
+                  <AiOutlineCheck
+                    className={styles.editIcon}
+                    onClick={() => {
+                      handleUserPlatformEdit("playstation", playstationUser);
+                      handlePlaystationEdit();
+                    }}
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className="flex items-center relative">
+              <SiXbox className={styles.iconGame} />
+              <h2 className={styles.gameName}>Xbox G.P.</h2>
+              <div className="flex items-center absolute right-[-17px]">
+                <p className="text-headline3 font-medium text-text whitespace-nowrap overflow-hidden text-ellipsis w-[82px] text-left">
+                  {xboxUser}
+                </p>
+                <Switch
+                  checked={checked}
+                  onChange={handleChange}
+                  inputProps={{ "aria-label": "controlled" }}
+                />
               </div>
             </div>
           </div>
-        </div>
-        <div className="flex flex-col gap-4 mt-10">
-          <div className={styles.divUser}>
-            {steamEdit === false ? (
-              <>
-                <FaSteam className={styles.iconGame} />
-                <h2 className={styles.gameName}>Steam</h2>
-                <p className={styles.usernameProfile}>{steamUser}</p>
-                <AiOutlineEdit
-                  className={styles.editIcon}
-                  onClick={handleSteamEdit}
-                />
-              </>
-            ) : (
-              <div className="flex items-center m-auto gap-4">
-                <label className={styles.inputBox}>
-                  <FaSteam className="text-[25px]" />
-
-                  <input
-                    type="text"
-                    placeholder="username"
-                    className={styles.input}
-                    onChange={(e: any) => setSteamUser(e.target.value)}
-                  />
-                </label>
-
-                <AiOutlineCheck
-                  className={styles.editIcon}
-                  onClick={() => {
-                    handleUserPlatformEdit("steam", steamUser);
-                    handleSteamEdit();
-                  }}
-                />
-              </div>
-            )}
-          </div>
-          <div className={styles.divUser}>
-            {epicEdit === false ? (
-              <>
-                <SiEpicgames className={styles.iconGame} />
-                <h2 className={styles.gameName}>Epic Games</h2>
-                <p className={styles.usernameProfile}>{epicUser}</p>
-                <AiOutlineEdit
-                  className={styles.editIcon}
-                  onClick={handleEpicEdit}
-                />
-              </>
-            ) : (
-              <div className="flex items-center m-auto gap-4">
-                <label className={styles.inputBox}>
-                  <SiEpicgames className="text-[25px]" />
-                  <input
-                    type="text"
-                    placeholder="username"
-                    className={styles.input}
-                    onChange={(e: any) => setEpicUser(e.target.value)}
-                  />
-                </label>
-                <AiOutlineCheck
-                  className={styles.editIcon}
-                  onClick={() => {
-                    handleUserPlatformEdit("epic", epicUser);
-                    handleEpicEdit();
-                  }}
-                />
-              </div>
-            )}
-          </div>
-          <div className={styles.divUser}>
-            {playstationEdit === false ? (
-              <>
-                <SiPlaystation className={styles.iconGame} />
-                <h2 className={styles.gameName}>Playstation</h2>
-                <p className={styles.usernameProfile}>{playstationUser}</p>
-                <AiOutlineEdit
-                  className={styles.editIcon}
-                  onClick={handlePlaystationEdit}
-                />
-              </>
-            ) : (
-              <div className="flex items-center m-auto gap-4">
-                <label className={styles.inputBox}>
-                  <SiPlaystation className="text-[25px]" />
-                  <input
-                    type="text"
-                    placeholder="username"
-                    className={styles.input}
-                    onChange={(e: any) => setPlaystationUser(e.target.value)}
-                  />
-                </label>
-                <AiOutlineCheck
-                  className={styles.editIcon}
-                  onClick={() => {
-                    handleUserPlatformEdit("playstation", playstationUser);
-                    handlePlaystationEdit();
-                  }}
-                />
-              </div>
-            )}
-          </div>
-
-          <div className="flex items-center relative">
-            <SiXbox className={styles.iconGame} />
-            <h2 className={styles.gameName}>Xbox G.P.</h2>
-            <div className="flex items-center absolute right-[-17px]">
-              <p className="text-headline3 font-medium text-text whitespace-nowrap overflow-hidden text-ellipsis w-[82px] text-left">
-                {xboxUser}
-              </p>
-              <Switch
-                checked={checked}
-                onChange={handleChange}
-                inputProps={{ "aria-label": "controlled" }}
+        ) : (
+          <form
+            className="flex flex-col gap-4 items-center"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <label className={styles.inputBox}>
+              <input
+                type="text"
+                placeholder="username"
+                className={styles.input}
+                autoComplete="off"
+                {...register("username")}
               />
-            </div>
-          </div>
-        </div>
+            </label>
+            <label className={styles.inputBox}>
+              <input
+                type="text"
+                placeholder="email"
+                className={styles.input}
+                autoComplete="off"
+                {...register("email")}
+              />
+            </label>
+            <label className={styles.inputBox}>
+              <input
+                type="text"
+                placeholder="image URL"
+                className={styles.input}
+                autoComplete="off"
+                {...register("imageURL")}
+              />
+            </label>
+            <label className={styles.inputBox}>
+              <input
+                type="password"
+                placeholder="password"
+                className={styles.input}
+                autoComplete="off"
+                {...register("password")}
+              />
+            </label>
+            <button
+              type="submit"
+              className="bg-primarycolor rounded-lg shadow-md py-4 px-8 w-[92%] text-text font-medium hover:bg-primaryhover ease-linear duration-300"
+            >
+              Submit
+            </button>
+          </form>
+        )}
       </div>
     </section>
   );
