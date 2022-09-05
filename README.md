@@ -28,7 +28,7 @@ Com esse intuito em mente, pensando no front-end, criaremos uma aplicação que 
 - [x] [Animate.css](https://animate.style/) - Lib de animações
 - [x] Outras bibliotecas que auxiliaram no desenvolvimento podem ser encontradas na seção: `"dependencies"` e `"devDependencies"` no arquivo `package.json`, no diretório relacionado ao FrontEnd
 
-## 🔨 Back-end
+## 🔨 Back-end (JSON Server)
 - [x] Registro (POST): que receberá username, email, senha, confirmação de senha
 - [x] Login (POST): que recebera email e senha
 - [x] Edição de Usuário (PATCH): que poderá receber username e/ou um link de imagem para o perfil.
