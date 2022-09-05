@@ -71,7 +71,7 @@ const NexusProvider = ({ children }: INexusProvider) => {
     account.steam = null;
     account.epic = null;
     account.playstation = null;
-    account.xbox = null;
+    account.xbox = false;
     console.log(account);
     api
       .post("/register", account)
@@ -97,7 +97,7 @@ const NexusProvider = ({ children }: INexusProvider) => {
         userModalOpen,
         handleUserModalOpen,
         checked,
-        setChecked
+        setChecked,
       }}
     >
       {" "}

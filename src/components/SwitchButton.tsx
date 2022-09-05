@@ -4,7 +4,7 @@ import { NexusContext } from "../context/NexusContext";
 
 export default function ControlledSwitches() {
   const { checked, setChecked } = useContext(NexusContext);
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked);
   };
 
