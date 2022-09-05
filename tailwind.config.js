@@ -30,7 +30,7 @@ module.exports = {
       primaryhover: "#805BE8",
       buttontext: "#FFFFFF",
       backgroundcolor: "#333333",
-      inputbackground: "#2e2e2e",
+      inputbackground: "#2a2f3c",
       deletecolor: "#DD4B4B",
       hovercard: "#000000",
       linkpage: "#7a7d86",

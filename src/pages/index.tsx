@@ -7,7 +7,8 @@ import { FaUserAlt } from "react-icons/fa";
 
 const VideoBg = () => {
   const router = useRouter();
-  const page = useRef<HTMLDivElement>(null);
+  const topPage = useRef<HTMLDivElement>(null);
+  const bottomPage = useRef<HTMLDivElement>(null);
   const [ userImage, setUserImage ] = useState(null)
 
   const handleClick = () => {
@@ -15,14 +16,16 @@ const VideoBg = () => {
   };
 
   const handleRegister = () => {
-    page.current?.classList.add("animate__animated", "animate__fadeOut");
+    topPage.current?.classList.add("animate__animated", "animate__fadeOut");
+    bottomPage.current?.classList.add("animate__animated", "animate__fadeOut");
     setTimeout(() => {
       router.push("/register");
     }, 500);
   };
 
   const handleLogin = () => {
-    page.current?.classList.add("animate__animated", "animate__fadeOut");
+    topPage.current?.classList.add("animate__animated", "animate__fadeOut");
+    bottomPage.current?.classList.add("animate__animated", "animate__fadeOut");
     setTimeout(() => {
       router.push("/login");
     }, 500);
@@ -30,10 +33,10 @@ const VideoBg = () => {
 
   return (
     <>
-      <SEO title="NEXUS GameStand" description="Doidera total" />
+      <SEO title="GameStand" description="Landing Page - The NEXUS App simplifies your access to your games, unifying all platforms into one." />
       <Background config="flex flex-col">
         <div
-          ref={page}
+          ref={topPage}
           className="w-[100%] h-[100vh] bg-backgroundlanding relative object-cover"
         >
           <video autoPlay loop muted className="w-[100%] h-[100vh] object-cover">
@@ -59,7 +62,7 @@ const VideoBg = () => {
             </header>
             <div className="w-[80%] h-[100%] flex flex-col justify-center">
               <div>
-                <h1 className="mt-auto text-[4rem] w-[30%] font-bebas">
+                <h1 className="mt-auto text-[5rem] w-[30%] font-bebas">
                   Your unified gaming platform
                 </h1>
               </div>
@@ -85,7 +88,7 @@ const VideoBg = () => {
           </div>
         </div>
 
-        <div className="w-[100%] h-fit py-16 flex justify-center flex-col items-center bg-[#13151b]">
+        <div ref={bottomPage} className="w-[100%] h-fit py-16 flex justify-center flex-col items-center bg-[#13151b]">
           <h1 className="font-bebas text-[4rem] text-text text-center">Supported Platforms</h1>
           <div className="gap-8 flex py-4 flex-wrap px-4">
             <Image 
