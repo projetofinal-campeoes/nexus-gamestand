@@ -28,14 +28,14 @@ Com esse intuito em mente, pensando no front-end, criaremos uma aplicação que 
 - [x] [Animate.css](https://animate.style/) - Lib de animações
 - [x] Outras bibliotecas que auxiliaram no desenvolvimento podem ser encontradas na seção: `"dependencies"` e `"devDependencies"` no arquivo `package.json`, no diretório relacionado ao FrontEnd
 
-## 🔨 Back-end
+## 🔨 Back-end (JSON Server)
 - [x] Registro (POST): que receberá username, email, senha, confirmação de senha
 - [x] Login (POST): que recebera email e senha
 - [x] Edição de Usuário (PATCH): que poderá receber username e/ou um link de imagem para o perfil.
 - [x] Deleção de Usuário (DELETE): que receberá o id do usuário.
 - [x] Conectar Plataforma (PUT): que receberá um link.
-- [x] Com isso em consideração, acreditamos que o back-end também será facil de fazer.
-- [x] E por fim, sobre as tecnologias que usaremos para desenvolver
+- [x] Requisições na [Steam API](https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_.28v0001.29)
+- [x] Requisições na [Xbox API]()
 
 
 <br/>
