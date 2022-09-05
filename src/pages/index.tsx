@@ -90,7 +90,7 @@ const VideoBg = () => {
 
         <div ref={bottomPage} className="w-[100%] h-fit py-16 flex justify-center flex-col items-center bg-[#13151b]">
           <h1 className="font-bebas text-[4rem] text-text text-center">Supported Platforms</h1>
-          <div className="gap-8 flex py-4 flex-wrap px-4">
+          <div className="gap-8 flex justify-center py-4 flex-wrap px-4">
             <Image 
             src="/steam.jpg"
             alt="Epic Games Logo"
