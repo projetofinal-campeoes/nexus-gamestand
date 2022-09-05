@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import SEO from "./SEO";
 import { FaSteam, FaWindowClose } from "react-icons/fa";
@@ -10,20 +9,20 @@ import { Switch } from "@mui/material";
 import { NexusContext } from "../context/NexusContext";
 import { getCookie, setCookie } from "cookies-next";
 import api from "../services/api";
-import Input from "./Input";
-import { type } from "os";
 import { useForm } from "react-hook-form";
 
 type ISwitch = {
   checked?: boolean;
   handleChange?: () => void;
 };
+
 const Profile = ({ checked, handleChange }: ISwitch) => {
   const [userImage, setUserImage] = useState(getCookie("userImage"));
   const [steamUser, setSteamUser] = useState("");
   const [epicUser, setEpicUser] = useState("");
   const [playstationUser, setPlaystationUser] = useState("");
   const [xboxUser, setXboxUser] = useState("");
+
   useEffect(() => {
     async function handleUserImage() {
       const userId = getCookie("id");
@@ -42,6 +41,7 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
     }
     handleUserImage();
   }, []);
+
   const username = getCookie("name");
   const [userName, setUserName] = useState(getCookie("name"));
   const { userModalOpen, handleUserModalOpen, profileModal } = useContext(NexusContext);

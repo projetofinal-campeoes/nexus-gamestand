@@ -2,33 +2,27 @@ import styles from "../styles/Home.module.sass";
 import { FaUser } from "react-icons/fa";
 import Image from "next/image";
 import { FaSearch, FaSignOutAlt } from "react-icons/fa";
-import { deleteCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { NexusContext } from "../context/NexusContext";
 import { DashboardContext } from "../context/DashboardContext";
+import { useAuth } from "../context/AuthContext";
 
 type IHeader = {
   animation: string;
 }
 
 const Header = ({animation}:IHeader) => {
+  const { handleLogout } = useAuth()
+  const { switchIsSearching, changeInputValue } = useContext(DashboardContext)
   const { setUserModalOpen, userModalOpen } = useContext(NexusContext);
-  const { switchIsSearching, changeInputValue, } = useContext(DashboardContext)
 
   const router = useRouter();
+
   const handleClick = () => {
     router.push('/')
   }
 
-  const handleLogout = () => {
-    deleteCookie("token");
-    deleteCookie("email");
-    deleteCookie("name");
-    deleteCookie("id");
-    deleteCookie("userImage");
-    router.push("/");
-  };
   return (
     <header className={`${styles.containerHeader} ${animation}`}>
       <div className={styles.wrapperHeader}>
