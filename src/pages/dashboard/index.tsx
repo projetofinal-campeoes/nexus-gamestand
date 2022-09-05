@@ -54,6 +54,7 @@ export default function Dashboard({randomGames}: IDashboard) {
       <Header animation='animate__animated animate__fadeInDown animate__fast'/>
       <Head>
         <title>NEXUS - Dashboard</title>
+        <link rel="shortcut icon" href="/nexus.png" type="image/x-icon" />
       </Head>
 
       {userModalOpen && (
