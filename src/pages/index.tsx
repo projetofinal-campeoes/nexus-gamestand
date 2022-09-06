@@ -4,12 +4,13 @@ import SEO from "../components/SEO";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FaUserAlt } from "react-icons/fa";
+import { useAuth } from "../context/AuthContext";
 
 const VideoBg = () => {
   const router = useRouter();
   const topPage = useRef<HTMLDivElement>(null);
   const bottomPage = useRef<HTMLDivElement>(null);
-  const [ userImage, setUserImage ] = useState(null)
+  const { user } = useAuth()
 
   const handleClick = () => {
     router.push("/dashboard");
@@ -54,8 +55,8 @@ const VideoBg = () => {
                   onClick={handleClick}
                   priority
                 />
-                <div className="ml-auto bg-linkpage rounded-[50%] p-2 cursor-pointer hover:bg-text ease-linear duration-300">
-                  { userImage === null ? <FaUserAlt className=" text-backgroundlanding" /> : 'renderizar user'}
+                <div className="ml-auto bg-linkpage rounded-[50%] cursor-pointer hover:bg-text ease-linear duration-300 flex items-center justify-center overflow-hidden w-[40px] h-[40px]">
+                  { user?.imageURL === undefined || null ? <FaUserAlt className=" text-backgroundlanding" /> : <img src={user!.imageURL} alt={user!.username} className='object-cover h-[100%]'/>}
                   
                 </div>
               </div>

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import SEO from "./SEO";
 import { FaSteam, FaWindowClose } from "react-icons/fa";
@@ -8,43 +7,38 @@ import { AiOutlineEdit, AiOutlineCheck } from "react-icons/ai";
 import styles from "../styles/Home.module.sass";
 import { Switch } from "@mui/material";
 import { NexusContext } from "../context/NexusContext";
-import { getCookie, setCookie } from "cookies-next";
+import { getCookie } from "cookies-next";
 import api from "../services/api";
-import Input from "./Input";
-import { type } from "os";
 import { useForm } from "react-hook-form";
+import { useAuth } from "../context/AuthContext";
 
 type ISwitch = {
   checked?: boolean;
   handleChange?: () => void;
 };
+
 const Profile = ({ checked, handleChange }: ISwitch) => {
-  const [userImage, setUserImage] = useState(getCookie("userImage"));
-  const [steamUser, setSteamUser] = useState("");
-  const [epicUser, setEpicUser] = useState("");
-  const [playstationUser, setPlaystationUser] = useState("");
-  const [xboxUser, setXboxUser] = useState("");
+  const [userName, setUserName] = useState<string | null>(null);
+  const [userImage, setUserImage] = useState<string | null | undefined>(null);
+  const [steamUser, setSteamUser] = useState<string | null>(null);
+  const [epicUser, setEpicUser] = useState<string | null>(null);
+  const [playstationUser, setPlaystationUser] = useState<string | null>(null);
+  const [xboxUser, setXboxUser] = useState<string | null>(null);
+  const { user, setUser } = useAuth()
+
   useEffect(() => {
     async function handleUserImage() {
-      const userId = getCookie("id");
-      const userToken = getCookie("token");
-      const user = await api.get(`/users/${userId}`, {
-        headers: {
-          authorization: `Bearer ${userToken}`,
-        },
-      });
-      setCookie("userImage", user.data.imageURL);
-      setUserImage(getCookie("userImage"));
-      setSteamUser(user.data.steam);
-      setEpicUser(user.data.epic);
-      setPlaystationUser(user.data.playstation);
-      setXboxUser(user.data.xbox);
+      setUserName(user!.username)
+      setUserImage(user!.imageURL);
+      setSteamUser(user!.steam);
+      setEpicUser(user!.epic);
+      setPlaystationUser(user!.playstation);
+      setXboxUser(user!.xbox);
     }
     handleUserImage();
-  }, []);
-  const username = getCookie("name");
-  const [userName, setUserName] = useState(getCookie("name"));
-  const { userModalOpen, handleUserModalOpen, profileModal } = useContext(NexusContext);
+  }, [user]);
+
+  const { handleUserModalOpen, profileModal } = useContext(NexusContext);
   const [steamEdit, setSteamEdit] = useState(false);
   const [epicEdit, setEpicEdit] = useState(false);
   const [playstationEdit, setPlaystationEdit] = useState(false);
@@ -62,42 +56,22 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
 
   const handleUserPlatformEdit = (plataforma: string, valor: string) => {
     const userId = getCookie("id");
-    const token = getCookie("token");
 
     plataforma === "steam" &&
       api.patch(
         `/users/${userId}`,
-        { steam: valor },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+        { steam: valor });
 
     plataforma === "epic" &&
       api.patch(
         `/users/${userId}`,
-        { epic: valor },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        { epic: valor }
       );
 
     plataforma === "playstation" &&
       api.patch(
         `/users/${userId}`,
-        { playstation: valor },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        { playstation: valor }
       );
   };
   const [changeModalSection, setChangeModalSection] = useState<boolean>(false);
@@ -111,32 +85,15 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
       data[key] === "" && delete data[key];
     }
     const userId = getCookie("id");
-    const token = getCookie("token");
+
     await api.patch(`/users/${userId}`, data, {
       headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
       },
     });
 
-    await api
-      .get(`/users/${userId}`, {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      })
-      .then((user) => {
-        setCookie("userImage", user.data.imageURL);
-        setUserImage(getCookie("userImage"));
-        setSteamUser(user.data.steam);
-        setEpicUser(user.data.epic);
-        setPlaystationUser(user.data.playstation);
-        setXboxUser(user.data.xbox);
-        data.username && setUserName(data.username);
-        data.username && setCookie("name", data.username);
-        data.image && setCookie("userImage", data.image);
-        data.image && setUserImage(data.imageURL);
-      });
+    const newUser = await api.get(`/users/${userId}`)
+    setUser(newUser.data)
   };
 
   return (
@@ -156,7 +113,7 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
               <img
                 src={`${userImage}`}
                 alt="userImage"
-                className="w-[210px] h-[210px] rounded-full"
+                className="w-[210px] h-[210px] rounded-full object-cover"
               />
             ) : (
               <FaUserAlt className="text-text w-[100%] h-[100%]  rounded-full pt-1" />
@@ -213,7 +170,7 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
                   <AiOutlineCheck
                     className={styles.editIcon}
                     onClick={() => {
-                      handleUserPlatformEdit("steam", steamUser);
+                      handleUserPlatformEdit("steam", steamUser!);
                       handleSteamEdit();
                     }}
                   />
@@ -245,7 +202,7 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
                   <AiOutlineCheck
                     className={styles.editIcon}
                     onClick={() => {
-                      handleUserPlatformEdit("epic", epicUser);
+                      handleUserPlatformEdit("epic", epicUser!);
                       handleEpicEdit();
                     }}
                   />
@@ -277,7 +234,7 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
                   <AiOutlineCheck
                     className={styles.editIcon}
                     onClick={() => {
-                      handleUserPlatformEdit("playstation", playstationUser);
+                      handleUserPlatformEdit("playstation", playstationUser!);
                       handlePlaystationEdit();
                     }}
                   />
