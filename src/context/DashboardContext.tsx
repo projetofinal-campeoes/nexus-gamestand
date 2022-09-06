@@ -32,6 +32,8 @@ interface IContext {
     changeInputValue: (data: string) => void,
     allGamesList: IGame[],
     changeAllGamesList: (data: IGame[]) => void,
+    setGameList: (list: IGame[] | any) => void,
+    setCurrentPage: (value: number) => void
 }
 
 export default function DashboardProvider({ children }: IDashboardProvider) {
@@ -59,7 +61,7 @@ export default function DashboardProvider({ children }: IDashboardProvider) {
     }
 
     return(
-        <DashboardContext.Provider value={{currentPage, PagePlusOne, gameList, addToInfiniteScroll, isSearching, switchIsSearching, filteredList, changeFilteredList, searchInput, changeInputValue, allGamesList, changeAllGamesList}}>
+        <DashboardContext.Provider value={{currentPage, PagePlusOne, gameList, addToInfiniteScroll, isSearching, switchIsSearching, filteredList, changeFilteredList, searchInput, changeInputValue, allGamesList, changeAllGamesList, setGameList, setCurrentPage}}>
             {children}
         </DashboardContext.Provider>
     )
