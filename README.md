@@ -14,7 +14,7 @@ Com esse intuito em mente, pensando no front-end, criaremos uma aplicação que 
 
 
 ## 🛠 Front-end
-- [x] Lib de animação: GSAP && Animate.css
+- [x] [Animate.css](https://animate.style/) - Lib de animação
 - [x] [Figma](https://www.figma.com/) - Ferramenta de prototipação
 - [x] [Next.Js](https://vitejs.dev/) - O React Framework para Produção
 - [x] [TailwindCss](https://tailwindcss.com/) - Aplicação de estilos na aplicação
