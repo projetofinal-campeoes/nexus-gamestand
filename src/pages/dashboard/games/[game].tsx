@@ -48,7 +48,7 @@ const Game = ({ gameInfo }: IGameProps) => {
         </div>
 
         <div>
-          <h1 className="mb-2 text-sm text-title1 font-bold">
+          <h1 className="mb-2 text-sm text-center text-title1 font-bold">
             {gameInfo?.name ? gameInfo.name : "Not found"}
           </h1>
           <ul className="flex items-center gap-4">
