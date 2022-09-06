@@ -24,7 +24,7 @@ export default function Dashboard({randomGames}: IDashboard) {
 
   useEffect(() => {
     getSteamGames('srulf', currentPage , 5, addToInfiniteScroll)
-    getXboxGames(currentPage, 5, addToInfiniteScroll)
+    // getXboxGames(currentPage, 5, addToInfiniteScroll)
   }, [currentPage]);
 
   useEffect(() => {
