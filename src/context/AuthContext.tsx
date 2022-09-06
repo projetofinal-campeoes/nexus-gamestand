@@ -22,14 +22,14 @@ interface IAuthContext {
 }
 
 interface IUser {
-    username: string | null,
+    username: any,
     email: string,
     password: string,
     steam: string | null,
     epic: string | null,
     playstation: string | null,
     xbox: string | null,
-    imageURL?: string | null
+    imageURL?: any;
 }
 
 interface IError {
@@ -59,9 +59,10 @@ export default function AuthProvider({ children }: IProvider) {
 
                 data && setUser(data)
                 router.push('/dashboard')
-            } else {
-                router.push('/')
             }
+            // } else {
+            //     router.push('/')
+            // }
             
             setIsLoading(false)
         }

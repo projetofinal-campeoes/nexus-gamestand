@@ -27,8 +27,8 @@ export default function Dashboard({randomGames}: IDashboard) {
   const observer = useRef<HTMLLIElement | null>(null);
 
   useEffect(() => {
-    getSteamGames('srulf', currentPage , 5, addToInfiniteScroll)
-    getXboxGames(currentPage, 5, addToInfiniteScroll)
+    getSteamGames('luwny', currentPage , 5, addToInfiniteScroll)
+    //getXboxGames(currentPage, 5, addToInfiniteScroll)
   }, [currentPage]);
 
   useEffect(() => {

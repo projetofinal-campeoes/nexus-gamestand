@@ -39,11 +39,14 @@ const Header = ({animation}:IHeader) => {
         <nav className="flex items-center gap-6">
           <form>
             <label className={styles.inputBox}>
-                <FaSearch color="E1E1E1" size={15} />
+                <FaSearch className="text-[15px text-[#E1E1E1]]" />
                 <input type='text' placeholder="search game name..." className={styles.input} onFocus={() => switchIsSearching(true)} onChange={(event) => changeInputValue(event.target.value)}/>
             </label>
-
+          
           </form>
+          <button>
+            <FaSearch className="text-primarycolor text-[25px] mr-5 hover:text-primaryhover ease-in duration-300 md:hidden"/>
+          </button>
           <button className="flex" onClick={() => setUserModalOpen(!userModalOpen)}>
             <FaUser className="text-primarycolor text-[25px] mr-5 hover:text-primaryhover ease-in duration-300" />
           </button>
