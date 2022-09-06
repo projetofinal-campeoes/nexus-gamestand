@@ -61,7 +61,7 @@ const VideoBg = () => {
                 </div>
               </div>
             </header>
-            <div className="w-[80%] h-[100%] flex flex-col justify-center">
+            <div className="w-[80%] h-[100%] flex flex-col justify-center mt-[10rem]">
               <div>
                 <h1 className="mt-auto text-[5rem] w-[30%] font-bebas">
                   Your unified gaming platform

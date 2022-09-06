@@ -4,12 +4,14 @@ import GameCard from './GameCard';
 import { useEffect } from 'react';
 import styles from "../styles/Home.module.sass";
 import getAllGames from '../services/getAllGames';
+import { useAuth } from '../context/AuthContext';
 
 export default function Search() {
+    const { user } = useAuth()
     const { allGamesList, changeAllGamesList, searchInput, filteredList, switchIsSearching } = useContext(DashboardContext)
 
     useEffect(() => {
-        getAllGames(changeAllGamesList, 'srulf')
+        getAllGames(changeAllGamesList, user!.steam!)
     }, []);
 
     return(
