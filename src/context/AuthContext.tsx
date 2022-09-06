@@ -1,21 +1,28 @@
-import { deleteCookie, setCookie } from 'cookies-next';
-import { useRouter } from 'next/router';
-import { createContext, ReactNode, useContext, useState } from 'react';
-import { FieldValues } from 'react-hook-form';
-import api from '../services/api';
-import { errorToast, successToast } from '../services/toast';
+import { deleteCookie, getCookie, setCookie } from "cookies-next";
+import { useRouter } from "next/router";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useState,
+  useEffect,
+} from "react";
+import { FieldValues } from "react-hook-form";
+import api from "../services/api";
+import { errorToast, successToast } from "../services/toast";
 
 interface IProvider {
   children: ReactNode;
 }
 
 interface IAuthContext {
-    user: IUser | null,
-    setUser: (user: IUser) => void,
-    isLoading: boolean,
-    setIsLoading: (state: boolean) => void,
-    handleLogin: (account: FieldValues) => void,
-    handleLogout: () => void
+  user: IUser | null;
+  setUser: (user: IUser) => void;
+  isLoading: boolean;
+  setIsLoading: (state: boolean) => void;
+  handleLogin: (account: FieldValues) => void;
+  handleLogout: () => void;
+  testUserToken: () => void;
 }
 
 interface IUser {
@@ -66,6 +73,22 @@ export default function AuthProvider({ children }: IProvider) {
     }
   };
 
+  const testUserToken = async () => {
+    const tokenOnCookies = getCookie("token");
+    const idOnCookies = getCookie("id");
+
+    if (tokenOnCookies) {
+      api.defaults.headers.common.Authorization = `Bearer ${tokenOnCookies}`;
+      const { data } = await api.get(`/users/${idOnCookies}`);
+
+      data && setUser(data);
+    }
+  };
+
+  useEffect(() => {
+    testUserToken();
+  }, []);
+
   const handleLogout = () => {
     deleteCookie("token");
     deleteCookie("id");
@@ -73,11 +96,21 @@ export default function AuthProvider({ children }: IProvider) {
     router.push("/login");
   };
 
-    return(
-        <AuthContext.Provider value={{ user, setUser, isLoading, setIsLoading, handleLogin, handleLogout }}>
-            {children}
-        </AuthContext.Provider>
-    )
+  return (
+    <AuthContext.Provider
+      value={{
+        user,
+        setUser,
+        isLoading,
+        setIsLoading,
+        handleLogin,
+        handleLogout,
+        testUserToken,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
-export const useAuth = () => useContext(AuthContext)
+export const useAuth = () => useContext(AuthContext);

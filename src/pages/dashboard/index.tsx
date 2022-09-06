@@ -2,7 +2,7 @@ import Background from "../../components/Background";
 import Header from "./../../components/Header";
 import GameCard from "./../../components/GameCard";
 import { useContext, useEffect, useRef } from "react";
-import { NexusContext } from "../../context/NexusContext";
+import { IUser, NexusContext } from "../../context/NexusContext";
 import getXboxGames from "../../services/GetXboxGames";
 import getSteamGames from "../../services/GetSteamGames";
 import Profile from "../../components/ProfileModal";
@@ -19,9 +19,10 @@ import api from "../../services/api";
 
 interface IDashboard {
   randomGames: IGame[];
+  user: IUser;
 }
 
-export default function Dashboard({ randomGames }: IDashboard) {
+export default function Dashboard({ randomGames, user }: IDashboard) {
   const { userModalOpen } = useContext(NexusContext);
   const {
     currentPage,
@@ -30,12 +31,12 @@ export default function Dashboard({ randomGames }: IDashboard) {
     addToInfiniteScroll,
     isSearching,
   } = useContext(DashboardContext);
-  const { user, setIsLoading } = useAuth();
   const router = useRouter();
 
   const observer = useRef<HTMLLIElement | null>(null);
 
   useEffect(() => {
+    console.log(user.steam);
     getSteamGames(user!.steam!, currentPage, 5, addToInfiniteScroll);
     if (user!.xbox) {
       getXboxGames(currentPage, 5, addToInfiniteScroll);
@@ -121,39 +122,39 @@ export default function Dashboard({ randomGames }: IDashboard) {
 }
 
 interface IServerSideContext {
-    req: NextApiRequest,
-    res: NextApiResponse
+  req: NextApiRequest;
+  res: NextApiResponse;
 }
 
-export async function getServerSideProps({req, res}: IServerSideContext) {
-    const id = getCookie('id', { req, res })
-    const token = getCookie('token', { req, res })
-    
-    if(token) {
-        try {
-            const { data } = await api.get(`/users/${id}`, {
-                headers: {
-                    authorization: `Bearer ${token}`
-                }
-            })
-        } catch(error) {
-            deleteCookie('token', { req, res })
-            deleteCookie('id', { req, res })
-            return{
-                redirect: {
-                    permanent: false,
-                    destination: "/"
-                }
-            }
-        }
-    } else {
-        return{
-            redirect: {
-                permanent: false,
-                destination: "/"
-            }
-        }
+export async function getServerSideProps({ req, res }: IServerSideContext) {
+  const id = getCookie("id", { req, res });
+  const token = getCookie("token", { req, res });
+
+  if (token) {
+    try {
+      const { data } = await api.get(`/users/${id}`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+    } catch (error) {
+      deleteCookie("token", { req, res });
+      deleteCookie("id", { req, res });
+      return {
+        redirect: {
+          permanent: false,
+          destination: "/",
+        },
+      };
     }
+  } else {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/",
+      },
+    };
+  }
 
   const randomPage = Math.floor(Math.random() * 10) + 1;
   const manyGames = await axios.get(
@@ -179,9 +180,16 @@ export async function getServerSideProps({req, res}: IServerSideContext) {
     }
   );
 
+  const { data } = await api.get(`/users/${id}`, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
+
   return {
     props: {
       randomGames: formattedGames,
+      user: data,
     },
   };
 }
