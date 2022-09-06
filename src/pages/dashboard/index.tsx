@@ -13,6 +13,9 @@ import Search from "./../../components/Search";
 import Head from "next/head";
 import { useAuth } from "../../context/AuthContext";
 import { useRouter } from "next/router";
+import { NextApiRequest, NextApiResponse } from "next";
+import { deleteCookie, getCookie } from "cookies-next";
+import api from "../../services/api";
 
 interface IDashboard {
   randomGames: IGame[];
@@ -38,12 +41,6 @@ export default function Dashboard({ randomGames }: IDashboard) {
   }, [currentPage]);
 
   useEffect(() => {
-    if (user) {
-      setIsLoading(false);
-    } else {
-      router.push("/");
-    }
-
     const intersectionObserver = new IntersectionObserver((entries) => {
       if (entries.some((entry) => entry.isIntersecting)) {
         PagePlusOne();
@@ -121,7 +118,41 @@ export default function Dashboard({ randomGames }: IDashboard) {
   );
 }
 
-export async function getServerSideProps() {
+interface IServerSideContext {
+    req: NextApiRequest,
+    res: NextApiResponse
+}
+
+export async function getServerSideProps({req, res}: IServerSideContext) {
+    const id = getCookie('id', { req, res })
+    const token = getCookie('token', { req, res })
+    
+    if(token) {
+        try {
+            const { data } = await api.get(`/users/${id}`, {
+                headers: {
+                    authorization: `Bearer ${token}`
+                }
+            })
+        } catch(error) {
+            deleteCookie('token', { req, res })
+            deleteCookie('id', { req, res })
+            return{
+                redirect: {
+                    permanent: false,
+                    destination: "/"
+                }
+            }
+        }
+    } else {
+        return{
+            redirect: {
+                permanent: false,
+                destination: "/"
+            }
+        }
+    }
+
   const randomPage = Math.floor(Math.random() * 10) + 1;
   const manyGames = await axios.get(
     `https://api.rawg.io/api/games?key=21bb0951c4fe428ba730b1e2a79833e1&page=${randomPage}`
