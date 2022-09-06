@@ -52,7 +52,7 @@ const LandingHeader = ({handleClick, handleRegister, handleLogin, topPage}:ILand
               <div className="w-[100%] ">
                 {user ? 
                 <>
-                <button className="p-5 bg-primaryhover rounded-lg mt-5 ease-in-out duration-300 font-bebas mr-2 font-[] hover:bg-boxcolor hover:border-[1px] transition-all border-[1px] border-transparent animate__animated animate__pulse animate__infinite">
+                <button className="p-5 bg-primaryhover rounded-lg mt-5 ease-in-out duration-300 font-bebas mr-2 font-[] hover:bg-boxcolor hover:border-[1px] transition-all border-[1px] border-transparent animate__animated animate__pulse animate__infinite" onClick={handleClick}>
                   Hey, {user.username} access your Dashboard!
                 </button>
                 </> 
