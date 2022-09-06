@@ -43,8 +43,8 @@ export default async function handler(
   try {
       const { username } = req.body
       const { page, limit } = req.query
-        const userSteamId = await axios.get(`http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=CD931AB5F0BA950471A81DEFF485FA5C&vanityurl=${username}`)
-        const userGames = await axios.get<IUserGameResponse>(`http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=CD931AB5F0BA950471A81DEFF485FA5C&steamid=${userSteamId.data.response.steamid}&include_appinfo=true&format=json`) 
+        const userSteamId = await axios.get(`http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=BFC7F1E15B0CA7B674F47F012A2948A2&vanityurl=${username}`)
+        const userGames = await axios.get<IUserGameResponse>(`http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=BFC7F1E15B0CA7B674F47F012A2948A2&steamid=${userSteamId.data.response.steamid}&include_appinfo=true&format=json`) 
         const formattedGames = userGames.data.response.games.map(({ appid, name }) => {
             return {
                 id: `${appid}`,

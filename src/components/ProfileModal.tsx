@@ -18,17 +18,35 @@ type ISwitch = {
 };
 
 const Profile = ({ checked, handleChange }: ISwitch) => {
+  const { user, setUser } = useAuth();
   const [userName, setUserName] = useState<string | null>(null);
   const [userImage, setUserImage] = useState<string | null | undefined>(null);
   const [steamUser, setSteamUser] = useState<string | null>(null);
   const [epicUser, setEpicUser] = useState<string | null>(null);
   const [playstationUser, setPlaystationUser] = useState<string | null>(null);
-  const [xboxUser, setXboxUser] = useState<string | null>(null);
-  const { user, setUser } = useAuth()
+  const [xboxUser, setXboxUser] = useState<boolean>(user!.xbox);
+
+  const handleXbox = () => {
+    const userId = getCookie("id");
+    const token = getCookie("token");
+    setXboxUser(!xboxUser);
+    api
+      .patch(
+        `/users/${userId}`,
+        { xbox: !xboxUser },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Autorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => console.log(res));
+  };
 
   useEffect(() => {
     async function handleUserImage() {
-      setUserName(user!.username)
+      setUserName(user!.username);
       setUserImage(user!.imageURL);
       setSteamUser(user!.steam);
       setEpicUser(user!.epic);
@@ -57,22 +75,12 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
   const handleUserPlatformEdit = (plataforma: string, valor: string) => {
     const userId = getCookie("id");
 
-    plataforma === "steam" &&
-      api.patch(
-        `/users/${userId}`,
-        { steam: valor });
+    plataforma === "steam" && api.patch(`/users/${userId}`, { steam: valor });
 
-    plataforma === "epic" &&
-      api.patch(
-        `/users/${userId}`,
-        { epic: valor }
-      );
+    plataforma === "epic" && api.patch(`/users/${userId}`, { epic: valor });
 
     plataforma === "playstation" &&
-      api.patch(
-        `/users/${userId}`,
-        { playstation: valor }
-      );
+      api.patch(`/users/${userId}`, { playstation: valor });
   };
   const [changeModalSection, setChangeModalSection] = useState<boolean>(false);
   const {
@@ -88,16 +96,19 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
 
     await api.patch(`/users/${userId}`, data, {
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
     });
 
-    const newUser = await api.get(`/users/${userId}`)
-    setUser(newUser.data)
+    const newUser = await api.get(`/users/${userId}`);
+    setUser(newUser.data);
   };
 
   return (
-    <section ref={profileModal} className="fixed top-0 left-0 w-[100vw] h-[100vh] flex justify-center items-center z-10 bg-[rgba(0,0,0,0.5)] backdrop-blur-[4px] animate__animated animate__fadeIn">
+    <section
+      ref={profileModal}
+      className="fixed top-0 left-0 w-[100vw] h-[100vh] flex justify-center items-center z-10 bg-[rgba(0,0,0,0.5)] backdrop-blur-[4px] animate__animated animate__fadeIn"
+    >
       <SEO title="Profile" description="Profile Modal of Nexus Application" />
       <div className="w-[500px] rounded-3xl flex flex-col align-middle bg-boxcolor px-8 py-12 sm:px-20">
         <div className="flex justify-end mb-10 text-primarycolor ">
@@ -250,8 +261,8 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
                   {xboxUser}
                 </p>
                 <Switch
-                  checked={checked}
-                  onChange={handleChange}
+                  checked={xboxUser}
+                  onChange={handleXbox}
                   inputProps={{ "aria-label": "controlled" }}
                 />
               </div>
