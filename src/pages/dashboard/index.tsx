@@ -11,14 +11,18 @@ import { FaFilter, FaPlus } from "react-icons/fa";
 import axios from "axios";
 import Search from "./../../components/Search";
 import Head from "next/head";
-import { useAuth } from "../../context/AuthContext";
+import { IUser, useAuth } from "../../context/AuthContext";
 import { useRouter } from "next/router";
+import { NextApiRequest, NextApiResponse } from "next";
+import { deleteCookie, getCookie } from "cookies-next";
+import api from "../../services/api";
 
 interface IDashboard {
   randomGames: IGame[];
+  user: IUser;
 }
 
-export default function Dashboard({ randomGames }: IDashboard) {
+export default function Dashboard({ randomGames, user: userFromServer }: IDashboard) {
   const { userModalOpen } = useContext(NexusContext);
   const {
     currentPage,
@@ -26,26 +30,41 @@ export default function Dashboard({ randomGames }: IDashboard) {
     gameList,
     addToInfiniteScroll,
     isSearching,
+    setGameList,
+    setCurrentPage
   } = useContext(DashboardContext);
-  const { user, setIsLoading } = useAuth();
   const router = useRouter();
+  const { user } = useAuth()
 
   const observer = useRef<HTMLLIElement | null>(null);
 
   useEffect(() => {
-    getSteamGames(user!.steam!, currentPage, 5, addToInfiniteScroll);
-    if (user!.xbox) {
-      getXboxGames(currentPage, 5, addToInfiniteScroll);
+    if(user) {
+        getSteamGames(user!.steam!, currentPage, 5, addToInfiniteScroll);
+        if (user!.xbox) {
+          getXboxGames(currentPage, 5, addToInfiniteScroll);
+        }
+    } else {
+        getSteamGames(userFromServer!.steam!, currentPage, 5, addToInfiniteScroll);
+        if (userFromServer!.xbox) {
+          getXboxGames(currentPage, 5, addToInfiniteScroll);
+        }
     }
   }, [currentPage]);
 
   useEffect(() => {
-    if (user) {
-      setIsLoading(false);
-    } else {
-      router.push("/");
-    }
+    setCurrentPage(1)
+    setGameList([])
 
+    if(user) {
+        getSteamGames(user!.steam!, currentPage, 5, addToInfiniteScroll);
+        if (user!.xbox) {
+          getXboxGames(currentPage, 5, addToInfiniteScroll);
+        }
+    }
+  }, [user])
+
+  useEffect(() => {
     const intersectionObserver = new IntersectionObserver((entries) => {
       if (entries.some((entry) => entry.isIntersecting)) {
         PagePlusOne();
@@ -57,9 +76,11 @@ export default function Dashboard({ randomGames }: IDashboard) {
     return () => intersectionObserver.disconnect();
   }, []);
 
+  const dashboardPage = useRef<HTMLDivElement>(null)
+
   return (
     <Background config="flex-col gap-8 items-center">
-      <Header animation="animate__animated animate__fadeInDown animate__fast" />
+      <Header animation="animate__animated animate__fadeInDown animate__fast" dashboardPage={dashboardPage}/>
       <Head>
         <title>NEXUS - Dashboard</title>
         <link rel="shortcut icon" href="/nexus.png" type="image/x-icon" />
@@ -67,7 +88,7 @@ export default function Dashboard({ randomGames }: IDashboard) {
 
       {userModalOpen && <Profile />}
 
-      <main className="w-[80%] max-w-[1041px] flex flex-col gap-10 pb-10">
+      <div ref={dashboardPage} className="w-[80%] max-w-[1041px] flex flex-col gap-10 pb-10 animate__animated animate__fadeIn">
         {isSearching ? (
           <Search />
         ) : (
@@ -118,12 +139,46 @@ export default function Dashboard({ randomGames }: IDashboard) {
             </section>
           </>
         )}
-      </main>
+      </div>
     </Background>
   );
 }
 
-export async function getServerSideProps() {
+interface IServerSideContext {
+  req: NextApiRequest;
+  res: NextApiResponse;
+}
+
+export async function getServerSideProps({ req, res }: IServerSideContext) {
+  const id = getCookie("id", { req, res });
+  const token = getCookie("token", { req, res });
+
+  if (token) {
+    try {
+      const { data } = await api.get(`/users/${id}`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+    } catch (error) {
+      deleteCookie("token", { req, res });
+      deleteCookie("id", { req, res });
+      return {
+        redirect: {
+          permanent: false,
+          destination: "/",
+        },
+      };
+    }
+  } else {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/",
+      },
+    };
+  }
+
   const randomPage = Math.floor(Math.random() * 10) + 1;
   const manyGames = await axios.get(
     `https://api.rawg.io/api/games?key=21bb0951c4fe428ba730b1e2a79833e1&page=${randomPage}`
@@ -148,9 +203,16 @@ export async function getServerSideProps() {
     }
   );
 
+  const { data } = await api.get(`/users/${id}`, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
+
   return {
     props: {
       randomGames: formattedGames,
+      user: data,
     },
   };
 }

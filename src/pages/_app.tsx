@@ -4,12 +4,11 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NexusProvider from "../context/NexusContext";
 import DashboardProvider from "../context/DashboardContext";
-import AuthProvider, { ProtectRoute } from "../context/AuthContext";
+import AuthProvider from "../context/AuthContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
-        <ProtectRoute>
             <NexusProvider>
                 <DashboardProvider>
                     <ToastContainer 
@@ -17,7 +16,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                     <Component {...pageProps} />
                 </DashboardProvider>
             </NexusProvider>
-        </ProtectRoute>
     </AuthProvider>
   );
 }

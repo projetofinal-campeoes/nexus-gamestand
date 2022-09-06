@@ -26,7 +26,7 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
   const [playstationUser, setPlaystationUser] = useState<string | null>(null);
   const [xboxUser, setXboxUser] = useState<boolean>(user!.xbox);
 
-  const handleXbox = () => {
+  const handleXbox = async () => {
     const userId = getCookie("id");
     const token = getCookie("token");
     setXboxUser(!xboxUser);
@@ -42,6 +42,9 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
         }
       )
       .then((res) => console.log(res));
+
+    const newUser = await api.get(`/users/${userId}`);
+    setUser(newUser.data);
   };
 
   useEffect(() => {
@@ -72,15 +75,18 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
     setPlaystationEdit(!playstationEdit);
   };
 
-  const handleUserPlatformEdit = (plataforma: string, valor: string) => {
+  const handleUserPlatformEdit = async (plataforma: string, valor: string) => {
     const userId = getCookie("id");
 
-    plataforma === "steam" && api.patch(`/users/${userId}`, { steam: valor });
+    plataforma === "steam" && await api.patch(`/users/${userId}`, { steam: valor });
 
-    plataforma === "epic" && api.patch(`/users/${userId}`, { epic: valor });
+    plataforma === "epic" && await api.patch(`/users/${userId}`, { epic: valor });
 
     plataforma === "playstation" &&
-      api.patch(`/users/${userId}`, { playstation: valor });
+    await api.patch(`/users/${userId}`, { playstation: valor });
+
+    const newUser = await api.get(`/users/${userId}`);
+    setUser(newUser.data);
   };
   const [changeModalSection, setChangeModalSection] = useState<boolean>(false);
   const {

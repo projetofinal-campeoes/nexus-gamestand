@@ -22,11 +22,11 @@ const Game = ({ gameInfo }: IGameProps) => {
   return (
     <Background config="flex flex-col items-center gap-10 pb-[40px]">
       <Head>
-        <title>{`NEXUS - ${gameInfo.name}`}</title>
+        <title>{`NEXUS - ${gameInfo?.name ? gameInfo.name : 'Not found'}`}</title>
         <link rel="shortcut icon" href="/nexus.png" type="image/x-icon" />
       </Head>
-      <Header animation="" />
-      <div className="w-[80%] max-w-[1041px] flex flex-col  gap-8 text-text items-center">
+      <Header />
+      <div className="w-[80%] max-w-[1041px] flex flex-col  gap-8 text-text items-center animate__animated animate__fadeIn">
         <Link href="..">
           <button className="bg-primarycolor rounded-lg shadow-md py-4 px-8 text-text font-medium hover:bg-primaryhover ease-linear duration-300 self-start">
             Back
