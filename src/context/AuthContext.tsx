@@ -25,7 +25,7 @@ interface IAuthContext {
   testUserToken: () => void;
 }
 
-interface IUser {
+export interface IUser {
   username: any;
   email: string;
   password: string;

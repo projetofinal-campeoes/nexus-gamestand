@@ -2,7 +2,7 @@ import Background from "../../components/Background";
 import Header from "./../../components/Header";
 import GameCard from "./../../components/GameCard";
 import { useContext, useEffect, useRef } from "react";
-import { IUser, NexusContext } from "../../context/NexusContext";
+import { NexusContext } from "../../context/NexusContext";
 import getXboxGames from "../../services/GetXboxGames";
 import getSteamGames from "../../services/GetSteamGames";
 import Profile from "../../components/ProfileModal";
@@ -11,7 +11,7 @@ import { FaFilter, FaPlus } from "react-icons/fa";
 import axios from "axios";
 import Search from "./../../components/Search";
 import Head from "next/head";
-import { useAuth } from "../../context/AuthContext";
+import { IUser } from "../../context/AuthContext";
 import { useRouter } from "next/router";
 import { NextApiRequest, NextApiResponse } from "next";
 import { deleteCookie, getCookie } from "cookies-next";
@@ -36,7 +36,6 @@ export default function Dashboard({ randomGames, user }: IDashboard) {
   const observer = useRef<HTMLLIElement | null>(null);
 
   useEffect(() => {
-    console.log(user.steam);
     getSteamGames(user!.steam!, currentPage, 5, addToInfiniteScroll);
     if (user!.xbox) {
       getXboxGames(currentPage, 5, addToInfiniteScroll);
