@@ -11,7 +11,7 @@ import { FaFilter, FaPlus } from "react-icons/fa";
 import axios from "axios";
 import Search from "./../../components/Search";
 import Head from "next/head";
-import { IUser } from "../../context/AuthContext";
+import { IUser, useAuth } from "../../context/AuthContext";
 import { useRouter } from "next/router";
 import { NextApiRequest, NextApiResponse } from "next";
 import { deleteCookie, getCookie } from "cookies-next";
@@ -22,7 +22,7 @@ interface IDashboard {
   user: IUser;
 }
 
-export default function Dashboard({ randomGames, user }: IDashboard) {
+export default function Dashboard({ randomGames, user: userFromServer }: IDashboard) {
   const { userModalOpen } = useContext(NexusContext);
   const {
     currentPage,
@@ -30,17 +30,39 @@ export default function Dashboard({ randomGames, user }: IDashboard) {
     gameList,
     addToInfiniteScroll,
     isSearching,
+    setGameList,
+    setCurrentPage
   } = useContext(DashboardContext);
   const router = useRouter();
+  const { user } = useAuth()
 
   const observer = useRef<HTMLLIElement | null>(null);
 
   useEffect(() => {
-    getSteamGames(user!.steam!, currentPage, 5, addToInfiniteScroll);
-    if (user!.xbox) {
-      getXboxGames(currentPage, 5, addToInfiniteScroll);
+    if(user) {
+        getSteamGames(user!.steam!, currentPage, 5, addToInfiniteScroll);
+        if (user!.xbox) {
+          getXboxGames(currentPage, 5, addToInfiniteScroll);
+        }
+    } else {
+        getSteamGames(userFromServer!.steam!, currentPage, 5, addToInfiniteScroll);
+        if (userFromServer!.xbox) {
+          getXboxGames(currentPage, 5, addToInfiniteScroll);
+        }
     }
   }, [currentPage]);
+
+  useEffect(() => {
+    setCurrentPage(1)
+    setGameList([])
+
+    if(user) {
+        getSteamGames(user!.steam!, currentPage, 5, addToInfiniteScroll);
+        if (user!.xbox) {
+          getXboxGames(currentPage, 5, addToInfiniteScroll);
+        }
+    }
+  }, [user])
 
   useEffect(() => {
     const intersectionObserver = new IntersectionObserver((entries) => {
