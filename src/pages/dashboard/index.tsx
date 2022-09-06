@@ -54,9 +54,11 @@ export default function Dashboard({ randomGames, user }: IDashboard) {
     return () => intersectionObserver.disconnect();
   }, []);
 
+  const dashboardPage = useRef<HTMLDivElement>(null)
+
   return (
     <Background config="flex-col gap-8 items-center">
-      <Header animation="animate__animated animate__fadeInDown animate__fast" />
+      <Header animation="animate__animated animate__fadeInDown animate__fast" dashboardPage={dashboardPage}/>
       <Head>
         <title>NEXUS - Dashboard</title>
         <link rel="shortcut icon" href="/nexus.png" type="image/x-icon" />
@@ -64,7 +66,7 @@ export default function Dashboard({ randomGames, user }: IDashboard) {
 
       {userModalOpen && <Profile />}
 
-      <main className="w-[80%] max-w-[1041px] flex flex-col gap-10 pb-10">
+      <div ref={dashboardPage} className="w-[80%] max-w-[1041px] flex flex-col gap-10 pb-10 animate__animated animate__fadeIn">
         {isSearching ? (
           <Search />
         ) : (
@@ -115,7 +117,7 @@ export default function Dashboard({ randomGames, user }: IDashboard) {
             </section>
           </>
         )}
-      </main>
+      </div>
     </Background>
   );
 }

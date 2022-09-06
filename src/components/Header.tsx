@@ -9,13 +9,26 @@ import { DashboardContext } from "../context/DashboardContext";
 import { useAuth } from "../context/AuthContext";
 
 type IHeader = {
-  animation: string;
+  animation?: string;
+  dashboardPage?: any;
 }
 
-const Header = ({animation}:IHeader) => {
+const Header = ({animation, dashboardPage}:IHeader) => {
   const { handleLogout } = useAuth()
   const { switchIsSearching, changeInputValue } = useContext(DashboardContext)
   const { setUserModalOpen, userModalOpen } = useContext(NexusContext);
+
+  // search com animação ↓
+  // const handleSearch = () => {
+  //   dashboardPage.current?.classList.add("animate__animated", "animate__fadeOut")
+  // }
+  // <input type='text' placeholder="search game name..." className={styles.input} onFocus={
+  //                 () =>{
+  //                 handleSearch()
+  //                 setTimeout(() => {
+  //                 switchIsSearching(true);
+  //               }, 500)}} onChange={(event) => changeInputValue(event.target.value)}/>
+
 
   const router = useRouter();
 
@@ -40,7 +53,7 @@ const Header = ({animation}:IHeader) => {
           <form>
             <label className={styles.inputBox}>
                 <FaSearch className="text-[15px text-[#E1E1E1]]" />
-                <input type='text' placeholder="search game name..." className={styles.input} onFocus={() => switchIsSearching(true)} onChange={(event) => changeInputValue(event.target.value)}/>
+                <input type='text' placeholder="search game name..." className={styles.input} onFocus={() =>switchIsSearching(true)} onChange={(event) => changeInputValue(event.target.value)}/>
             </label>
           
           </form>
