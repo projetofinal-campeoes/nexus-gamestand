@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <NexusProvider>
                 <DashboardProvider>
                     <ToastContainer 
-                    toastStyle={{ backgroundColor: '#434343', color: "white" }}/>
+                    toastStyle={{ backgroundColor: '#1e212a', color: "white" }}/>
                     <Component {...pageProps} />
                 </DashboardProvider>
             </NexusProvider>
