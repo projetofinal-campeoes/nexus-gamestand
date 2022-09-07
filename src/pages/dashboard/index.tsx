@@ -98,7 +98,7 @@ export default function Dashboard({ randomGames, user: userFromServer }: IDashbo
             <section className="flex flex-col gap-4">
               <h2 className="text-title2 text-text font-bold">Recommended</h2>
 
-              <ul className="grid grid-cols-1 gap-[20.5px]">
+              <ul className="grid grid-cols-1 gap-[20.5px] sm:grid-cols-2">
                 {randomGames.map(
                   ({ id, productName, image, platform }, index) => (
                     <GameCard
