@@ -18,18 +18,6 @@ const Header = ({animation, dashboardPage}:IHeader) => {
   const { switchIsSearching, changeInputValue } = useContext(DashboardContext)
   const { setUserModalOpen, userModalOpen } = useContext(NexusContext);
 
-  // search com animação ↓
-  // const handleSearch = () => {
-  //   dashboardPage.current?.classList.add("animate__animated", "animate__fadeOut")
-  // }
-  // <input type='text' placeholder="search game name..." className={styles.input} onFocus={
-  //                 () =>{
-  //                 handleSearch()
-  //                 setTimeout(() => {
-  //                 switchIsSearching(true);
-  //               }, 500)}} onChange={(event) => changeInputValue(event.target.value)}/>
-
-
   const router = useRouter();
 
   const handleClick = () => {
@@ -50,17 +38,17 @@ const Header = ({animation, dashboardPage}:IHeader) => {
         />
 
         <nav className="flex items-center gap-6">
-          <form>
+          <form className={router.pathname === '/dashboard/games/[game]' ? 'hidden' : 'flex'}>
             <label className={styles.inputBox}>
                 <FaSearch className="text-[15px text-[#E1E1E1]]" />
                 <input type='text' placeholder="search game name..." className={styles.input} onFocus={() =>switchIsSearching(true)} onChange={(event) => changeInputValue(event.target.value)}/>
             </label>
           
           </form>
-          <button>
+          <button className={router.pathname === '/dashboard/games/[game]' ? 'hidden' : 'flex'}>
             <FaSearch className="text-primarycolor text-[25px] mr-5 hover:text-primaryhover ease-in duration-300 md:hidden"/>
           </button>
-          <button className="flex" onClick={() => setUserModalOpen(!userModalOpen)}>
+          <button className={router.pathname === '/dashboard/games/[game]' ? 'hidden' : 'flex'} onClick={() => setUserModalOpen(!userModalOpen)}>
             <FaUser className="text-primarycolor text-[25px] mr-5 hover:text-primaryhover ease-in duration-300" />
           </button>
           <button>

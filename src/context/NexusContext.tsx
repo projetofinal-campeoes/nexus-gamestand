@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import React, { createContext, ReactNode, useRef, useState } from "react";
 import { FieldValues } from "react-hook-form";
 import api from "../services/api";
-import { setCookie } from "cookies-next";
 import { errorToast, successToast } from "./../services/toast";
 
 type IContext = {
@@ -52,9 +51,7 @@ const NexusProvider = ({ children }: INexusProvider) => {
 
     api
       .post("/register", account)
-      .then((res) => {
-        setCookie("token", res.data.accessToken);
-        setCookie("id", res.data.user.id);
+      .then(() => {
         successToast("Success Register!", 1000);
         navigate.push("/login");
       })
