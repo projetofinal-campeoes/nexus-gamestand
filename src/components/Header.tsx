@@ -14,7 +14,7 @@ type IHeader = {
 
 const Header = ({ animation }: IHeader) => {
   const { handleLogout } = useAuth();
-  const { switchIsSearching, changeInputValue, setIsSearching } =
+  const { switchIsSearching, changeInputValue, setIsSearching, gameList } =
     useContext(DashboardContext);
   const { setUserModalOpen, userModalOpen } = useContext(NexusContext);
 
@@ -67,7 +67,7 @@ const Header = ({ animation }: IHeader) => {
             }
             onClick={() => setUserModalOpen(!userModalOpen)}
           >
-            <FaUser className="text-primarycolor text-[25px] mr-5 hover:text-primaryhover ease-in duration-300" />
+            {gameList.length > 0 ? <FaUser className="text-primarycolor text-[25px] mr-5 hover:text-primaryhover ease-in duration-300" /> : <FaUser className="text-deletecolor text-[25px] mr-5 hover:text-primaryhover ease-in duration-300 animate__animated animate__pulse animate__infinite" />}
           </button>
           <button>
             <FaSignOutAlt
