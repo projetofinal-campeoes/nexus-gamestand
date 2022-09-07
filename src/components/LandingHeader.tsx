@@ -18,7 +18,6 @@ const LandingHeader = ({handleClick, handleRegister, handleLogin, topPage, fadeO
     const video = ['/wow.mp4', '/bf4.mp4'];
     const random = Math.floor(Math.random() * video.length);
     const router = useRouter()
-    
     const handleLogout = () => {
       deleteCookie("token");
       deleteCookie("id");

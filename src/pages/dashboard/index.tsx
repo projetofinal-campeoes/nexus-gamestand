@@ -22,7 +22,10 @@ interface IDashboard {
   user: IUser;
 }
 
-export default function Dashboard({ randomGames, user: userFromServer }: IDashboard) {
+export default function Dashboard({
+  randomGames,
+  user: userFromServer,
+}: IDashboard) {
   const { userModalOpen } = useContext(NexusContext);
   const {
     currentPage,
@@ -31,38 +34,43 @@ export default function Dashboard({ randomGames, user: userFromServer }: IDashbo
     addToInfiniteScroll,
     isSearching,
     setGameList,
-    setCurrentPage
+    setCurrentPage,
   } = useContext(DashboardContext);
   const router = useRouter();
-  const { user } = useAuth()
+  const { user } = useAuth();
 
   const observer = useRef<HTMLLIElement | null>(null);
 
   useEffect(() => {
-    if(user) {
-        getSteamGames(user!.steam!, currentPage, 5, addToInfiniteScroll);
-        if (user!.xbox) {
-          getXboxGames(currentPage, 5, addToInfiniteScroll);
-        }
+    if (user) {
+      getSteamGames(user!.steam!, currentPage, 5, addToInfiniteScroll);
+      if (user!.xbox) {
+        getXboxGames(currentPage, 5, addToInfiniteScroll);
+      }
     } else {
-        getSteamGames(userFromServer!.steam!, currentPage, 5, addToInfiniteScroll);
-        if (userFromServer!.xbox) {
-          getXboxGames(currentPage, 5, addToInfiniteScroll);
-        }
+      getSteamGames(
+        userFromServer!.steam!,
+        currentPage,
+        5,
+        addToInfiniteScroll
+      );
+      if (userFromServer!.xbox) {
+        getXboxGames(currentPage, 5, addToInfiniteScroll);
+      }
     }
   }, [currentPage]);
 
   useEffect(() => {
-    setCurrentPage(1)
-    setGameList([])
+    setCurrentPage(1);
+    setGameList([]);
 
-    if(user) {
-        getSteamGames(user!.steam!, currentPage, 5, addToInfiniteScroll);
-        if (user!.xbox) {
-          getXboxGames(currentPage, 5, addToInfiniteScroll);
-        }
+    if (user) {
+      getSteamGames(user!.steam!, currentPage, 5, addToInfiniteScroll);
+      if (user!.xbox) {
+        getXboxGames(currentPage, 5, addToInfiniteScroll);
+      }
     }
-  }, [user])
+  }, [user]);
 
   useEffect(() => {
     const intersectionObserver = new IntersectionObserver((entries) => {
@@ -70,19 +78,19 @@ export default function Dashboard({ randomGames, user: userFromServer }: IDashbo
         PagePlusOne();
       }
     });
-    
-    if(!isSearching) {
-        intersectionObserver.observe(observer.current!);
+
+    if (!isSearching) {
+      intersectionObserver.observe(observer.current!);
     }
 
     return () => intersectionObserver.disconnect();
   }, []);
 
-  const dashboardPage = useRef<HTMLDivElement>(null)
+  const dashboardPage = useRef<HTMLDivElement>(null);
 
   return (
     <Background config="flex-col gap-8 items-center">
-      <Header animation="animate__animated animate__fadeInDown animate__fast" dashboardPage={dashboardPage}/>
+      <Header animation="animate__animated animate__fadeInDown animate__fast" />
       <Head>
         <title>NEXUS - Dashboard</title>
         <link rel="shortcut icon" href="/nexus.png" type="image/x-icon" />
@@ -90,7 +98,10 @@ export default function Dashboard({ randomGames, user: userFromServer }: IDashbo
 
       {userModalOpen && <Profile />}
 
-      <div ref={dashboardPage} className="w-[80%] max-w-[1041px] flex flex-col gap-10 pb-10 animate__animated animate__fadeIn">
+      <div
+        ref={dashboardPage}
+        className="w-[80%] max-w-[1041px] flex flex-col gap-10 pb-10 animate__animated animate__fadeIn"
+      >
         {isSearching ? (
           <Search />
         ) : (
@@ -103,7 +114,6 @@ export default function Dashboard({ randomGames, user: userFromServer }: IDashbo
                   ({ id, productName, image, platform }, index) => (
                     <GameCard
                       key={index}
-                      id={id}
                       name={productName}
                       img={image.URL}
                       platform={platform}
@@ -130,7 +140,6 @@ export default function Dashboard({ randomGames, user: userFromServer }: IDashbo
                 {gameList.map(({ id, productName, image, platform }, index) => (
                   <GameCard
                     key={index}
-                    id={id}
                     name={productName}
                     img={image.URL}
                     platform={platform}
