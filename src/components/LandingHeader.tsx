@@ -53,7 +53,7 @@ const LandingHeader = ({handleClick, handleRegister, handleLogin, topPage, fadeO
                 </div>}
               </div>
             </header>
-            <div className="w-[80%] h-[100%] flex flex-col justify-center mt-[10rem] sm:mt-[20rem]">
+            <div className="w-[80%] h-[100%] flex flex-col justify-center sm:mt-[20rem]">
               <div>
                 <h1 className="mt-auto text-[5rem] w-[30%] font-bebas">
                   Your unified gaming platform
