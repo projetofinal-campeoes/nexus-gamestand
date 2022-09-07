@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from "next/image"
+import styles from "../styles/Home.module.sass";
 
 type IPlatforms = {
     handleClick: () => void;
@@ -16,23 +17,7 @@ const SupportedPlatforms = ( { handleClick, midPage }:IPlatforms ) => {
             alt="Epic Games Logo"
             width={400}
             height={200}
-            className="cursor-pointer rounded-lg"
-            onClick={handleClick}
-            priority />
-            <Image 
-            src="/epic.png"
-            alt="Epic Games Logo"
-            width={400}
-            height={200}
-            className="cursor-pointer rounded-lg"
-            onClick={handleClick}
-            priority />
-            <Image 
-            src="/playstation.jpg"
-            alt="Epic Games Logo"
-            width={400}
-            height={200}
-            className="cursor-pointer rounded-lg"
+            className={styles.images}
             onClick={handleClick}
             priority />
             <Image 
@@ -40,7 +25,7 @@ const SupportedPlatforms = ( { handleClick, midPage }:IPlatforms ) => {
             alt="Epic Games Logo"
             width={400}
             height={200}
-            className="cursor-pointer rounded-lg"
+            className={styles.images}
             onClick={handleClick}
             priority />
           </div>
