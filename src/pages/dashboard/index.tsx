@@ -119,7 +119,7 @@ export default function Dashboard({
             ) : (
               <>
                 <section className="flex flex-col gap-4">
-                  <h2 className="text-title2 text-text font-bold">
+                  <h2 className="text-title2 text-text font-bold text-center sm:text-left">
                     Recommended
                   </h2>
 
@@ -139,8 +139,8 @@ export default function Dashboard({
                 </section>
                 <section className="flex flex-col gap-4">
                   <div className="flex justify-between">
-                    <h2 className="text-title2 text-text font-bold">
-                      Your games
+                    <h2 className="text-title2 text-text font-bold text-center sm:text-left">
+                      {gameList.length > 0 ? "Your games" : "No platforms added yet"}
                     </h2>
                   </div>
                   <ul className="grid grid-cols-1 gap-[20.5px] sm:grid-cols-3">
@@ -156,9 +156,9 @@ export default function Dashboard({
                         )
                       )
                     ) : (
-                      <div className="flex flex-col gap-4 absolute items-center justify-center left-[40%]">
-                        <Player style={`w-[400px] mx-auto`} />
-                        <h1 className="text-text font-bebas text-[2rem]">NO PLATFORMS ADDED</h1>
+                    <div className="sm:w-[400px] sm:h-[400px] bottom-10 flex flex-col gap-4 sm:absolute items-center justify-center sm:left-[40%]">
+                        <Player style={`w-[300px] sm:w-[400px]`} />
+                        <h1 className="text-text font-bebas text-[2rem]">ADD YOUR ACCOUNTS</h1>
                       </div>
                     )}
                     <li ref={observer}></li>
