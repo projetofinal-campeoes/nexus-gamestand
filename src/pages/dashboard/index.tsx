@@ -140,7 +140,7 @@ export default function Dashboard({
                 <section className="flex flex-col gap-4">
                   <div className="flex justify-between">
                     <h2 className="text-title2 text-text font-bold">
-                      Your games
+                      {gameList.length > 0 ? "Your games" : "No platforms added yet"}
                     </h2>
                   </div>
                   <ul className="grid grid-cols-1 gap-[20.5px] sm:grid-cols-3">
@@ -158,7 +158,7 @@ export default function Dashboard({
                     ) : (
                       <div className="flex flex-col gap-4 absolute items-center justify-center left-[40%]">
                         <Player style={`w-[400px] mx-auto`} />
-                        <h1 className="text-text font-bebas text-[2rem]">NO PLATFORMS ADDED</h1>
+                        <h1 className="text-text font-bebas text-[2rem]">ADD YOUR ACCOUNTS</h1>
                       </div>
                     )}
                     <li ref={observer}></li>
