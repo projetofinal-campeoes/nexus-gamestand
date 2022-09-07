@@ -17,6 +17,7 @@
     "axios": "^0.27.2",
     "cookies-next": "^2.1.1",
     "icons": "^1.0.0",
+    "lottie-web": "^5.9.6",
     "next": "12.2.5",
     "next-cookies": "^2.0.3",
     "react": "^18.2.0",
