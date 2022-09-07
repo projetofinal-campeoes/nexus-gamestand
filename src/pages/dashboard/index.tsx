@@ -156,7 +156,7 @@ export default function Dashboard({
                         )
                       )
                     ) : (
-                    <div className="sm:w-[400px] sm:h-[400px] bottom-10 flex flex-col gap-4 sm:absolute items-center justify-center sm:left-[40%]">
+                    <div className="sm:w-[400px] sm:h-[400px] bottom-10 flex flex-col gap-4 sm:absolute items-center justify-center sm:left-[40%] animate__animated animate__fadeIn">
                         <Player style={`w-[300px] sm:w-[400px]`} />
                         <h1 className="text-text font-bebas text-[2rem]">ADD YOUR ACCOUNTS</h1>
                       </div>
