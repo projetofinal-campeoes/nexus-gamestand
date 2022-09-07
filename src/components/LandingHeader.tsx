@@ -2,18 +2,31 @@ import React from 'react'
 import Image from "next/image"
 import { FaUserAlt } from 'react-icons/fa'
 import { useAuth } from '../context/AuthContext';
+import { deleteCookie } from 'cookies-next';
+import { useRouter } from 'next/router';
 
 type ILandingPage = {
     topPage: any;
     handleClick: () => void;
     handleRegister: () => void;
     handleLogin: () => void;
+    fadeOut: () => void;
 }
 
-const LandingHeader = ({handleClick, handleRegister, handleLogin, topPage}:ILandingPage) => {
+const LandingHeader = ({handleClick, handleRegister, handleLogin, topPage, fadeOut}:ILandingPage) => {
     const { user } = useAuth()
     const video = ['/wow.mp4', '/bf4.mp4'];
     const random = Math.floor(Math.random() * video.length);
+    const router = useRouter()
+    
+    const handleLogout = () => {
+      deleteCookie("token");
+      deleteCookie("id");
+      fadeOut()
+      setTimeout(() => {
+        router.reload()
+      }, 500);      
+    };
   return (
     <>
     <div
@@ -36,7 +49,7 @@ const LandingHeader = ({handleClick, handleRegister, handleLogin, topPage}:ILand
                 />
                 { user?.imageURL &&
                 <div className="ml-auto bg-linkpage rounded-[50%] cursor-pointer hover:bg-text ease-linear duration-300 flex items-center justify-center overflow-hidden w-[40px] h-[40px]">
-                   <img src={user!.imageURL} alt={user!.username} className='object-cover h-[100%]'/>
+                   <img src={user!.imageURL} alt={user!.username} className='object-cover h-[100%]' onClick={handleClick}/>
                   
                 </div>}
               </div>
@@ -54,8 +67,11 @@ const LandingHeader = ({handleClick, handleRegister, handleLogin, topPage}:ILand
               <div className="w-[100%] ">
                 {user ? 
                 <>
-                <button className="p-5 bg-primaryhover rounded-lg mt-5 ease-in-out duration-300 font-bebas mr-2 font-[] hover:bg-boxcolor hover:border-[1px] transition-all border-[1px] border-transparent animate__animated animate__pulse animate__infinite" onClick={handleClick}>
+                <button className="p-5 bg-primaryhover rounded-lg mt-5 ease-in-out duration-300 font-bebas mr-4 hover:bg-boxcolor hover:border-[1px] transition-all border-[1px] border-transparent animate__animated animate__pulse animate__infinite" onClick={handleClick}>
                   Hey, {user.username} access your Dashboard!
+                </button>
+                <button className="p-5 bg-deletecolor rounded-lg mt-5 ease-in-out duration-300 font-bebas mr-2 transition-all" onClick={handleLogout}>
+                  Logout
                 </button>
                 </> 
                 : 
