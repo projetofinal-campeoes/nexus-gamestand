@@ -5,7 +5,7 @@ import Image from "next/image";
 import getAllGamesName from "../../../utils/getAllGamesName";
 import axios from "axios";
 import Link from "next/link";
-import styles from "../../../styles/Home.module.sass";
+
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Loader from "../../../components/Loader";
@@ -31,7 +31,9 @@ const Game = ({ gameInfo }: IGameProps) => {
   return (
     <>
       <Head>
-        <title>{`NEXUS - ${gameInfo?.name ? gameInfo.name : 'Not found'}`}</title>
+        <title>{`NEXUS - ${
+          gameInfo?.name ? gameInfo.name : "Not found"
+        }`}</title>
         <link rel="shortcut icon" href="/nexus.png" type="image/x-icon" />
       </Head>
         {
@@ -142,9 +144,7 @@ export async function getStaticProps({ params }: IStaticProps) {
     gameInfo = await axios.get(
       `https://api.rawg.io/api/games?key=21bb0951c4fe428ba730b1e2a79833e1&search=${params.game}`
     );
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 
   return {
     props: {
