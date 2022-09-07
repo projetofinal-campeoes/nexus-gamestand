@@ -67,12 +67,30 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
 
   const handleSteamEdit = () => {
     setSteamEdit(!steamEdit);
+    if (epicEdit) {
+      setEpicEdit(false);
+    }
+    if (playstationEdit) {
+      setPlaystationEdit(false);
+    }
   };
   const handleEpicEdit = () => {
     setEpicEdit(!epicEdit);
+    if (steamEdit) {
+      setSteamEdit(false);
+    }
+    if (playstationEdit) {
+      setPlaystationEdit(false);
+    }
   };
   const handlePlaystationEdit = () => {
     setPlaystationEdit(!playstationEdit);
+    if (steamEdit) {
+      setSteamEdit(false);
+    }
+    if (epicEdit) {
+      setEpicEdit(false);
+    }
   };
 
   const handleUserPlatformEdit = async (plataforma: string, valor: string) => {
