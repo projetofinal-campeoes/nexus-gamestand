@@ -30,7 +30,7 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
     const userId = getCookie("id");
     const token = getCookie("token");
     setXboxUser(!xboxUser);
-    api
+    await api
       .patch(
         `/users/${userId}`,
         { xbox: !xboxUser },
@@ -78,12 +78,14 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
   const handleUserPlatformEdit = async (plataforma: string, valor: string) => {
     const userId = getCookie("id");
 
-    plataforma === "steam" && await api.patch(`/users/${userId}`, { steam: valor });
+    plataforma === "steam" &&
+      (await api.patch(`/users/${userId}`, { steam: valor }));
 
-    plataforma === "epic" && await api.patch(`/users/${userId}`, { epic: valor });
+    plataforma === "epic" &&
+      (await api.patch(`/users/${userId}`, { epic: valor }));
 
     plataforma === "playstation" &&
-    await api.patch(`/users/${userId}`, { playstation: valor });
+      (await api.patch(`/users/${userId}`, { playstation: valor }));
 
     const newUser = await api.get(`/users/${userId}`);
     setUser(newUser.data);
