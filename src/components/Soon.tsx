@@ -11,7 +11,7 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
     <>
       <div
         ref={bottomPage}
-        className="w-[60%] h-fit flex justify-center mx-auto m-4 flex-col items-center to rounded-lg"
+        className="w-[60%] h-fit flex justify-center mx-auto m-4 flex-col items-center to rounded-lg animate__animated animate__fadeIn animate__slow"
       >
         <h1 className="font-bebas text-[4rem] text-text text-center m-4">COMING SOON</h1>
         <ul className="gap-8 flex justify-center py-4 flex-wrap px-4">

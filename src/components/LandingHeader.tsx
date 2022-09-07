@@ -18,7 +18,7 @@ const LandingHeader = ({handleClick, handleRegister, handleLogin, topPage}:ILand
     <>
     <div
           ref={topPage}
-          className="w-[100%] h-[100vh] bg-backgroundlanding relative object-cover"
+          className="w-[100%] h-[100vh] bg-backgroundlanding relative object-cover animate__animated animate__fadeIn animate__slow"
         >
           <video autoPlay loop muted className="w-[100%] h-[100vh] object-cover">
             <source src={video[random]} />
@@ -34,13 +34,14 @@ const LandingHeader = ({handleClick, handleRegister, handleLogin, topPage}:ILand
                   className="cursor-pointer"
                   priority
                 />
+                { user?.imageURL &&
                 <div className="ml-auto bg-linkpage rounded-[50%] cursor-pointer hover:bg-text ease-linear duration-300 flex items-center justify-center overflow-hidden w-[40px] h-[40px]">
-                  { user?.imageURL === undefined || null ? <FaUserAlt className=" text-backgroundlanding" /> : <img src={user!.imageURL} alt={user!.username} className='object-cover h-[100%]'/>}
+                   <img src={user!.imageURL} alt={user!.username} className='object-cover h-[100%]'/>
                   
-                </div>
+                </div>}
               </div>
             </header>
-            <div className="w-[80%] h-[100%] flex flex-col justify-center mt-[10rem] sm:mt-[15rem]">
+            <div className="w-[80%] h-[100%] flex flex-col justify-center mt-[10rem] sm:mt-[20rem]">
               <div>
                 <h1 className="mt-auto text-[5rem] w-[30%] font-bebas">
                   Your unified gaming platform
