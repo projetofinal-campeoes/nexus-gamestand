@@ -1,14 +1,14 @@
 //Login and Register Pages
 .containerlogin
-    @apply bg-boxcolor rounded-lg gap-6 flex flex-col items-center justify-center px-8 py-12
+    @apply bg-boxcolor rounded-lg gap-6 flex flex-col items-center justify-center px-8 py-12 m-2
 .inputBox
-    @apply rounded-lg hidden md:flex md:w-[314px] p-4 bg-inputbackground shadow-md text-text items-center gap-4 hover:bg-boxcolor hover:shadow-[0px_0px_6px_0px_rgba(170,145,210,1)] focus-within:shadow-[0px_0px_6px_0px_rgba(170,145,210,1)] ease-linear duration-300
+    @apply rounded-lg flex sm:w-[314px] p-4 bg-inputbackground shadow-md text-text items-center gap-4 hover:bg-boxcolor hover:shadow-[0px_0px_6px_0px_rgba(170,145,210,1)] focus-within:shadow-[0px_0px_6px_0px_rgba(170,145,210,1)] ease-linear duration-300
 .input
     @apply placeholder:text-placeholder outline-none focus:outline-none text-text bg-inputbackground hover:bg-boxcolor ease-linear duration-300 w-[100%]
 .button
     @apply bg-primarycolor rounded-lg shadow-md py-4 px-8 text-text font-medium hover:bg-primaryhover ease-linear duration-300
 .span
-    @apply text-text
+    @apply text-text text-center
 
 // Header Component
 .containerHeader
@@ -43,16 +43,15 @@
     @apply w-[100%] h-[187px] bg-boxcolor rounded-lg overflow-hidden relative
 
 .content
-    @apply h-[100%] relative transition ease-in-out delay-150
-
-    &:hover
-        @apply scale-110
+    @apply h-[100%] relative ease-linear duration-150 hover:scale-105
 
     &:hover > .hoverContainer
         @apply opacity-80
 .hoverContainer
-    @apply w-[100%] h-[100%] opacity-80 absolute left-0 top-0 bg-hovercard flex justify-center items-center opacity-0 transition ease-in-out delay-150 p-2
+    @apply flex items-center justify-center h-full w-full hover:opacity-80 bg-[#000000]
 
 //Landing Page Component
 .images
-    @apply cursor-pointer rounded-lg object-cover hover:scale-105 ease-linear duration-200 overflow-hidden
+    @apply cursor-pointer rounded-lg object-cover hover:scale-105 hover:rounded-lg ease-linear duration-200
+.liimages
+    @apply rounded-lg overflow-hidden w-[250px] h-[125px] sm:w-[400px] sm:h-[200px] relative

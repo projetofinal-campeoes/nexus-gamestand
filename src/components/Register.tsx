@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import Input from "./Input";
 import { MdLock, MdMail, MdPerson } from "react-icons/md";
 import { NexusContext } from "../context/NexusContext";
+import Image from "next/image"
 
 const Register = () => {
   const navigate = useRouter();
@@ -29,7 +30,15 @@ const Register = () => {
         ref={container}
         className={`${styles.containerlogin} animate__animated animate__fadeIn`}
       >
-        <h1 className="text-primarycolor underline font-bold size text-2xl mb-5">
+        <Image
+          src="/Logo.svg"
+          alt="Nexus logo"
+          width={198}
+          height={40}
+          className="cursor-pointer"
+          priority
+        />
+        <h1 className="text-primarycolor font-bold size text-2xl mb-5">
           Joins Us!
         </h1>
         <form
@@ -71,7 +80,7 @@ const Register = () => {
           </Input>
           <button className={styles.button}>Register</button>
         </form>
-        <span className="text-text text-xs">
+        <span className="text-text text-xs text-center">
           Already have an account?{" "}
           <Link href="" passHref>
             <a

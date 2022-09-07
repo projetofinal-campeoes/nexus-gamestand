@@ -12,12 +12,7 @@ import api from "../services/api";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 
-type ISwitch = {
-  checked?: boolean;
-  handleChange?: () => void;
-};
-
-const Profile = ({ checked, handleChange }: ISwitch) => {
+const Profile = () => {
   const { user, setUser } = useAuth();
   const [userName, setUserName] = useState<string | null>(null);
   const [userImage, setUserImage] = useState<string | null | undefined>(null);
@@ -30,18 +25,16 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
     const userId = getCookie("id");
     const token = getCookie("token");
     setXboxUser(!xboxUser);
-    api
-      .patch(
-        `/users/${userId}`,
-        { xbox: !xboxUser },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Autorization: `Bearer ${token}`,
-          },
-        }
-      )
-      .then((res) => console.log(res));
+    await api.patch(
+      `/users/${userId}`,
+      { xbox: !xboxUser },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Autorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     const newUser = await api.get(`/users/${userId}`);
     setUser(newUser.data);
@@ -67,23 +60,43 @@ const Profile = ({ checked, handleChange }: ISwitch) => {
 
   const handleSteamEdit = () => {
     setSteamEdit(!steamEdit);
+    if (epicEdit) {
+      setEpicEdit(false);
+    }
+    if (playstationEdit) {
+      setPlaystationEdit(false);
+    }
   };
   const handleEpicEdit = () => {
     setEpicEdit(!epicEdit);
+    if (steamEdit) {
+      setSteamEdit(false);
+    }
+    if (playstationEdit) {
+      setPlaystationEdit(false);
+    }
   };
   const handlePlaystationEdit = () => {
     setPlaystationEdit(!playstationEdit);
+    if (steamEdit) {
+      setSteamEdit(false);
+    }
+    if (epicEdit) {
+      setEpicEdit(false);
+    }
   };
 
   const handleUserPlatformEdit = async (plataforma: string, valor: string) => {
     const userId = getCookie("id");
 
-    plataforma === "steam" && await api.patch(`/users/${userId}`, { steam: valor });
+    plataforma === "steam" &&
+      (await api.patch(`/users/${userId}`, { steam: valor }));
 
-    plataforma === "epic" && await api.patch(`/users/${userId}`, { epic: valor });
+    plataforma === "epic" &&
+      (await api.patch(`/users/${userId}`, { epic: valor }));
 
     plataforma === "playstation" &&
-    await api.patch(`/users/${userId}`, { playstation: valor });
+      (await api.patch(`/users/${userId}`, { playstation: valor }));
 
     const newUser = await api.get(`/users/${userId}`);
     setUser(newUser.data);

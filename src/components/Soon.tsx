@@ -11,11 +11,12 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
     <>
       <div
         ref={bottomPage}
-        className="w-[60%] h-fit flex justify-center mx-auto m-4 flex-col items-center to rounded-lg"
+        className="w-[60%] h-fit flex justify-center mx-auto m-4 flex-col items-center to rounded-lg animate__animated animate__fadeIn animate__slow"
       >
         <h1 className="font-bebas text-[4rem] text-text text-center m-4">COMING SOON</h1>
-        <div className="gap-8 flex justify-center py-4 flex-wrap px-4">
-        <Image 
+        <ul className="gap-8 flex justify-center py-4 flex-wrap px-4">
+        <li className={styles.liimages}>
+            <Image 
             src="/epic.png"
             alt="Epic Games Logo"
             width={400}
@@ -23,14 +24,17 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
             className={styles.images}
             onClick={handleClick}
             priority />
+            </li>
+            <li className={styles.liimages}>
             <Image 
             src="/playstation.jpg"
             alt="Epic Games Logo"
-            width={400}
-            height={200}
+            layout="fill"
             className={styles.images}
             onClick={handleClick}
             priority />
+            </li>
+            <li className={styles.liimages}>
             <Image 
             src="/origin.jpg"
             alt="Origin Logo"
@@ -39,6 +43,8 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
             className={styles.images}
             onClick={handleClick}
             priority />
+            </li>
+            <li className={styles.liimages}>
             <Image 
             src="/rockstar.jpg"
             alt="Epic Games Logo"
@@ -47,6 +53,8 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
             className={styles.images}
             onClick={handleClick}
             priority />
+            </li>
+            <li className={styles.liimages}>
             <Image 
             src="/uplay.png"
             alt="Epic Games Logo"
@@ -55,6 +63,8 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
             className={styles.images}
             onClick={handleClick}
             priority />
+            </li>
+            <li className={styles.liimages}>
             <Image 
             src="/riot.jpg"
             alt="Epic Games Logo"
@@ -63,6 +73,8 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
             className={styles.images}
             onClick={handleClick}
             priority />
+            </li>
+            <li className={styles.liimages}>
             <Image 
             src="/gog.jpg"
             alt="GOG Galaxy Logo"
@@ -71,6 +83,8 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
             className={styles.images}
             onClick={handleClick}
             priority />
+            </li>
+            <li className={styles.liimages}>
             <Image 
             src="/battle.jpg"
             alt="GOG Galaxy Logo"
@@ -79,7 +93,8 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
             className={styles.images}
             onClick={handleClick}
             priority />
-        </div>
+            </li>
+        </ul>
       </div>
     </>
   );
