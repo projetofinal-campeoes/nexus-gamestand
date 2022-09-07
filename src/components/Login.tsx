@@ -71,7 +71,7 @@ const Login = () => {
 
           <button className={styles.button}>Login</button>
         </form>
-        <span className="text-text text-xs">
+        <span className="text-text text-xs text-center">
           Don&apos;t have an account?{" "}
           <Link href="" passHref>
             <a
