@@ -39,7 +39,7 @@ const Header = ({animation, dashboardPage}:IHeader) => {
 
         <nav className="flex items-center gap-6">
           <form className={router.pathname === '/dashboard/games/[game]' ? 'hidden' : 'flex'}>
-            <label className={styles.inputBox}>
+            <label className="rounded-lg hidden md:flex sm:w-[314px] p-4 bg-inputbackground shadow-md text-text items-center gap-4 hover:bg-boxcolor hover:shadow-[0px_0px_6px_0px_rgba(170,145,210,1)] focus-within:shadow-[0px_0px_6px_0px_rgba(170,145,210,1)] ease-linear duration-300">
                 <FaSearch className="text-[15px text-[#E1E1E1]]" />
                 <input type='text' placeholder="search game name..." className={styles.input} onFocus={() =>switchIsSearching(true)} onChange={(event) => changeInputValue(event.target.value)}/>
             </label>

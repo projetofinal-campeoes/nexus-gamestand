@@ -80,7 +80,7 @@ const Register = () => {
           </Input>
           <button className={styles.button}>Register</button>
         </form>
-        <span className="text-text text-xs">
+        <span className="text-text text-xs text-center">
           Already have an account?{" "}
           <Link href="" passHref>
             <a
