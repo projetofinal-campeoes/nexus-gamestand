@@ -22,7 +22,6 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
             width={400}
             height={200}
             className={styles.images}
-            onClick={handleClick}
             priority />
             </li>
             <li className={styles.liimages}>
@@ -31,7 +30,6 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
             alt="Epic Games Logo"
             layout="fill"
             className={styles.images}
-            onClick={handleClick}
             priority />
             </li>
             <li className={styles.liimages}>
@@ -41,7 +39,6 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
             width={400}
             height={200}
             className={styles.images}
-            onClick={handleClick}
             priority />
             </li>
             <li className={styles.liimages}>
@@ -51,7 +48,6 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
             width={400}
             height={200}
             className={styles.images}
-            onClick={handleClick}
             priority />
             </li>
             <li className={styles.liimages}>
@@ -61,7 +57,6 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
             width={400}
             height={200}
             className={styles.images}
-            onClick={handleClick}
             priority />
             </li>
             <li className={styles.liimages}>
@@ -71,7 +66,6 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
             width={400}
             height={200}
             className={styles.images}
-            onClick={handleClick}
             priority />
             </li>
             <li className={styles.liimages}>
@@ -81,7 +75,6 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
             width={400}
             height={200}
             className={styles.images}
-            onClick={handleClick}
             priority />
             </li>
             <li className={styles.liimages}>
@@ -91,7 +84,6 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
             width={400}
             height={200}
             className={styles.images}
-            onClick={handleClick}
             priority />
             </li>
         </ul>
