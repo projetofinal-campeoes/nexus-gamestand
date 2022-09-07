@@ -40,7 +40,7 @@ const Soon = ({ handleClick, bottomPage }: IPlatforms) => {
             onClick={handleClick}
             priority />
             <Image 
-            src="/riot.jpg"
+            src="/rockstar.jpg"
             alt="Epic Games Logo"
             width={400}
             height={200}
