@@ -8,11 +8,12 @@ import { useAuth } from '../context/AuthContext';
 
 export default function Search() {
     const { user } = useAuth()
-    const { allGamesList, changeAllGamesList, searchInput, filteredList, switchIsSearching } = useContext(DashboardContext)
+    const { allGamesList, changeAllGamesList, searchInput, filteredList, switchIsSearching, setAllGamesList } = useContext(DashboardContext)
 
     useEffect(() => {
-        getAllGames(changeAllGamesList, user!.steam!)
-    }, []);
+        setAllGamesList([])
+        getAllGames(changeAllGamesList, user!.steam!, user!.xbox)
+    }, [user]);
 
     return(
         <section className="flex flex-col gap-4 animate__animated animate__fadeIn">

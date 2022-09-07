@@ -33,7 +33,8 @@ interface IContext {
     allGamesList: IGame[],
     changeAllGamesList: (data: IGame[]) => void,
     setGameList: (list: IGame[] | any) => void,
-    setCurrentPage: (value: number) => void
+    setCurrentPage: (value: number) => void,
+    setAllGamesList: (list: IGame[] | any) => void
 }
 
 export default function DashboardProvider({ children }: IDashboardProvider) {
@@ -41,7 +42,7 @@ export default function DashboardProvider({ children }: IDashboardProvider) {
     const [gameList, setGameList] = useState<IGame[]>([]);
     const [isSearching, setIsSearching] = useState<boolean>(false)
     const [searchInput, setSearchInput] = useState<string>('')
-    const [allGamesList, SetAllGamesList] = useState<IGame[]>([])
+    const [allGamesList, setAllGamesList] = useState<IGame[]>([])
     const [filteredList, setFilteredList] = useState<IGame[]>([])
 
     const switchIsSearching = (data: boolean) => setIsSearching(data)
@@ -50,7 +51,7 @@ export default function DashboardProvider({ children }: IDashboardProvider) {
 
     const addToInfiniteScroll = (data: IGame[]) => setGameList((oldGameList) => [...oldGameList, ...data])
 
-    const changeAllGamesList = (data: IGame[]) => SetAllGamesList((oldGameList) => [...oldGameList, ...data]) 
+    const changeAllGamesList = (data: IGame[]) => setAllGamesList((oldGameList) => [...oldGameList, ...data]) 
 
     const changeFilteredList = (data: string) => setFilteredList(allGamesList.filter(({ productName }) => productName.toLowerCase().includes(data.toLowerCase())))
 
@@ -61,7 +62,7 @@ export default function DashboardProvider({ children }: IDashboardProvider) {
     }
 
     return(
-        <DashboardContext.Provider value={{currentPage, PagePlusOne, gameList, addToInfiniteScroll, isSearching, switchIsSearching, filteredList, changeFilteredList, searchInput, changeInputValue, allGamesList, changeAllGamesList, setGameList, setCurrentPage}}>
+        <DashboardContext.Provider value={{currentPage, PagePlusOne, gameList, addToInfiniteScroll, isSearching, switchIsSearching, filteredList, changeFilteredList, searchInput, changeInputValue, allGamesList, changeAllGamesList, setGameList, setCurrentPage, setAllGamesList}}>
             {children}
         </DashboardContext.Provider>
     )

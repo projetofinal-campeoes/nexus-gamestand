@@ -70,8 +70,10 @@ export default function Dashboard({ randomGames, user: userFromServer }: IDashbo
         PagePlusOne();
       }
     });
-
-    intersectionObserver.observe(observer.current!);
+    
+    if(!isSearching) {
+        intersectionObserver.observe(observer.current!);
+    }
 
     return () => intersectionObserver.disconnect();
   }, []);
