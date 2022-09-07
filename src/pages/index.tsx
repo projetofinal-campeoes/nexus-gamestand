@@ -51,6 +51,7 @@ const VideoBg = () => {
           handleClick={handleClick}
           handleRegister={handleRegister}
           handleLogin={handleLogin}
+          fadeOut={fadeOut}
         />
         <SupportedPlatforms handleClick={handleClick} midPage={midPage} />
         <Soon handleClick={handleClick} bottomPage={bottomPage} />
