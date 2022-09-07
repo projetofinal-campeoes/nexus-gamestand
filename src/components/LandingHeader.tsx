@@ -12,6 +12,8 @@ type ILandingPage = {
 
 const LandingHeader = ({handleClick, handleRegister, handleLogin, topPage}:ILandingPage) => {
     const { user } = useAuth()
+    const video = ['/wow.mp4', '/bf4.mp4'];
+    const random = Math.floor(Math.random() * video.length);
   return (
     <>
     <div
@@ -19,7 +21,7 @@ const LandingHeader = ({handleClick, handleRegister, handleLogin, topPage}:ILand
           className="w-[100%] h-[100vh] bg-backgroundlanding relative object-cover"
         >
           <video autoPlay loop muted className="w-[100%] h-[100vh] object-cover">
-            <source src="/bf4.mp4" />
+            <source src={video[random]} />
           </video>
           <div className="absolute w-[100%] h-[100%] top-0 flex text-text flex-col items-center bg-backgroundlanding">
             <header className="z-[1] w-[100%] h-[60px] flex flex-col items-center justify-center relative">
@@ -39,7 +41,7 @@ const LandingHeader = ({handleClick, handleRegister, handleLogin, topPage}:ILand
                 </div>
               </div>
             </header>
-            <div className="w-[80%] h-[100%] flex flex-col justify-center mt-[10rem]">
+            <div className="w-[80%] h-[100%] flex flex-col justify-center mt-[15rem]">
               <div>
                 <h1 className="mt-auto text-[5rem] w-[30%] font-bebas">
                   Your unified gaming platform
