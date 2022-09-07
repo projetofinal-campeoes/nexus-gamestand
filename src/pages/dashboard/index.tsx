@@ -90,10 +90,7 @@ export default function Dashboard({
 
   return (
     <Background config="flex-col gap-8 items-center">
-      <Header
-        animation="animate__animated animate__fadeInDown animate__fast"
-        dashboardPage={dashboardPage}
-      />
+      <Header animation="animate__animated animate__fadeInDown animate__fast" />
       <Head>
         <title>NEXUS - Dashboard</title>
         <link rel="shortcut icon" href="/nexus.png" type="image/x-icon" />
