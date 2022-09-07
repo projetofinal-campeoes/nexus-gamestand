@@ -7,8 +7,7 @@ import getXboxGames from "../../services/GetXboxGames";
 import getSteamGames from "../../services/GetSteamGames";
 import Profile from "../../components/ProfileModal";
 import { DashboardContext, IGame } from "../../context/DashboardContext";
-import { FaFilter, FaPlus } from "react-icons/fa";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import Search from "./../../components/Search";
 import Head from "next/head";
 import { IUser, useAuth } from "../../context/AuthContext";
@@ -110,34 +109,23 @@ export default function Dashboard({
               <h2 className="text-title2 text-text font-bold">Recommended</h2>
 
               <ul className="grid grid-cols-1 gap-[20.5px] sm:grid-cols-2">
-                {randomGames.map(
-                  ({ id, productName, image, platform }, index) => (
-                    <GameCard
-                      key={index}
-                      name={productName}
-                      img={image.URL}
-                      platform={platform}
-                      type="large"
-                    />
-                  )
-                )}
+                {randomGames.map(({ productName, image, platform }, index) => (
+                  <GameCard
+                    key={index}
+                    name={productName}
+                    img={image.URL}
+                    platform={platform}
+                    type="large"
+                  />
+                ))}
               </ul>
             </section>
             <section className="flex flex-col gap-4">
               <div className="flex justify-between">
                 <h2 className="text-title2 text-text font-bold">Your games</h2>
-
-                {/* <nav className="flex text-primarycolor text-[20px] gap-6">
-                  <button>
-                    <FaPlus className="text-[22px] hover:text-primaryhover ease-in duration-300" />
-                  </button>
-                  <button>
-                    <FaFilter className="hover:text-primaryhover ease-in duration-300" />
-                  </button>
-                </nav> */}
               </div>
               <ul className="grid grid-cols-1 gap-[20.5px] sm:grid-cols-3">
-                {gameList.map(({ id, productName, image, platform }, index) => (
+                {gameList.map(({ productName, image, platform }, index) => (
                   <GameCard
                     key={index}
                     name={productName}
@@ -160,13 +148,18 @@ interface IServerSideContext {
   res: NextApiResponse;
 }
 
+interface IResponse {
+  data: object;
+}
+
 export async function getServerSideProps({ req, res }: IServerSideContext) {
   const id = getCookie("id", { req, res });
   const token = getCookie("token", { req, res });
+  let response: IResponse = {} as IResponse;
 
   if (token) {
     try {
-      const { data } = await api.get(`/users/${id}`, {
+      response = await api.get(`/users/${id}`, {
         headers: {
           authorization: `Bearer ${token}`,
         },
@@ -214,16 +207,10 @@ export async function getServerSideProps({ req, res }: IServerSideContext) {
     }
   );
 
-  const { data } = await api.get(`/users/${id}`, {
-    headers: {
-      authorization: `Bearer ${token}`,
-    },
-  });
-
   return {
     props: {
       randomGames: formattedGames,
-      user: data,
+      user: response.data,
     },
   };
 }
