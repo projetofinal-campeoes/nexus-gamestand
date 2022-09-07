@@ -115,14 +115,14 @@ export default function Dashboard({ randomGames, user: userFromServer }: IDashbo
               <div className="flex justify-between">
                 <h2 className="text-title2 text-text font-bold">Your games</h2>
 
-                <nav className="flex text-primarycolor text-[20px] gap-6">
+                {/* <nav className="flex text-primarycolor text-[20px] gap-6">
                   <button>
                     <FaPlus className="text-[22px] hover:text-primaryhover ease-in duration-300" />
                   </button>
                   <button>
                     <FaFilter className="hover:text-primaryhover ease-in duration-300" />
                   </button>
-                </nav>
+                </nav> */}
               </div>
               <ul className="grid grid-cols-3 gap-[20.5px]">
                 {gameList.map(({ id, productName, image, platform }, index) => (
