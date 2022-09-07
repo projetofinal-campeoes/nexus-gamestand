@@ -1,11 +1,9 @@
 import React, { useRef, useState } from "react";
 import Background from "../components/Background";
 import SEO from "../components/SEO";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import SupportedPlatforms from "../components/SupportedPlatforms";
 import LandingHeader from "../components/LandingHeader";
-import Creators from "../components/Creators";
 
 const VideoBg = () => {
   const router = useRouter();
