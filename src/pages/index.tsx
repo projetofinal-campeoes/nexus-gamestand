@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import Background from "../components/Background";
 import SEO from "../components/SEO";
 import { useRouter } from "next/router";
