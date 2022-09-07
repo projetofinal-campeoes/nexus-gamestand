@@ -34,7 +34,7 @@ export default function GameCard({ id, name, img, platform, type }: GameCard) {
             <Link href={`/dashboard/games/${name}`} className='overflow-hidden'>
                 <div className={styles.content}>
                     <div>
-                        <Image onErrorCapture={handleImageError} src={URLError ? 'https://cdn6.aptoide.com/imgs/1/3/5/135414bbfd2c62340daf0f53516fc106_screen.jpg?h=500' : img} layout='fill' alt={name} quality={100} placeholder='blur' blurDataURL='https://cdn6.aptoide.com/imgs/1/3/5/135414bbfd2c62340daf0f53516fc106_screen.jpg?h=500' className='object'/>
+                        <Image onErrorCapture={handleImageError} src={URLError ? 'https://cdn6.aptoide.com/imgs/1/3/5/135414bbfd2c62340daf0f53516fc106_screen.jpg?h=500' : img} objectFit='cover' layout='fill' alt={name} quality={100} placeholder='blur' blurDataURL='https://cdn6.aptoide.com/imgs/1/3/5/135414bbfd2c62340daf0f53516fc106_screen.jpg?h=500'/>
                     </div>
 
                     <button className={styles.hoverContainer}>
