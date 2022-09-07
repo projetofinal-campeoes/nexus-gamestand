@@ -32,7 +32,6 @@ const LandingHeader = ({handleClick, handleRegister, handleLogin, topPage}:ILand
                   width={198}
                   height={40}
                   className="cursor-pointer"
-                  onClick={handleClick}
                   priority
                 />
                 <div className="ml-auto bg-linkpage rounded-[50%] cursor-pointer hover:bg-text ease-linear duration-300 flex items-center justify-center overflow-hidden w-[40px] h-[40px]">
