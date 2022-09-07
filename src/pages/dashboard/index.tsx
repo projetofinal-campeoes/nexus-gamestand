@@ -1,7 +1,7 @@
 import Background from "../../components/Background";
 import Header from "./../../components/Header";
 import GameCard from "./../../components/GameCard";
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { NexusContext } from "../../context/NexusContext";
 import getXboxGames from "../../services/GetXboxGames";
 import getSteamGames from "../../services/GetSteamGames";
@@ -16,6 +16,7 @@ import { useRouter } from "next/router";
 import { NextApiRequest, NextApiResponse } from "next";
 import { deleteCookie, getCookie } from "cookies-next";
 import api from "../../services/api";
+import Loader from "../../components/Loader"
 
 interface IDashboard {
   randomGames: IGame[];
@@ -35,6 +36,7 @@ export default function Dashboard({ randomGames, user: userFromServer }: IDashbo
   } = useContext(DashboardContext);
   const router = useRouter();
   const { user } = useAuth()
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const observer = useRef<HTMLLIElement | null>(null);
 
@@ -75,74 +77,85 @@ export default function Dashboard({ randomGames, user: userFromServer }: IDashbo
         intersectionObserver.observe(observer.current!);
     }
 
+    router.events.on('routeChangeStart', () => {setIsLoading(true)})
+
     return () => intersectionObserver.disconnect();
   }, []);
 
   const dashboardPage = useRef<HTMLDivElement>(null)
 
   return (
-    <Background config="flex-col gap-8 items-center">
-      <Header animation="animate__animated animate__fadeInDown animate__fast" dashboardPage={dashboardPage}/>
+    <>
       <Head>
         <title>NEXUS - Dashboard</title>
         <link rel="shortcut icon" href="/nexus.png" type="image/x-icon" />
       </Head>
+      
+        {
+            isLoading ?
+            <Background config='items-center justify-center'>
+                <Loader/>
+            </Background>
+            :
+            <Background config="flex-col gap-8 items-center">
+                <Header animation="animate__animated animate__fadeInDown animate__fast" dashboardPage={dashboardPage}/>
+                {userModalOpen && <Profile />}
 
-      {userModalOpen && <Profile />}
+                <div ref={dashboardPage} className="w-[80%] max-w-[1041px] flex flex-col gap-10 pb-10 animate__animated animate__fadeIn">
+                    {isSearching ? (
+                    <Search />
+                    ) : (
+                    <>
+                        <section className="flex flex-col gap-4">
+                        <h2 className="text-title2 text-text font-bold">Recommended</h2>
 
-      <div ref={dashboardPage} className="w-[80%] max-w-[1041px] flex flex-col gap-10 pb-10 animate__animated animate__fadeIn">
-        {isSearching ? (
-          <Search />
-        ) : (
-          <>
-            <section className="flex flex-col gap-4">
-              <h2 className="text-title2 text-text font-bold">Recommended</h2>
+                        <ul className="grid grid-cols-2 gap-[20.5px]">
+                            {randomGames.map(
+                            ({ id, productName, image, platform }, index) => (
+                                <GameCard
+                                key={index}
+                                id={id}
+                                name={productName}
+                                img={image.URL}
+                                platform={platform}
+                                type="large"
+                                />
+                            )
+                            )}
+                        </ul>
+                        </section>
+                        <section className="flex flex-col gap-4">
+                        <div className="flex justify-between">
+                            <h2 className="text-title2 text-text font-bold">Your games</h2>
 
-              <ul className="grid grid-cols-2 gap-[20.5px]">
-                {randomGames.map(
-                  ({ id, productName, image, platform }, index) => (
-                    <GameCard
-                      key={index}
-                      id={id}
-                      name={productName}
-                      img={image.URL}
-                      platform={platform}
-                      type="large"
-                    />
-                  )
-                )}
-              </ul>
-            </section>
-            <section className="flex flex-col gap-4">
-              <div className="flex justify-between">
-                <h2 className="text-title2 text-text font-bold">Your games</h2>
-
-                {/* <nav className="flex text-primarycolor text-[20px] gap-6">
-                  <button>
-                    <FaPlus className="text-[22px] hover:text-primaryhover ease-in duration-300" />
-                  </button>
-                  <button>
-                    <FaFilter className="hover:text-primaryhover ease-in duration-300" />
-                  </button>
-                </nav> */}
-              </div>
-              <ul className="grid grid-cols-3 gap-[20.5px]">
-                {gameList.map(({ id, productName, image, platform }, index) => (
-                  <GameCard
-                    key={index}
-                    id={id}
-                    name={productName}
-                    img={image.URL}
-                    platform={platform}
-                  />
-                ))}
-                <li ref={observer}></li>
-              </ul>
-            </section>
-          </>
-        )}
-      </div>
-    </Background>
+                            {/* <nav className="flex text-primarycolor text-[20px] gap-6">
+                            <button>
+                                <FaPlus className="text-[22px] hover:text-primaryhover ease-in duration-300" />
+                            </button>
+                            <button>
+                                <FaFilter className="hover:text-primaryhover ease-in duration-300" />
+                            </button>
+                            </nav> */}
+                        </div>
+                        <ul className="grid grid-cols-3 gap-[20.5px]">
+                            {gameList.map(({ id, productName, image, platform }, index) => (
+                            <GameCard
+                                key={index}
+                                id={id}
+                                name={productName}
+                                img={image.URL}
+                                platform={platform}
+                            />
+                            ))}
+                            <li ref={observer}></li>
+                        </ul>
+                        </section>
+                    </>
+                    )}
+                </div>
+            </Background>   
+        }
+    </>
   );
 }
 
