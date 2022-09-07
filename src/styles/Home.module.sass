@@ -43,16 +43,15 @@
     @apply w-[100%] h-[187px] bg-boxcolor rounded-lg overflow-hidden relative
 
 .content
-    @apply h-[100%] relative transition ease-in-out delay-150
-
-    &:hover
-        @apply scale-110
+    @apply h-[100%] relative ease-linear duration-150 hover:scale-105
 
     &:hover > .hoverContainer
         @apply opacity-80
 .hoverContainer
-    @apply w-[100%] h-[100%] opacity-80 absolute left-0 top-0 bg-hovercard flex justify-center items-center opacity-0 transition ease-in-out delay-150 p-2
+    @apply flex items-center justify-center h-full w-full hover:opacity-80 bg-[#000000]
 
 //Landing Page Component
 .images
-    @apply cursor-pointer rounded-lg object-cover hover:scale-105 ease-linear duration-200 overflow-hidden
+    @apply cursor-pointer rounded-lg object-cover hover:scale-105 hover:rounded-lg ease-linear duration-200
+.liimages
+    @apply rounded-lg overflow-hidden w-[250px] h-[125px] sm:w-[400px] sm:h-[200px] relative
