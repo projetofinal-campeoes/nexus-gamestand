@@ -15,7 +15,7 @@ type IHeader = {
 
 const Header = ({animation, dashboardPage}:IHeader) => {
   const { handleLogout } = useAuth()
-  const { switchIsSearching, changeInputValue } = useContext(DashboardContext)
+  const { switchIsSearching, changeInputValue, setIsSearching } = useContext(DashboardContext)
   const { setUserModalOpen, userModalOpen } = useContext(NexusContext);
 
   const router = useRouter();
@@ -54,7 +54,10 @@ const Header = ({animation, dashboardPage}:IHeader) => {
           <button>
             <FaSignOutAlt
               className="text-primarycolor text-[25px] hover:text-primaryhover ease-in duration-300"
-              onClick={handleLogout}
+              onClick={() => {
+                  handleLogout()
+                  setIsSearching(false)
+                }}
             />
           </button>
         </nav>
