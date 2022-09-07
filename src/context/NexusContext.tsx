@@ -11,10 +11,8 @@ type IContext = {
   setUserModalOpen: Function;
   checked: boolean;
   setChecked: Function;
-  profileModal: any
+  profileModal: any;
 };
-
-//procurar a tipagem correta do useRef ↑
 
 type INexusProvider = {
   children: ReactNode;
@@ -30,16 +28,18 @@ export const NexusContext = createContext<IContext>({} as IContext);
 const NexusProvider = ({ children }: INexusProvider) => {
   const [checked, setChecked] = useState(false);
   const [userModalOpen, setUserModalOpen] = useState(false);
-  const profileModal = useRef<HTMLDivElement>()
+  const profileModal = useRef<HTMLDivElement>();
 
   const handleUserModalOpen = () => {
-    profileModal.current?.classList.add("animate__animated", "animate__fadeOut")
+    profileModal.current?.classList.add(
+      "animate__animated",
+      "animate__fadeOut"
+    );
     setTimeout(() => {
       setUserModalOpen(!userModalOpen);
     }, 500);
   };
 
-  
   const navigate = useRouter();
 
   const onSubmitRegister = (account: FieldValues) => {
