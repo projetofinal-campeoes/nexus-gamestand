@@ -93,7 +93,7 @@ export default function AuthProvider({ children }: IProvider) {
     deleteCookie("token");
     deleteCookie("id");
 
-    router.push("/login");
+    router.push("/");
   };
 
   return (
