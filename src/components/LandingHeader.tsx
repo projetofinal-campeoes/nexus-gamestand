@@ -4,6 +4,7 @@ import { FaUserAlt } from 'react-icons/fa'
 import { useAuth } from '../context/AuthContext';
 import { deleteCookie } from 'cookies-next';
 import { useRouter } from 'next/router';
+import CookieConsent from "react-cookie-consent";
 
 type ILandingPage = {
     topPage: any;
@@ -15,7 +16,7 @@ type ILandingPage = {
 
 const LandingHeader = ({handleClick, handleRegister, handleLogin, topPage, fadeOut}:ILandingPage) => {
     const { user } = useAuth()
-    const video = ['/wow.mp4', '/bf4.mp4'];
+    const video = ['/wow.mp4', '/bf4.mp4', '/cars.mp4', '/girls.mp4'];
     const random = Math.floor(Math.random() * video.length);
     const router = useRouter()
     const handleLogout = () => {
@@ -33,7 +34,7 @@ const LandingHeader = ({handleClick, handleRegister, handleLogin, topPage, fadeO
           className="w-[100%] h-[100vh] bg-backgroundlanding relative object-cover animate__animated animate__fadeIn animate__slow"
         >
           <video autoPlay loop muted className="w-[100%] h-[100vh] object-cover">
-            <source src={user ? "/wow.mp4" : "/bf4.mp4"} />
+            <source src={video[random]} />
           </video>
           <div className="absolute w-[100%] h-[100%] top-0 flex text-text flex-col items-center bg-backgroundlanding">
             <header className="z-[1] w-[100%] h-[60px] flex flex-col items-center justify-center relative">
@@ -91,6 +92,7 @@ const LandingHeader = ({handleClick, handleRegister, handleLogin, topPage, fadeO
             </div>
           </div>
         </div>
+        <CookieConsent style={{background:''}} buttonStyle={{ borderRadius:'5px', padding:'15px', color:'#FFFF', backgroundColor:'#805BE8'}}>This website uses cookies to enhance the user experience.</CookieConsent>
     </>
   )
 }
