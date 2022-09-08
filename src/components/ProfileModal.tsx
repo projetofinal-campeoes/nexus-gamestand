@@ -136,7 +136,7 @@ const Profile = () => {
             onClick={() => handleUserModalOpen()}
           />
         </div>
-        <div className="flex flex-col items-center gap-2">
+        <div className="flex flex-col items-center gap-1">
           <div className={styles.profileImage}>
             {userImage ? (
               // eslint-disable-next-line @next/next/no-img-element
@@ -152,11 +152,11 @@ const Profile = () => {
           <h2 className="text-center text-title1 font-bold text-text">
             {userName}
           </h2>
-          <nav className="mt-10 flex w-[100%] font-bold text-title2">
+          <nav className="mt-5 flex w-[100%] font-bold text-title2">
             <button
               className={`${
                 changeModalSection ? "text-[#E1E1E1]" : "text-primarycolor"
-              } border-b-[3px] font-bold mb-5 w-[50%]`}
+              } border-b-[3px] font-bold w-[50%]`}
               onClick={() => setChangeModalSection(false)}
             >
               Library&apos;s
@@ -164,7 +164,7 @@ const Profile = () => {
             <button
               className={`${
                 changeModalSection ? "text-primarycolor " : "text-[#E1E1E1]"
-              } border-b-[3px] font-bold  mb-5 w-[50%]`}
+              } border-b-[3px] font-bold w-[50%]`}
               onClick={() => setChangeModalSection(true)}
             >
               Edit Profile
