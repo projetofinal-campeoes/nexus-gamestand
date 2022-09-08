@@ -129,7 +129,7 @@ const Profile = () => {
       className="fixed top-0 left-0 w-[100vw] h-[100vh] flex justify-center items-center z-10 bg-[rgba(0,0,0,0.5)] backdrop-blur-[4px] animate__animated animate__fadeIn"
     >
       <SEO title="Profile" description="Profile Modal of Nexus Application" />
-      <div className="w-[500px] m-2 rounded-3xl flex flex-col align-middle bg-boxcolor py-6 px-10">
+      <div className="w-[500px] m-2 rounded-3xl flex flex-col align-middle bg-boxcolor py-10 px-10">
         <div className="flex justify-end mb-2 text-primarycolor ">
           <FaWindowClose
             className="w-5 h-5 hover:cursor-pointer hover:text-primaryhover ease-linear duration-300"
@@ -159,7 +159,7 @@ const Profile = () => {
               } border-b-[3px] font-bold w-[50%]`}
               onClick={() => setChangeModalSection(false)}
             >
-              Library&apos;s
+              Platforms
             </button>
             <button
               className={`${
@@ -207,7 +207,8 @@ const Profile = () => {
                 </div>
               )}
             </div>
-            <div className={styles.divUser}>
+            {/* Quando tiver Epic Games, descomentar código abaixo */}
+            {/* <div className={styles.divUser}>
               {epicEdit === false ? (
                 <>
                   <SiEpicgames className={styles.iconGame} />
@@ -238,8 +239,9 @@ const Profile = () => {
                   />
                 </div>
               )}
-            </div>
-            <div className={styles.divUser}>
+            </div> */}
+            {/* Quando tiver Playstation, descomentar código abaixo */}
+            {/* <div className={styles.divUser}>
               {playstationEdit === false ? (
                 <>
                   <SiPlaystation className={styles.iconGame} />
@@ -270,7 +272,7 @@ const Profile = () => {
                   />
                 </div>
               )}
-            </div>
+            </div> */}
 
             <div className="flex items-center relative">
               <SiXbox className={styles.iconGame} />
