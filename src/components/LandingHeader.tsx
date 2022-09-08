@@ -22,7 +22,7 @@ const LandingHeader = ({
 }: ILandingPage) => {
   const { user } = useAuth();
 
-  const video = ["/wow.mp4", "/cars.mp4", "/horizon.mp4"];
+  const video = ["/wow.mp4", "/cars.mp4", "/horizon.mp4", "/bf4.mp4"];
   const random = Math.floor(Math.random() * video.length);
   const router = useRouter();
   const handleLogout = () => {
@@ -39,7 +39,7 @@ const LandingHeader = ({
         ref={topPage}
         className="w-[100%] h-[100vh] bg-backgroundlanding relative object-cover animate__animated animate__fadeIn animate__slow"
       >
-        {user?.username === "Kenzinho" ? (
+        {user?.username.toLowerCase() === "kenzinho" ? (
           <>
             <Image src={"/easteregg.jpg"} layout="fill" className="object-cover" />
           </>
