@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="https://cdn-icons-png.flaticon.com/512/2701/2701763.png" width="30px" /> <a href="https://linktr.ee/nexusgamestand" target="_blank">NEXUS GameStand</a> <img src="https://cdn-icons-png.flaticon.com/512/2701/2701763.png" width="30px" />
+    <img src="https://cdn-icons-png.flaticon.com/512/2701/2701763.png" width="30px" /> <a href="https://nexusgamestand.com" target="_blank">NEXUS GameStand</a> <img src="https://cdn-icons-png.flaticon.com/512/2701/2701763.png" width="30px" />
 </h1>
 
 <h3 align="center">Series of gamers connections, linking platforms.</h3>
@@ -39,9 +39,9 @@ Com esse intuito em mente, pensando no front-end, criaremos uma aplicação que 
 
 <br/>
 
-### ✅ Link para a demo da aplicação
+### ✅ Link para aplicação
 
-- [x] Frontend -> <a href="https://nexus-gamestand.vercel.app/">Link app</a>
+- [x] Frontend -> <a href="[https://nexus-gamestand.vercel.app/](https://nexusgamestand.com)">Link app</a>
 
 <br/>
 
