@@ -136,7 +136,7 @@ const Profile = () => {
             onClick={() => handleUserModalOpen()}
           />
         </div>
-        <div className="flex flex-col items-center gap-1">
+        <div className="flex flex-col items-center gap-2">
           <div className={styles.profileImage}>
             {userImage ? (
               // eslint-disable-next-line @next/next/no-img-element
