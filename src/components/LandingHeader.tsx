@@ -33,7 +33,7 @@ const LandingHeader = ({handleClick, handleRegister, handleLogin, topPage, fadeO
           className="w-[100%] h-[100vh] bg-backgroundlanding relative object-cover animate__animated animate__fadeIn animate__slow"
         >
           <video autoPlay loop muted className="w-[100%] h-[100vh] object-cover">
-            <source src={video[random]} />
+            <source src={user ? "/wow.mp4" : "/bf4.mp4"} />
           </video>
           <div className="absolute w-[100%] h-[100%] top-0 flex text-text flex-col items-center bg-backgroundlanding">
             <header className="z-[1] w-[100%] h-[60px] flex flex-col items-center justify-center relative">
