@@ -129,8 +129,8 @@ const Profile = () => {
       className="fixed top-0 left-0 w-[100vw] h-[100vh] flex justify-center items-center z-10 bg-[rgba(0,0,0,0.5)] backdrop-blur-[4px] animate__animated animate__fadeIn"
     >
       <SEO title="Profile" description="Profile Modal of Nexus Application" />
-      <div className="w-[500px] rounded-3xl flex flex-col align-middle bg-boxcolor px-8 py-12 sm:px-20">
-        <div className="flex justify-end mb-10 text-primarycolor ">
+      <div className="w-[500px] m-2 rounded-3xl flex flex-col align-middle bg-boxcolor py-6 px-10">
+        <div className="flex justify-end mb-2 text-primarycolor ">
           <FaWindowClose
             className="w-5 h-5 hover:cursor-pointer hover:text-primaryhover ease-linear duration-300"
             onClick={() => handleUserModalOpen()}

@@ -126,7 +126,7 @@ const LandingHeader = ({
         </div>
       </div>
       <CookieConsent
-        style={{ background: "" }}
+        style={{ background: "#1e212a" }}
         buttonStyle={{
           borderRadius: "5px",
           padding: "15px",
