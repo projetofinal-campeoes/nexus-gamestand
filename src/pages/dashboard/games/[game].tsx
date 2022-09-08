@@ -50,7 +50,7 @@ const Game = ({ gameInfo }: IGameProps) => {
                         Back
                     </button>
                     </Link>
-                    <div className="w-[700px] h-[394px] relative">
+                    <div className="w-[100%] h-[200px] relative md:w-[700px] md:h-[394px]">
                     <Image
                         src={
                         gameInfo?.background_image
@@ -69,7 +69,7 @@ const Game = ({ gameInfo }: IGameProps) => {
                     <h1 className="mb-2 text-sm text-center text-title1 font-bold">
                         {gameInfo?.name ? gameInfo.name : "Not found"}
                     </h1>
-                    <ul className="flex items-center gap-4">
+                    <ul className="flex items-center gap-2 flex-wrap ">
                         <li>Genres:</li>
                         {gameInfo?.genres[0]?.name ? (
                         gameInfo?.genres.map(({ name }, index) => (
