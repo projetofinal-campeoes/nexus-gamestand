@@ -7,10 +7,10 @@
 <br/>
 
 ### 🤔 Problema
-           Hoje em dia nós temos muitas plataformas de jogos, Steam, Epic Games, Origin, Ubisoft Connect, Battle.net, EA Play, Xbox Game Pass, e isso acaba causando uma confusão sobre em qual dessas plataformas temos tal jogo, e pensando nisso nós criamos o Nexus GameStand, que vem com a proposta de centralizar todos os jogos do usuário em um local só, possibilitando a ele muito mais facilmente saber em qual plataforma está o jogo que ele quer jogar, e também possibilitando ele redescobrir jogos que estavam perdidos na sua biblioteca de alguma plataforma.
+   Hoje em dia nós temos muitas plataformas de jogos, Steam, Epic Games, Origin, Ubisoft Connect, Battle.net, EA Play, Xbox Game Pass, e isso acaba causando uma confusão sobre em qual dessas plataformas temos tal jogo, e pensando nisso nós criamos o Nexus GameStand, que vem com a proposta de centralizar todos os jogos do usuário em um local só, possibilitando a ele muito mais facilmente saber em qual plataforma está o jogo que ele quer jogar, e também possibilitando ele redescobrir jogos que estavam perdidos na sua biblioteca de alguma plataforma.
 
 ### 💡 Solução
-           Com esse intuito em mente, criaremos uma aplicação que terá uma página de login simples uma pagina de registro com um formulário simples, como sabemos que o usuário pode usar diferentes emails para diferentes plataformas, ao fazer o registro ele será direcionado para uma página de perfil de usuário, onde o usuário poderá editar suas informações e também conectará com todas a plataformas, terá uma página principal onde será mostrado todos os jogos do usuário, e será possível utilizar alguns filtros, como busca por nome, categoria, etc.
+   Com esse intuito em mente, criaremos uma aplicação que terá uma página de login simples uma pagina de registro com um formulário simples, como sabemos que o usuário pode usar diferentes emails para diferentes plataformas, ao fazer o registro ele será direcionado para uma página de perfil de usuário, onde o usuário poderá editar suas informações e também conectará com todas a plataformas, terá uma página principal onde será mostrado todos os jogos do usuário, e será possível utilizar alguns filtros, como busca por nome, categoria, etc.
 Por fim para o MVP, teremos uma pagina que mostrará todas as informações do game que o usuário acessou pela Página Principal.
 
 
