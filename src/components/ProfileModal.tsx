@@ -156,7 +156,7 @@ const Profile = () => {
             <button
               className={`${
                 changeModalSection ? "text-[#E1E1E1]" : "text-primarycolor"
-              } border-b-[3px] font-bold w-[50%] mb-2`}
+              } border-b-[3px] font-bold w-[50%] mb-4`}
               onClick={() => setChangeModalSection(false)}
             >
               Platforms
@@ -164,7 +164,7 @@ const Profile = () => {
             <button
               className={`${
                 changeModalSection ? "text-primarycolor " : "text-[#E1E1E1]"
-              } border-b-[3px] font-bold w-[50%] mb-2`}
+              } border-b-[3px] font-bold w-[50%] mb-4`}
               onClick={() => setChangeModalSection(true)}
             >
               Edit Profile
