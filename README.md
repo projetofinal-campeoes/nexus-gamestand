@@ -26,6 +26,7 @@ Por fim para o MVP, teremos uma pagina que mostrará todas as informações do g
 - [x] [Cookies Next](https://openbase.com/js/cookies-next) - Obtendo, configurando e removendo cookies com NEXT.JS
 - [x] [Vercel](https://vercel.com/) - Ferramenta pra deploy da aplicação
 - [x] [Animate.css](https://animate.style/) - Lib de animações
+- [x] [MUI](https://mui.com/pt/) - Lib de componentes
 - [x] Outras bibliotecas que auxiliaram no desenvolvimento podem ser encontradas na seção: `"dependencies"` e `"devDependencies"` no arquivo `package.json`, no diretório relacionado ao FrontEnd
 
 ## 🔨 Back-end (JSON Server)
