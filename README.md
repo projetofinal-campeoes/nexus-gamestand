@@ -100,7 +100,7 @@ $ npm run dev
     <td align="center">
         <img src="https://avatars.githubusercontent.com/u/93692439?v=4" width="100px;" alt="Foto do Adam"/><br>        
         <sub>
-          <b>Adam Neves - Scrum Master</b> <br/>
+          <b>Adam Neves</b> <br/>
             <a href="https://github.com/adamsnows" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"/>
             <a href="https://www.linkedin.com/in/adam-neves/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
         </sub>
@@ -108,15 +108,53 @@ $ npm run dev
     <td align="center">
         <img src="https://avatars.githubusercontent.com/u/40778394?v=4" width="100px;" alt="Foto do Yan"/><br>        
         <sub>
-            <b>Yan Carlo - Tech Lead</b> <br/>
+            <b>Yan Carlo</b> <br/>
             <a href="https://github.com/yancarlodev" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"/>
                 <a href="https://www.linkedin.com/in/yancarlodev/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
         </sub>
     </td>
     <td align="center">
+        <img src="https://avatars.githubusercontent.com/u/100591242?v=4" width="100px;" alt="Foto do Matheus"/><br>        
+        <sub>
+          <b>Matheus Sudré</b> <br/>
+            <a href="https://github.com/mathsudre" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"/>
+                <a href="https://www.linkedin.com/in/matheus-sudre/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
+        </sub>
+    </td>
+      <td align="center">
+        <img src="https://avatars.githubusercontent.com/u/100426215?v=4" width="100px;" alt="Foto do Sidarta"/><br>          
+        <sub>
+          <b>Sidarta Kauã</b>  <br/>
+            <a href="https://github.com/ssidartaa" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"/>
+                <a href="https://www.linkedin.com/in/ssidartaa/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
+        </sub>
+    </td>
+          <td align="center">
+        <img src="https://avatars.githubusercontent.com/u/101332741?v=4" width="100px;" alt="Foto do Vagner"/><br>          
+        <sub>
+          <b>Vagner Mengali</b>  <br/>
+            <a href="https://github.com/vagnermengali" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"/>
+                <a href="https://www.linkedin.com/in/vagnermengali/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
+        </sub>
+    </td>
+          <td align="center">
+        <img src="https://media.licdn.com/dms/image/D4D03AQEZVrNSny5gHw/profile-displayphoto-shrink_800_800/0/1664465804585?e=1672876800&v=beta&t=iMVf537WuAA627zj-A-Ipebj0SuLNhdSf8WeDLEWrQo" width="100px;" alt="Foto do Luan"/><br>          
+        <sub>
+          <b>Luan Marchi</b>  <br/>
+            <a href="https://github.com/marchi8" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"/>
+                <a href="https://www.linkedin.com/in/luan-marchi2001/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
+        </sub>
+    </td>    
+  </tr>
+</table>
+
+<h1 align="center">👥 Já participaram do projeto 👥</h1> 
+<table align="center">
+  <tr>
+    <td align="center">
         <img src="https://avatars.githubusercontent.com/u/88001200?v=4" width="100px;" alt="Foto do Welton"/><br>        
         <sub>
-          <b>Welton Santos - Product Owner</b> <br/>
+          <b>Welton Santos</b> <br/>
             <a href="https://github.com/WeltonSantosFr" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"/>
                 <a href="https://www.linkedin.com/in/welton-santos-7a2b7b214/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
         </sub>
@@ -124,11 +162,10 @@ $ npm run dev
       <td align="center">
         <img src="https://i.imgur.com/yVKFKmI.png" width="100px;" alt="Foto da Katya"/><br>          
         <sub>
-          <b>Katya Keila - Quality Assurance</b>  <br/>
+          <b>Katya Keila</b>  <br/>
             <a href="https://github.com/katyakeila" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"/>
                 <a href="https://www.linkedin.com/in/katya-oliveira/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
         </sub>
     </td>
-    
   </tr>
 </table>
