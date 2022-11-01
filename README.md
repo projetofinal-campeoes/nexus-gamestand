@@ -47,11 +47,13 @@ Por fim para o MVP, teremos uma pagina que mostrará todas as informações do g
 
 <br/>
 
-<h1 align="center"> <img src="https://cdn-icons-png.flaticon.com/512/2701/2701763.png" width="30px" /> FIGMA da Aplicação <img src="https://cdn-icons-png.flaticon.com/512/2701/2701763.png" width="30px" />
+<h1 align="center"> <img src="https://cdn-icons-png.flaticon.com/512/2701/2701763.png" width="30px" /> Diagrama da Aplicação <img src="https://cdn-icons-png.flaticon.com/512/2701/2701763.png" width="30px" />
 </h1> 
-<img src="https://i.imgur.com/tibGiaf.png" /> 
+<img src="https://i.imgur.com/CJAbD7s.png" /> 
 
 <br/>
+
+https://i.imgur.com/NyoWhit.png
 
 ### ✅ Como rodar a aplicação localmente
 
