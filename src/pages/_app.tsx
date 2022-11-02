@@ -5,18 +5,22 @@ import "react-toastify/dist/ReactToastify.css";
 import NexusProvider from "../context/NexusContext";
 import DashboardProvider from "../context/DashboardContext";
 import AuthProvider from "../context/AuthContext";
+import { SessionProvider } from "next-auth/react"
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps: {session, ...pageProps} }: AppProps) {
   return (
-    <AuthProvider>
-            <NexusProvider>
-                <DashboardProvider>
-                    <ToastContainer 
-                    toastStyle={{ backgroundColor: '#1e212a', color: "white" }}/>
-                    <Component {...pageProps} />
-                </DashboardProvider>
-            </NexusProvider>
-    </AuthProvider>
+    <SessionProvider session={session}>
+      <AuthProvider>
+        <NexusProvider>
+          <DashboardProvider>
+            <ToastContainer
+              toastStyle={{ backgroundColor: "#1e212a", color: "white" }}
+            />
+            <Component {...pageProps} />
+          </DashboardProvider>
+        </NexusProvider>
+      </AuthProvider>
+    </SessionProvider>
   );
 }
 
