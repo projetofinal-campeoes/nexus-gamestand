@@ -10,6 +10,8 @@ import { IUser } from "../context/NexusContext";
 import { useAuth } from "../context/AuthContext";
 import Image from "next/image"
 import Loader from './Loader'
+import { FaGoogle } from "react-icons/fa"
+import {useSession, signIn, signOut} from 'next-auth/react'
 
 const Login = () => {
     const navigate = useRouter();
@@ -17,6 +19,7 @@ const Login = () => {
     const { register, handleSubmit } = useForm<IUser>();
     const container = useRef<HTMLDivElement>(null);
     const [isLoading, setIsLoading] = useState(false)
+    const { data: session } = useSession()
 
     const handleDashboard = () => {
         container.current?.classList.add("animate__animated", "animate__fadeOut");
@@ -92,6 +95,10 @@ const Login = () => {
                                     Register!
                                 </a>
                             </Link>
+                        </span>
+                        <span className="text-text text-xs text-center flex justify-center flex-col items-center gap-2">
+                            Log in with
+                            <FaGoogle onClick={() => signIn()} className="cursor-pointer text-[30px]"/>
                         </span>
                     </div>
             }
