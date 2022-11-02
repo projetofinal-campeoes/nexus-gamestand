@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React, { createContext, ReactNode, useRef, useState } from "react";
 import { FieldValues } from "react-hook-form";
 import api from "../services/api";
-import { errorToast, successToast } from "./../services/toast";
+import { errorToast, successToast } from "../services/toast";
 
 type IContext = {
   onSubmitRegister: (account: object) => void;

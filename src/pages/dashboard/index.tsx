@@ -1,6 +1,6 @@
 import Background from "../../components/Background";
-import Header from "./../../components/Header";
-import GameCard from "./../../components/GameCard";
+import Header from "../../components/Header";
+import GameCard from "../../components/GameCard";
 import { useContext, useEffect, useRef, useState } from "react";
 import { NexusContext } from "../../context/NexusContext";
 import getXboxGames from "../../services/GetXboxGames";
@@ -8,7 +8,7 @@ import getSteamGames from "../../services/GetSteamGames";
 import Profile from "../../components/ProfileModal";
 import { DashboardContext, IGame } from "../../context/DashboardContext";
 import axios, { AxiosResponse } from "axios";
-import Search from "./../../components/Search";
+import Search from "../../components/Search";
 import Head from "next/head";
 import { IUser, useAuth } from "../../context/AuthContext";
 import { useRouter } from "next/router";
@@ -140,7 +140,9 @@ export default function Dashboard({
                 <section className="flex flex-col gap-4">
                   <div className="flex justify-between">
                     <h2 className="text-title2 text-text font-bold text-center sm:text-left">
-                      {gameList.length > 0 ? "Your games" : "No platforms added yet"}
+                      {gameList.length > 0
+                        ? "Your games"
+                        : "No platforms added yet"}
                     </h2>
                   </div>
                   <ul className="grid grid-cols-1 gap-[20.5px] sm:grid-cols-3">
@@ -156,9 +158,11 @@ export default function Dashboard({
                         )
                       )
                     ) : (
-                    <div className="sm:w-[400px] sm:h-[400px] bottom-10 flex flex-col gap-4 sm:absolute items-center justify-center sm:left-[40%] animate__animated animate__fadeIn">
+                      <div className="sm:w-[400px] sm:h-[400px] bottom-10 flex flex-col gap-4 sm:absolute items-center justify-center sm:left-[40%] animate__animated animate__fadeIn">
                         <Player style={`w-[300px] sm:w-[400px]`} />
-                        <h1 className="text-text font-bebas text-[2rem]">ADD YOUR ACCOUNTS</h1>
+                        <h1 className="text-text font-bebas text-[2rem]">
+                          ADD YOUR ACCOUNTS
+                        </h1>
                       </div>
                     )}
                     <li ref={observer}></li>
