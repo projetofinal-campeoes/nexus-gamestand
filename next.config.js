@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
+    unoptimized: true,
     domains: [
       "store-images.s-microsoft.com",
       "cdn.cloudflare.steamstatic.com",

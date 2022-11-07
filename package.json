@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
+    "tauri": "tauri",
     "lint": "next lint"
   },
   "dependencies": {
@@ -30,6 +32,7 @@
     "sharp": "^0.31.0"
   },
   "devDependencies": {
+    "@tauri-apps/cli": "^1.1.1",
     "@types/node": "18.7.13",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
