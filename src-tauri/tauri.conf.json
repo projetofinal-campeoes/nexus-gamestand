@@ -42,9 +42,12 @@
       "shortDescription": "",
       "targets": "all",
       "windows": {
+        "webviewInstallMode": {
+          "type": "downloadBootstrapper"
+        },
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
-        "timestampUrl": ""
+        "timestampUrl": ""        
       }
     },
     "security": {
