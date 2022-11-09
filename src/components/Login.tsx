@@ -52,26 +52,25 @@ const Login = () => {
           className={`${styles.containerlogin} animate__animated animate__fadeIn`}
         >
           <Image
-            src="/Logo.svg"
+            src="/nexus.logo.png"
             alt="Nexus logo"
             width={198}
             height={40}
             className="cursor-pointer"
-            onClick={handleDashboard}
             priority
           />
           {session ? (
             <div className="flex flex-col items-center align-center gap-4">
-                <img className="rounded-full" src={session.user.image} alt={`Foto do ${session.user.name}`} />
+              <img className="rounded-full" src={session.user.image} alt={`Foto do ${session.user.name}`} />
               <p className="text-text text-[12px] mt-2">
                 {" "}
                 Hey, {session.user.name}, seems like you're already logged in!
               </p>
               <div>
-              <button className="p-5 bg-primaryhover rounded-lg mt-5 ease-in-out duration-300 font-bebas mr-4 hover:bg-boxcolor hover:border-[1px] transition-all border-[1px] border-transparent animate__animated animate__pulse animate__infinite border-text text-text" >Access your dashboard</button>
-              <button onClick={() => signOut()} className="p-5 bg-deletecolor rounded-lg mt-5 ease-in-out duration-300 font-bebas mr-4 hover:bg-boxcolor hover:border-[1px] transition-all border-[1px] border-transparent border-text text-text">Not you? Logout</button>
+                <button className="p-5 bg-primaryhover rounded-lg mt-5 ease-in-out duration-300 font-bebas mr-4 hover:bg-boxcolor hover:border-[1px] transition-all border-[1px] border-transparent animate__animated animate__pulse animate__infinite border-text text-text" >Access your dashboard</button>
+                <button onClick={() => signOut()} className="p-5 bg-deletecolor rounded-lg mt-5 ease-in-out duration-300 font-bebas mr-4 hover:bg-boxcolor hover:border-[1px] transition-all border-[1px] border-transparent border-text text-text">Not you? Logout</button>
               </div>
-              
+
             </div>
           ) : (
             <>
