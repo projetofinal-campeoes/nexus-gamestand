@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Background from "../../../components/Background";
+import Background from "../../../components/BackgroundInitial";
 import Header from "../../../components/Header";
 import Image from "next/image";
 import getAllGamesName from "../../../utils/getAllGamesName";
@@ -20,12 +20,14 @@ interface IGameProps {
 }
 
 const Game = ({ gameInfo }: IGameProps) => {
-    const [isLoading, setIsLoading] = useState<boolean>(false)
-    const router = useRouter()
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const router = useRouter();
 
-    useEffect(() => {
-        router.events.on('routeChangeStart', () => {setIsLoading(true)})
-    }, [])
+  useEffect(() => {
+    router.events.on("routeChangeStart", () => {
+      setIsLoading(true);
+    });
+  }, []);
 
   return (
     <>
@@ -35,88 +37,90 @@ const Game = ({ gameInfo }: IGameProps) => {
         }`}</title>
         <link rel="shortcut icon" href="/nexus.png" type="image/x-icon" />
       </Head>
-        {
-            isLoading ?
-                <Background config='items-center justify-center'>
-                    <Loader/>
-                </Background>
-            :
-            <Background config="flex flex-col items-center gap-10 pb-[40px]">
-                <Header />
-                <div className="w-[80%] max-w-[1041px] flex flex-col  gap-8 text-text items-center animate__animated animate__fadeIn">
-                    <Link href="..">
-                    <button className="bg-primarycolor rounded-lg shadow-md py-4 px-8 text-text font-medium hover:bg-primaryhover ease-linear duration-300 self-start">
-                        Back
-                    </button>
-                    </Link>
-                    <div className="w-[100%] h-[200px] relative md:w-[700px] md:h-[394px]">
-                    <Image
-                        src={
-                        gameInfo?.background_image
-                            ? gameInfo.background_image
-                            : "https://cdn6.aptoide.com/imgs/1/3/5/135414bbfd2c62340daf0f53516fc106_screen.jpg?h=500"
-                        }
-                        className="rounded-lg shadow-2xl shadow-black mx-auto mt-10"
-                        alt={gameInfo?.name ? gameInfo.name : "Not found"}
-                        objectFit="cover"
-                        quality={100}
-                        layout="fill"
-                    />
-                    </div>
+      {isLoading ? (
+        <Background config="items-center justify-center">
+          <Loader />
+        </Background>
+      ) : (
+        <Background config="flex flex-col items-center gap-10 pb-[40px]">
+          <Header />
+          <div className="w-[80%] max-w-[1041px] flex flex-col  gap-8 text-text items-center animate__animated animate__fadeIn">
+            <Link href="..">
+              <button className="bg-primarycolor rounded-lg shadow-md py-4 px-8 text-text font-medium hover:bg-primaryhover ease-linear duration-300 self-start">
+                Back
+              </button>
+            </Link>
+            <div className="w-[100%] h-[200px] relative md:w-[700px] md:h-[394px]">
+              <Image
+                src={
+                  gameInfo?.background_image
+                    ? gameInfo.background_image
+                    : "https://cdn6.aptoide.com/imgs/1/3/5/135414bbfd2c62340daf0f53516fc106_screen.jpg?h=500"
+                }
+                className="rounded-lg shadow-2xl shadow-black mx-auto mt-10"
+                alt={gameInfo?.name ? gameInfo.name : "Not found"}
+                objectFit="cover"
+                quality={100}
+                layout="fill"
+              />
+            </div>
 
-                    <div>
-                    <h1 className="mb-2 text-sm text-center text-title1 font-bold">
-                        {gameInfo?.name ? gameInfo.name : "Not found"}
-                    </h1>
-                    <ul className="flex items-center gap-2 flex-wrap ">
-                        <li>Genres:</li>
-                        {gameInfo?.genres[0]?.name ? (
-                        gameInfo?.genres.map(({ name }, index) => (
-                            <li key={index}>{name}</li>
-                        ))
-                        ) : (
-                        <li>Not found</li>
-                        )}
-                    </ul>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                    {gameInfo?.name ? (
-                        <>
-                        <p className="indent-8 text-justify">
-                            Set in the fictional world of{" "}
-                            {gameInfo?.genres[0]?.name ? gameInfo.genres[0].name : "magic"},{" "}
-                            {gameInfo.name} allows players to create avatar-style characters
-                            and explore a sprawling universe while interacting with nonreal
-                            players—called nonplayer characters (NPCs)—and other real-world
-                            players (PCs). Various quests, battles, and missions are
-                            completed alone or in guilds, and the rewards for success
-                            include gold, weapons, and valuable items, which are used to
-                            improve one’s character. Characters advance by killing other
-                            creatures to earn experience. Once enough experience is
-                            acquired, the character gains a level, which increases the
-                            character’s powers. {gameInfo.name} offers a rich class system
-                            of characters, allowing gamers to play as druids, priests,
-                            rogues, paladins, and other fantasy-related classes. Guilds
-                            often achieve notoriety for their ability to finish certain
-                            quests or defeat specific monsters quickly, and, in this way, a
-                            hierarchy system is established in the game.
-                        </p>
-                        <p className="indent-8 text-justify">
-                            Players have contributed to the {gameInfo.name} community by
-                            creating artwork inspired by the game, writing fan fiction, and
-                            spending innumerable hours online inhabiting the games virtual
-                            world. Some view this intense investment in the game as an
-                            addiction. The popularity of the game led to a cinematic
-                            adaptation, {gameInfo.name} The Film (2016).
-                        </p>
-                        </>
-                    ) : (
-                        <p>Not found</p>
-                    )}
-                    </div>
-                </div>
-                </Background>
-        }
+            <div>
+              <h1 className="mb-2 text-sm text-center text-title1 font-bold">
+                {gameInfo?.name ? gameInfo.name : "Not found"}
+              </h1>
+              <ul className="flex items-center gap-2 flex-wrap ">
+                <li>Genres:</li>
+                {gameInfo?.genres[0]?.name ? (
+                  gameInfo?.genres.map(({ name }, index) => (
+                    <li key={index}>{name}</li>
+                  ))
+                ) : (
+                  <li>Not found</li>
+                )}
+              </ul>
+            </div>
+            <div className="flex flex-col gap-2">
+              {gameInfo?.name ? (
+                <>
+                  <p className="indent-8 text-justify">
+                    Set in the fictional world of{" "}
+                    {gameInfo?.genres[0]?.name
+                      ? gameInfo.genres[0].name
+                      : "magic"}
+                    , {gameInfo.name} allows players to create avatar-style
+                    characters and explore a sprawling universe while
+                    interacting with nonreal players—called nonplayer characters
+                    (NPCs)—and other real-world players (PCs). Various quests,
+                    battles, and missions are completed alone or in guilds, and
+                    the rewards for success include gold, weapons, and valuable
+                    items, which are used to improve one’s character. Characters
+                    advance by killing other creatures to earn experience. Once
+                    enough experience is acquired, the character gains a level,
+                    which increases the character’s powers. {gameInfo.name}{" "}
+                    offers a rich class system of characters, allowing gamers to
+                    play as druids, priests, rogues, paladins, and other
+                    fantasy-related classes. Guilds often achieve notoriety for
+                    their ability to finish certain quests or defeat specific
+                    monsters quickly, and, in this way, a hierarchy system is
+                    established in the game.
+                  </p>
+                  <p className="indent-8 text-justify">
+                    Players have contributed to the {gameInfo.name} community by
+                    creating artwork inspired by the game, writing fan fiction,
+                    and spending innumerable hours online inhabiting the games
+                    virtual world. Some view this intense investment in the game
+                    as an addiction. The popularity of the game led to a
+                    cinematic adaptation, {gameInfo.name} The Film (2016).
+                  </p>
+                </>
+              ) : (
+                <p>Not found</p>
+              )}
+            </div>
+          </div>
+        </Background>
+      )}
     </>
   );
 };
