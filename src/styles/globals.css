@@ -8,7 +8,7 @@
   /* Firefox */
   * {
     scrollbar-width: auto;
-    scrollbar-color: #aa91f0 #1e212a;
+    scrollbar-color: #E5901A #0F1324;
   }
 
   /* Chrome, Edge, and Safari */
@@ -17,13 +17,13 @@
   }
 
   *::-webkit-scrollbar-track {
-    background: #1e212a;
+    background: #0F1324;
   }
 
   *::-webkit-scrollbar-thumb {
-    background-color: #aa91f0;
-    border-radius: 10px;
-    border: 4px solid #1e212a;
+    background-color: #E5901A;
+    border-radius: 15px;
+    border: 3.5px solid #0F1324;
   }
 	input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;

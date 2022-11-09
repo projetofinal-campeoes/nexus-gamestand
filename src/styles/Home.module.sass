@@ -1,24 +1,24 @@
 //Login and Register Pages
 .containerlogin
-    @apply bg-[#131A39] rounded-lg gap-6 flex flex-col items-center justify-center px-8 py-12 m-2
+    @apply bg-boxcolordark rounded-lg gap-6 flex flex-col items-center justify-center px-8 py-12 m-2
 .inputBox
-    @apply rounded-lg flex sm:w-[314px] p-4 bg-[#00061F] shadow-md text-text items-center gap-4 hover:bg-boxcolor hover:shadow-[0px_0px_6px_0px_rgba(170,145,210,1)] focus-within:shadow-[0px_0px_6px_0px_rgba(170,145,210,1)] ease-linear duration-300
+    @apply rounded-lg flex sm:w-[314px] p-4 bg-inputbackgrounddark shadow-md text-defaulttextdark items-center gap-4 hover:bg-boxcolordark hover:shadow-[0px_0px_6px_0px_rgba(170,145,210,1)] focus-within:shadow-[0px_0px_6px_0px_rgba(170,145,210,1)] ease-linear duration-300
 .input
-    @apply placeholder:text-placeholder outline-none focus:outline-none text-text bg-[#00061F] hover:bg-boxcolor ease-linear duration-300 w-[100%]
+    @apply placeholder:text-placeholder outline-none focus:outline-none text-defaulttextdark bg-inputbackgrounddark hover:bg-boxcolordark ease-linear duration-300 w-[100%]
 .button
-    @apply bg-primarycolor rounded-lg shadow-md py-4 px-8 text-text font-medium hover:bg-primaryhover ease-linear duration-300
+    @apply bg-primarycolor rounded-lg shadow-md py-4 px-8 text-defaulttextdark font-medium hover:bg-hoverbutton1 ease-linear duration-300
 .span
-    @apply text-text text-center
+    @apply text-defaulttextdark text-center
 
 // Header Component
 .containerHeader
-    @apply w-[100%] h-[80px] bg-boxcolor flex items-center justify-center
+    @apply w-[100%] h-[80px] bg-boxcolordark flex items-center justify-center 
 .wrapperHeader
     @apply w-[80%] max-w-[1041px] flex justify-between
 .buttonModal
-    @apply bg-primarycolor rounded-lg shadow-md py-4 px-8 text-text font-medium w-[100%]
+    @apply bg-primarycolor rounded-lg shadow-md py-4 px-8 text-defaulttextdark font-medium w-[100%]
 .liModal
-    @apply rounded-lg w-[100%] p-4 bg-inputbackground shadow-md text-text flex flex-row justify-between gap-4
+    @apply rounded-lg w-[100%] p-4 bg-inputbackgrounddark shadow-md text-defaulttextdark flex flex-row justify-between gap-4
 .ulModal
     @apply w-[100%] h-[252px] overflow-y-auto flex flex-col gap-4
 .buttonModalGame
@@ -30,17 +30,17 @@
 .profileImage
     @apply rounded-full border-8 border-solid border-primarycolor w-[210px] h-[210px] overflow-hidden
 .usernameProfile
-    @apply text-headline3 font-medium text-text whitespace-nowrap overflow-hidden text-ellipsis w-[99px] text-left
+    @apply text-headline3 font-medium text-defaulttextdark whitespace-nowrap overflow-hidden text-ellipsis w-[99px] text-left
 .iconGame
-    @apply text-text w-[50px] h-[50px] mr-2
+    @apply text-defaulttextdark w-[50px] h-[50px] mr-2
 .gameName
-    @apply text-title2 text-text font-bold mr-auto
+    @apply text-title2 text-defaulttextdark font-bold mr-auto
 .editIcon
-    @apply text-text w-6 h-6 hover:text-backgroundcolor hover:cursor-pointer ease-linear duration-300
+    @apply text-defaulttextdark w-6 h-6 hover:text-backgroundcolor hover:cursor-pointer ease-linear duration-300
 
 // CardGame component
 .listItem
-    @apply w-[100%] h-[187px] bg-boxcolor rounded-lg overflow-hidden relative
+    @apply w-[100%] h-[187px] bg-boxcolordark rounded-lg overflow-hidden relative
 
 .content
     @apply h-[100%] relative ease-linear duration-150 hover:scale-105

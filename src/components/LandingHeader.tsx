@@ -56,7 +56,7 @@ const LandingHeader = ({
           </>
         )}
 
-        <div className="absolute w-[100%] h-[100%] top-0 flex text-text flex-col items-center bg-backgroundlanding">
+        <div className="absolute w-[100%] h-[100%] top-0 flex text-defaulttextdark flex-col items-center bg-backgroundlanding">
           <header className="z-[1] w-[100%] h-[60px] flex flex-col items-center justify-center relative">
             <div className="w-[80.5%] flex items-center gap-8 mt-3">
               <Image
@@ -108,13 +108,13 @@ const LandingHeader = ({
               ) : (
                 <>
                   <button
-                    className="p-4 bg-primaryhover rounded-lg mt-5 ease-in-out duration-300 font-bebas  mr-2 "
+                    className="p-4 bg-primarycolor rounded-lg mt-5 ease-in-out duration-300 font-bebas  mr-2 "
                     onClick={handleRegister}
                   >
                     Sign Up Today!
                   </button>
                   <button
-                    className="p-4 bg-boxcolor rounded-lg mt-5 ease-in-out duration-300 font-bebas border-[1px] border-hovercard"
+                    className="p-4 bg-boxcolordark rounded-lg mt-5 ease-in-out duration-300 font-bebas border-[1px] border-hovercard"
                     onClick={handleLogin}
                   >
                     I already have my account
