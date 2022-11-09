@@ -50,7 +50,7 @@ const Dashboard = () => {
                 publishing software like Aldus PageMaker including versions of
                 Lorem Ipsum.
               </p>
-              <a href="#" className="text-defaulttextdark text-[12px] font-bebas">Read more...</a>
+              <a href="#" className="text-primarycolor text-[12px] font-bebas">Read more...</a>
             </div>
             <div className="flex flex-col gap-4 mt-4">
               <h2 className="text-defaulttextdark font-bebas text-[20px]">
@@ -68,7 +68,7 @@ const Dashboard = () => {
                 Various versions have evolved over the years, sometimes by
                 accident, sometimes on purpose (injected humour and the like).
               </p>
-              <a href="#" className="text-defaulttextdark text-[12px] font-bebas">Read more...</a>
+              <a href="#" className="text-primarycolor text-[12px] font-bebas">Read more...</a>
             </div>
             <div className="flex flex-col gap-4 mt-4">
               <h2 className="text-defaulttextdark font-bebas text-[20px]">
@@ -94,7 +94,7 @@ const Dashboard = () => {
                 accompanied by English versions from the 1914 translation by H.
                 Rackham.
               </p>
-              <a href="#" className="text-defaulttextdark text-[12px] font-bebas">Read more...</a>
+              <a href="#" className="text-[12px] font-bebas text-primarycolor">Read more...</a>
             </div>
           </div>
         </RightSide>
