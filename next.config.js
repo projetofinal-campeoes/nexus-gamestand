@@ -9,6 +9,7 @@ const nextConfig = {
       "cdn.cloudflare.steamstatic.com",
       "cdn6.aptoide.com",
       "media.rawg.io",
+      "img.hype.games"
     ],
   },
 };
