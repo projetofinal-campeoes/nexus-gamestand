@@ -29,16 +29,16 @@ const Dashboard = () => {
               />
             </div>
             <div className="w-[100%] flex flex-col justify-center items-center">
-              <h1 className="text-text text-[40px] text-center font-bebas my-4">
+              <h1 className="text-defaulttextdark text-[40px] text-center font-bebas my-4">
                 News from Nexus GameStand
               </h1>
               <hr className="w-[380px] text-[#E5901A] flex items-center justify-center" />
             </div>
             <div className="flex flex-col gap-3 mt-4">
-              <h2 className="text-text font-bebas text-[20px]">
+              <h2 className="text-defaulttextdark font-bebas text-[20px]">
                 What is Lorem Ipsum!
               </h2>
-              <p className="text-text text-[12px] indent-4 text-justify">
+              <p className="text-defaulttextdark text-[12px] indent-4 text-justify">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
                 text ever since the 1500s, when an unknown printer took a galley
@@ -50,13 +50,13 @@ const Dashboard = () => {
                 publishing software like Aldus PageMaker including versions of
                 Lorem Ipsum.
               </p>
-              <a href="#" className="text-text text-[12px] font-bebas">Read more...</a>
+              <a href="#" className="text-defaulttextdark text-[12px] font-bebas">Read more...</a>
             </div>
             <div className="flex flex-col gap-4 mt-4">
-              <h2 className="text-text font-bebas text-[20px]">
+              <h2 className="text-defaulttextdark font-bebas text-[20px]">
                 Why do we use it!
               </h2>
-              <p className="text-text text-[12px] indent-4 text-justify">
+              <p className="text-defaulttextdark text-[12px] indent-4 text-justify">
                 It is a long established fact that a reader will be distracted
                 by the readable content of a page when looking at its layout.
                 The point of using Lorem Ipsum is that it has a more-or-less
@@ -68,13 +68,13 @@ const Dashboard = () => {
                 Various versions have evolved over the years, sometimes by
                 accident, sometimes on purpose (injected humour and the like).
               </p>
-              <a href="#" className="text-text text-[12px] font-bebas">Read more...</a>
+              <a href="#" className="text-defaulttextdark text-[12px] font-bebas">Read more...</a>
             </div>
             <div className="flex flex-col gap-4 mt-4">
-              <h2 className="text-text font-bebas text-[20px]">
+              <h2 className="text-defaulttextdark font-bebas text-[20px]">
                 Where does it come from!
               </h2>
-              <p className="text-text text-[12px] indent-4 text-justify">
+              <p className="text-defaulttextdark text-[12px] indent-4 text-justify">
                 Contrary to popular belief, Lorem Ipsum is not simply random
                 text. It has roots in a piece of classical Latin literature from
                 45 BC, making it over 2000 years old. Richard McClintock, a
@@ -94,7 +94,7 @@ const Dashboard = () => {
                 accompanied by English versions from the 1914 translation by H.
                 Rackham.
               </p>
-              <a href="#" className="text-text text-[12px] font-bebas">Read more...</a>
+              <a href="#" className="text-defaulttextdark text-[12px] font-bebas">Read more...</a>
             </div>
           </div>
         </RightSide>
