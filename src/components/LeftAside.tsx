@@ -9,7 +9,7 @@ import { GiGamepadCross } from 'react-icons/gi'
 const LeftAside = () => {
   return (
     <>  
-        <div id="aside esquerda" className="mr-10 pr-6 border-r-[1px] border-backgroundcolor border-solid">
+        <div id="aside esquerda" className="mr-10 pr-6 border-r-[1px] border-[#333333] border-solid ">
             <Image src="/Logo-dark.svg" width="200" height="40" className="px-10 cursor-pointer"/>
             <div className="pt-[7.5rem]">
               <div className="flex flex-col gap-5 text-defaulttextdark">
@@ -30,8 +30,8 @@ const LeftAside = () => {
                   <BsFillSunFill className="cursor-pointer" /> <p className="cursor-pointer">Light theme</p>
                 </div>
                 <div className="flex flex-col"></div>
-                <hr className="text-backgroundcolor"></hr>
-                <p className="text-[12px] cursor-default">User tools</p>
+                <hr className="text-[#333333]"></hr>
+                <p className="text-[12px] cursor-default mt-2">User tools</p>
                 <div className="flex gap-5">
                   <AiOutlineSetting className="cursor-pointer" /> <p className="cursor-pointer">Settings</p>
                 </div>

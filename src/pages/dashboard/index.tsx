@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import BackgroundDashboard from "../../components/BackgroundDashboard";
 import GeralContainer from "../../components/GeralContainer";
+import HeaderDashboard from "../../components/HeaderDashboard";
 import LeftAside from "../../components/LeftAside";
 import RightSide from "../../components/RightSide";
 import SEO from "../../components/SEO";
@@ -17,7 +18,8 @@ const Dashboard = () => {
         <LeftAside />
 
         <RightSide>
-          <div className="flex flex-col items-center w-[100%] h-[700px] overflow-y-auto p-4">
+          <HeaderDashboard title="Welcome ADAM!" />
+          <div className="flex flex-col items-center w-[100%] h-[645px] pr-4">
             <div>
               <Image
                 src="/horizon.jpg"
@@ -34,6 +36,7 @@ const Dashboard = () => {
               </h1>
               <hr className="w-[380px] text-[#E5901A] flex items-center justify-center" />
             </div>
+            <div className="overflow-y-auto mt-4 pr-2">
             <div className="flex flex-col gap-3 mt-4">
               <h2 className="text-defaulttextdark font-bebas text-[20px]">
                 What is Lorem Ipsum!
@@ -96,6 +99,8 @@ const Dashboard = () => {
               </p>
               <a href="#" className="text-[12px] font-bebas text-primarycolor">Read more...</a>
             </div>
+            </div>
+            
           </div>
         </RightSide>
       </GeralContainer>

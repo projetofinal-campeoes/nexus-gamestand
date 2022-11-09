@@ -7,11 +7,10 @@ const HeaderDashboard = ({ title, name }: {title: string, name?: string}) => {
         <section className="text-defaulttextdark flex justify-between items-center w-full">
             <div className="flex flex-col gap-2">
                 {
-                    name && <h3 className="text-[22px] font-bold">Hi nexer {name},</h3>
+                    name && <h3 className="text-[22px] font-bebas">Hi Nexer {name},</h3>
                 }
-                <h2 className="text-[40px] font-bold cursor-default">{title}</h2>
+                <h2 className="text-[45px] cursor-default font-bebas font-regular">{title}</h2>
             </div>
-
             <div className="flex gap-2">
                 <form className="flex items-center gap-3">
                     <GoSearch className="text-[24px]"/>
