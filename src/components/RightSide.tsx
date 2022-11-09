@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-const RightSide = () => {
+const RightSide = ({children}: {children: ReactNode}) => {
   return (
     <>
-        <div id="aside direita" className="w-[100%]"></div>
+        <div id="aside direita" className="w-[100%]">
+            {children}
+        </div>
     </>
   )
 }

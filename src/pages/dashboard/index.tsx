@@ -10,7 +10,9 @@ const matheus = () => {
       <GeralContainer>
         <LeftAside />
 
-        <RightSide />
+        <RightSide> 
+            
+        </RightSide>
       </GeralContainer>
     </BackgroundDashboard>
   );
