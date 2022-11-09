@@ -56,7 +56,7 @@ const LandingHeader = ({
           </>
         )}
 
-        <div className="absolute w-[100%] h-[100%] top-0 flex text-text flex-col items-center bg-backgroundlanding">
+        <div className="absolute w-[100%] h-[100%] top-0 flex text-defaulttextdark flex-col items-center bg-backgroundlanding">
           <header className="z-[1] w-[100%] h-[60px] flex flex-col items-center justify-center relative">
             <div className="w-[80.5%] flex items-center gap-8 mt-3">
               <Image
