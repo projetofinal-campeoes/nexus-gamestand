@@ -5,7 +5,7 @@ import { GoSearch } from "react-icons/go"
 const HeaderDashboard = ({ title }: {title: string}) => {
     return(
         <section className="text-defaulttextdark flex justify-between w-full">
-            <h2 className="text-[40px] font-bold cursor-default">{title}</h2>
+            <h2 className="text-[45px] cursor-default font-bebas font-regular">{title}</h2>
 
             <div className="flex gap-2">
                 <form className="flex items-center gap-3">
