@@ -4,18 +4,16 @@ import GeralContainer from "../../components/GeralContainer";
 import LeftAside from "../../components/LeftAside";
 import RightSide from "../../components/RightSide";
 
-const matheus = () => {
+const Dashboard = () => {
   return (
     <BackgroundDashboard config="flex flex-col">
       <GeralContainer>
         <LeftAside />
 
-        <RightSide> 
-            
-        </RightSide>
+        <RightSide> </RightSide>
       </GeralContainer>
     </BackgroundDashboard>
   );
 };
 
-export default matheus;
+export default Dashboard;
