@@ -7,7 +7,7 @@ import DashboardProvider from "../context/DashboardContext";
 import AuthProvider from "../context/AuthContext";
 import { SessionProvider } from "next-auth/react"
 
-function MyApp({ Component, pageProps: {session, ...pageProps} }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <SessionProvider session={session}>
       <AuthProvider>

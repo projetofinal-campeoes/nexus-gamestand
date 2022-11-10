@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import Background from "../components/Background";
+import Background from "../components/BackgroundInitial";
 import Loader from "../components/Loader";
 import Head from "next/head";
 

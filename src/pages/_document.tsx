@@ -8,6 +8,7 @@ class MyDocument extends Document {
           <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
             rel="stylesheet" />
+            <link rel="shortcut icon" href="/nexus.png" type="image/x-icon" />
             <meta name="google-site-verification" content="tdyhcmCgcOqtvKoa_T2Rv1fIM8qsj1oVdFUOiq5eXZ8" />
             <link rel="shortcut icon" href="/crystal.png" type="image/x-icon" />
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />

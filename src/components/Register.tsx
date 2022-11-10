@@ -31,16 +31,13 @@ const Register = () => {
         className={`${styles.containerlogin} animate__animated animate__fadeIn`}
       >
         <Image
-          src="/Logo.svg"
+          src="/nexus.logo.png"
           alt="Nexus logo"
           width={198}
           height={40}
           className="cursor-pointer"
           priority
         />
-        <h1 className="text-primarycolor font-bold size text-2xl mb-5">
-          Joins Us!
-        </h1>
         <form
           action=""
           className="flex flex-col justify-center gap-6"
@@ -84,7 +81,7 @@ const Register = () => {
           Already have an account?{" "}
           <Link href="" passHref>
             <a
-              className="text-primarycolor underline hover:text-primaryhover ease-linear duration-300"
+              className="text-[#E5901A] underline hover:text-primaryhover ease-linear duration-300"
               onClick={handleOut}
             >
               Login!

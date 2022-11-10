@@ -1,250 +1,111 @@
-import Background from "../../components/Background";
-import Header from "../../components/Header";
-import GameCard from "../../components/GameCard";
-import { useContext, useEffect, useRef, useState } from "react";
-import { NexusContext } from "../../context/NexusContext";
-import getXboxGames from "../../services/GetXboxGames";
-import getSteamGames from "../../services/GetSteamGames";
-import Profile from "../../components/ProfileModal";
-import { DashboardContext, IGame } from "../../context/DashboardContext";
-import axios, { AxiosResponse } from "axios";
-import Search from "../../components/Search";
-import Head from "next/head";
-import { IUser, useAuth } from "../../context/AuthContext";
-import { useRouter } from "next/router";
-import { NextApiRequest, NextApiResponse } from "next";
-import { deleteCookie, getCookie } from "cookies-next";
-import api from "../../services/api";
-import Loader from "../../components/Loader";
-import Player from "../../animations/player";
+import Image from "next/image";
+import React from "react";
+import BackgroundDashboard from "../../components/BackgroundDashboard";
+import GeralContainer from "../../components/GeralContainer";
+import HeaderDashboard from "../../components/HeaderDashboard";
+import LeftAside from "../../components/LeftAside";
+import RightSide from "../../components/RightSide";
+import SEO from "../../components/SEO";
 
-interface IDashboard {
-  randomGames: IGame[];
-  user: IUser;
-}
-
-export default function Dashboard({
-  randomGames,
-  user: userFromServer,
-}: IDashboard) {
-  const { userModalOpen } = useContext(NexusContext);
-  const {
-    currentPage,
-    PagePlusOne,
-    gameList,
-    addToInfiniteScroll,
-    isSearching,
-    setGameList,
-    setCurrentPage,
-  } = useContext(DashboardContext);
-  const router = useRouter();
-  const { user } = useAuth();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const observer = useRef<HTMLLIElement | null>(null);
-
-  useEffect(() => {
-    if (user) {
-      getSteamGames(user!.steam!, currentPage, 5, addToInfiniteScroll);
-      if (user!.xbox) {
-        getXboxGames(currentPage, 5, addToInfiniteScroll);
-      }
-    } else {
-      getSteamGames(
-        userFromServer!.steam!,
-        currentPage,
-        5,
-        addToInfiniteScroll
-      );
-      if (userFromServer!.xbox) {
-        getXboxGames(currentPage, 5, addToInfiniteScroll);
-      }
-    }
-  }, [currentPage]);
-
-  useEffect(() => {
-    setCurrentPage(1);
-    setGameList([]);
-
-    if (user) {
-      getSteamGames(user!.steam!, currentPage, 5, addToInfiniteScroll);
-      if (user!.xbox) {
-        getXboxGames(currentPage, 5, addToInfiniteScroll);
-      }
-    }
-  }, [user]);
-
-  useEffect(() => {
-    const intersectionObserver = new IntersectionObserver((entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) {
-        PagePlusOne();
-      }
-    });
-
-    if (!isSearching) {
-      intersectionObserver.observe(observer.current!);
-    }
-
-    router.events.on("routeChangeStart", () => {
-      setIsLoading(true);
-    });
-
-    return () => intersectionObserver.disconnect();
-  }, []);
-
-  const dashboardPage = useRef<HTMLDivElement>(null);
-
+const Dashboard = () => {
   return (
-    <>
-      <Head>
-        <title>NEXUS - Dashboard</title>
-        <link rel="shortcut icon" href="/nexus.png" type="image/x-icon" />
-      </Head>
+    <BackgroundDashboard config="flex flex-col">
+      <SEO
+        title="Dashboard"
+        description="The NEXUS App simplifies your access to your games, unifying all platforms into one."
+      />
+      <GeralContainer>
+        <LeftAside />
 
-      {isLoading ? (
-        <Background config="items-center justify-center">
-          <Loader />
-        </Background>
-      ) : (
-        <Background config="flex-col gap-8 items-center">
-          <Header animation="animate__animated animate__fadeInDown animate__fast" />
-          {userModalOpen && <Profile />}
-
-          <div
-            ref={dashboardPage}
-            className="w-[80%] max-w-[1041px] flex flex-col gap-10 pb-10 animate__animated animate__fadeIn"
-          >
-            {isSearching ? (
-              <Search />
-            ) : (
-              <>
-                <section className="flex flex-col gap-4">
-                  <h2 className="text-title2 text-text font-bold text-center sm:text-left">
-                    Recommended
-                  </h2>
-
-                  <ul className="grid grid-cols-1 gap-[20.5px] sm:grid-cols-2">
-                    {randomGames.map(
-                      ({ id, productName, image, platform }, index) => (
-                        <GameCard
-                          key={index}
-                          name={productName}
-                          img={image.URL}
-                          platform={platform}
-                          type="large"
-                        />
-                      )
-                    )}
-                  </ul>
-                </section>
-                <section className="flex flex-col gap-4">
-                  <div className="flex justify-between">
-                    <h2 className="text-title2 text-text font-bold text-center sm:text-left">
-                      {gameList.length > 0
-                        ? "Your games"
-                        : "No platforms added yet"}
-                    </h2>
-                  </div>
-                  <ul className="grid grid-cols-1 gap-[20.5px] sm:grid-cols-3">
-                    {gameList.length > 0 ? (
-                      gameList.map(
-                        ({ productName, image, platform }, index) => (
-                          <GameCard
-                            key={index}
-                            name={productName}
-                            img={image.URL}
-                            platform={platform}
-                          />
-                        )
-                      )
-                    ) : (
-                      <div className="sm:w-[400px] sm:h-[400px] bottom-10 flex flex-col gap-4 sm:absolute items-center justify-center sm:left-[40%] animate__animated animate__fadeIn">
-                        <Player style={`w-[300px] sm:w-[400px]`} />
-                        <h1 className="text-text font-bebas text-[2rem]">
-                          ADD YOUR ACCOUNTS
-                        </h1>
-                      </div>
-                    )}
-                    <li ref={observer}></li>
-                  </ul>
-                </section>
-              </>
-            )}
+        <RightSide>
+          <HeaderDashboard title="Welcome ADAM!" />
+          <div className="flex flex-col items-center w-[100%] h-[645px] pr-4">
+            <div>
+              <Image
+                src="/horizon.jpg"
+                width="2000"
+                height="400px"
+                objectFit="cover"
+                quality={100}
+                className="rounded-[30px]"
+              />
+            </div>
+            <div className="w-[100%] flex flex-col justify-center items-center">
+              <h1 className="text-defaulttextdark text-[40px] text-center font-bebas my-4">
+                News from Nexus GameStand
+              </h1>
+              <hr className="w-[380px] text-[#E5901A] flex items-center justify-center" />
+            </div>
+            <div className="overflow-y-auto mt-4 pr-2">
+            <div className="flex flex-col gap-3 mt-4">
+              <h2 className="text-defaulttextdark font-bebas text-[20px]">
+                What is Lorem Ipsum!
+              </h2>
+              <p className="text-defaulttextdark text-[12px] indent-4 text-justify">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </p>
+              <a href="#" className="text-primarycolor text-[12px] font-bebas">Read more...</a>
+            </div>
+            <div className="flex flex-col gap-4 mt-4">
+              <h2 className="text-defaulttextdark font-bebas text-[20px]">
+                Why do we use it!
+              </h2>
+              <p className="text-defaulttextdark text-[12px] indent-4 text-justify">
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem Ipsum is that it has a more-or-less
+                normal distribution of letters, as opposed to using 'Content
+                here, content here', making it look like readable English. Many
+                desktop publishing packages and web page editors now use Lorem
+                Ipsum as their default model text, and a search for 'lorem
+                ipsum' will uncover many web sites still in their infancy.
+                Various versions have evolved over the years, sometimes by
+                accident, sometimes on purpose (injected humour and the like).
+              </p>
+              <a href="#" className="text-primarycolor text-[12px] font-bebas">Read more...</a>
+            </div>
+            <div className="flex flex-col gap-4 mt-4">
+              <h2 className="text-defaulttextdark font-bebas text-[20px]">
+                Where does it come from!
+              </h2>
+              <p className="text-defaulttextdark text-[12px] indent-4 text-justify">
+                Contrary to popular belief, Lorem Ipsum is not simply random
+                text. It has roots in a piece of classical Latin literature from
+                45 BC, making it over 2000 years old. Richard McClintock, a
+                Latin professor at Hampden-Sydney College in Virginia, looked up
+                one of the more obscure Latin words, consectetur, from a Lorem
+                Ipsum passage, and going through the cites of the word in
+                classical literature, discovered the undoubtable source. Lorem
+                Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus
+                Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero,
+                written in 45 BC. This book is a treatise on the theory of
+                ethics, very popular during the Renaissance. The first line of
+                Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line
+                in section 1.10.32. The standard chunk of Lorem Ipsum used since
+                the 1500s is reproduced below for those interested. Sections
+                1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by
+                Cicero are also reproduced in their exact original form,
+                accompanied by English versions from the 1914 translation by H.
+                Rackham.
+              </p>
+              <a href="#" className="text-[12px] font-bebas text-primarycolor">Read more...</a>
+            </div>
+            </div>
+            
           </div>
-        </Background>
-      )}
-    </>
+        </RightSide>
+      </GeralContainer>
+    </BackgroundDashboard>
   );
-}
+};
 
-interface IServerSideContext {
-  req: NextApiRequest;
-  res: NextApiResponse;
-}
-
-interface IResponse {
-  data: object;
-}
-
-export async function getServerSideProps({ req, res }: IServerSideContext) {
-  const id = getCookie("id", { req, res });
-  const token = getCookie("token", { req, res });
-  let response: IResponse = {} as IResponse;
-
-  if (token) {
-    try {
-      response = await api.get(`/users/${id}`, {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      });
-    } catch (error) {
-      deleteCookie("token", { req, res });
-      deleteCookie("id", { req, res });
-      return {
-        redirect: {
-          permanent: false,
-          destination: "/",
-        },
-      };
-    }
-  } else {
-    return {
-      redirect: {
-        permanent: false,
-        destination: "/",
-      },
-    };
-  }
-
-  const randomPage = Math.floor(Math.random() * 10) + 1;
-  const manyGames = await axios.get(
-    `https://api.rawg.io/api/games?key=21bb0951c4fe428ba730b1e2a79833e1&page=${randomPage}`
-  );
-  const gamesArray = manyGames.data.results;
-  const twoRandomGames = [
-    gamesArray[Math.floor(Math.random() * gamesArray.length)],
-    gamesArray[Math.floor(Math.random() * gamesArray.length)],
-  ];
-  const formattedGames = twoRandomGames.map(
-    ({ id, name, background_image }) => {
-      return {
-        id,
-        productName: name,
-        description: "",
-        category: "",
-        image: {
-          URL: background_image,
-        },
-        platform: "",
-      };
-    }
-  );
-
-  return {
-    props: {
-      randomGames: formattedGames,
-      user: response.data,
-    },
-  };
-}
+export default Dashboard;
