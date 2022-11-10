@@ -61,16 +61,26 @@ const Login = () => {
           />
           {session ? (
             <div className="flex flex-col items-center align-center gap-4">
-              <img className="rounded-full" src={session.user.image} alt={`Foto do ${session.user.name}`} />
+              <img
+                className="rounded-full"
+                src={session.user.image}
+                alt={`Foto do ${session.user.name}`}
+              />
               <p className="text-text text-[12px] mt-2">
                 {" "}
                 Hey, {session.user.name}, seems like you're already logged in!
               </p>
               <div>
-                <button className="p-5 bg-primaryhover rounded-lg mt-5 ease-in-out duration-300 font-bebas mr-4 hover:bg-boxcolor hover:border-[1px] transition-all border-[1px] border-transparent animate__animated animate__pulse animate__infinite border-text text-text" >Access your dashboard</button>
-                <button onClick={() => signOut()} className="p-5 bg-deletecolor rounded-lg mt-5 ease-in-out duration-300 font-bebas mr-4 hover:bg-boxcolor hover:border-[1px] transition-all border-[1px] border-transparent border-text text-text">Not you? Logout</button>
+                <button className="p-5 bg-primaryhover rounded-lg mt-5 ease-in-out duration-300 font-bebas mr-4 hover:bg-boxcolor hover:border-[1px] transition-all border-[1px] border-transparent animate__animated animate__pulse animate__infinite border-text text-text">
+                  Access your dashboard
+                </button>
+                <button
+                  onClick={() => signOut()}
+                  className="p-5 bg-deletecolor rounded-lg mt-5 ease-in-out duration-300 font-bebas mr-4 hover:bg-boxcolor hover:border-[1px] transition-all border-[1px] border-transparent border-text text-text"
+                >
+                  Not you? Logout
+                </button>
               </div>
-
             </div>
           ) : (
             <>
@@ -100,7 +110,7 @@ const Login = () => {
 
                 <button className={styles.button}>Login</button>
               </form>
-              <span className="text-text text-xs text-center">
+              <span className="text-defaulttextdark text-xs text-center">
                 Don&apos;t have an account?{" "}
                 <Link href="" passHref>
                   <a
@@ -111,13 +121,13 @@ const Login = () => {
                   </a>
                 </Link>
               </span>
-              <span className="text-text text-xs text-center flex justify-center flex-col items-center gap-2">
+              {/* <span className="text-text text-xs text-center flex justify-center flex-col items-center gap-2">
                 Log in with
                 <FaGoogle
                   onClick={() => signIn()}
                   className="cursor-pointer text-[30px]"
                 />
-              </span>
+              </span> */}
             </>
           )}
         </div>

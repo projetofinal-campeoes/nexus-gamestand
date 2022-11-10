@@ -16,7 +16,7 @@ const login = () => {
           title="Dashboard"
           description="The NEXUS App simplifies your access to your games, unifying all platforms into one."
         />
-        <div className="geral-content bg-[#0F1324] z-10 w-[90vw] h-[85vh] flex items-center justify-center rounded-[50px]">
+        <div className="geral-content z-10 w-[90vw] h-[85vh] flex items-center justify-center rounded-[50px]">
           <Login />
         </div>
       </BackgroundDashboard>
